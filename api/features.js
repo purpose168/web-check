@@ -5,11 +5,11 @@ const featuresHandler = async (url) => {
   const apiKey = process.env.BUILT_WITH_API_KEY;
 
   if (!url) {
-    throw new Error('URL query parameter is required');
+    throw new Error('需要URL查询参数');
   }
 
   if (!apiKey) {
-    throw new Error('Missing BuiltWith API key in environment variables');
+    throw new Error('环境变量中缺少BuiltWith API密钥');
   }
 
   const apiUrl = `https://api.builtwith.com/free1/api.json?KEY=${apiKey}&LOOKUP=${encodeURIComponent(url)}`;
@@ -27,7 +27,7 @@ const featuresHandler = async (url) => {
           if (res.statusCode >= 200 && res.statusCode <= 299) {
             resolve(data);
           } else {
-            reject(new Error(`Request failed with status code: ${res.statusCode}`));
+            reject(new Error(`请求失败，状态码：${res.statusCode}`));
           }
         });
       });
@@ -41,7 +41,7 @@ const featuresHandler = async (url) => {
 
     return response;
   } catch (error) {
-    throw new Error(`Error making request: ${error.message}`);
+    throw new Error(`请求错误：${error.message}`);
   }
 };
 

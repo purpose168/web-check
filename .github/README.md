@@ -3,7 +3,7 @@
 
 <p align="center">
 <img src="https://i.ibb.co/q1gZN2p/web-check-logo.png" width="96" /><br />
-<b><i>Comprehensive, on-demand open source intelligence for any website</i></b>
+<b><i>针对任何网站的综合性按需开源情报工具</i></b>
 <br />
 <b>🌐 <a href="https://web-check.xyz/">web-check.xyz</a></b><br />
 
@@ -11,56 +11,56 @@
 
 ---
 <p align="center">
-  <sup>Kindly supported by:</sup><br>
+  <sup>由以下机构支持：</sup><br>
 <a href="https://terminaltrove.com/?utm_campaign=github&utm_medium=referral&utm_content=web-check&utm_source=wcgh">
   <img src="https://i.ibb.co/8jrrcZ0/IMG-7210.jpg" width="300" alt="Terminal Trove">
   <br>
-  <strong>The $HOME of all things in the terminal.</strong>
+  <strong>终端工具的 $HOME。</strong>
 </a>
 <br>
 <a href="https://terminaltrove.com/newsletter?utm_campaign=github&utm_medium=referral&utm_content=web-check&utm_source=wcgh">
-  <sub>Find your next CLI / TUI tool and more at Terminal Trove,</sub>
+  <sub>在 Terminal Trove 找到你的下一个 CLI / TUI 工具和更多内容，</sub>
   <br>
-  <sup>Get updates on new tools on our newsletter.</sup>
+  <sup>通过我们的新闻通讯获取新工具的更新。</sup>
 </a>
 </p>
 
 ---
 
-#### Contents
+#### 目录
 
-- **[About](#about)**
-  - [Screenshot](#screenshot)
-  - [Live Demo](#live-demo)
-  - [Mirror](#mirror)
-  - [Features](#features)
-- **[Usage](#usage)**
-  - [Deployment](#deployment)
-    - [Option#1: Netlify](#deploying---option-1-netlify)
-    - [Option#2: Vercel](#deploying---option-2-vercel)
-    - [Option#3: Docker](#deploying---option-3-docker)
-    - [Option#4: Source](#deploying---option-4-from-source)
-  - [Configuration Options](#configuring)
-  - [Developer Setup](#developing)
-- **[Community](#community)**
-  - [Contributing](#contributing)
-  - [Bugs](#reporting-bugs)
-  - [Support](#supporting)
-- **[License](#license)**
+- **[关于](#about)**
+  - [截图](#screenshot)
+  - [在线演示](#live-demo)
+  - [镜像](#mirror)
+  - [功能特性](#features)
+- **[使用方法](#usage)**
+  - [部署](#deployment)
+    - [选项 1：Netlify](#deploying---option-1-netlify)
+    - [选项 2：Vercel](#deploying---option-2-vercel)
+    - [选项 3：Docker](#deploying---option-3-docker)
+    - [选项 4：源代码](#deploying---option-4-from-source)
+  - [配置选项](#configuring)
+  - [开发者设置](#developing)
+- **[社区](#community)**
+  - [贡献](#contributing)
+  - [错误报告](#reporting-bugs)
+  - [支持](#supporting)
+- **[许可证](#license)**
 
 ---
 
-## About
-Get an insight into the inner-workings of a given website: uncover potential attack vectors, analyse server architecture, view security configurations, and learn what technologies a site is using.
+## 关于
+深入了解给定网站的内部运作机制：发现潜在的攻击向量、分析服务器架构、查看安全配置，并了解网站使用了哪些技术。
 
-Currently the dashboard will show: IP info, SSL chain, DNS records, cookies, headers, domain info, search crawl rules, page map, server location, redirect ledger, open ports, traceroute, DNS security extensions, site performance, trackers, associated hostnames, carbon footprint. Stay tuned, as I'll add more soon!
+目前仪表板将显示：IP 信息、SSL 证书链、DNS 记录、Cookie、HTTP 头、域名信息、搜索引擎爬取规则、页面地图、服务器位置、重定向记录、开放端口、路由追踪、DNS 安全扩展、网站性能、跟踪器、关联主机名、碳足迹。敬请期待，我很快会添加更多功能！
 
-The aim is to help you easily understand, optimize and secure your website.
+目标是帮助您轻松理解、优化和保护您的网站。
 
-### Screenshot
+### 截图
 
 <details>
-      <summary>Expand Screenshot</summary>
+      <summary>展开截图</summary>
 
 [![Screenshot](https://raw.githubusercontent.com/Lissy93/web-check/master/.github/screenshots/web-check-screenshot1.png)](https://web-check.as93.net/)
       
@@ -68,270 +68,270 @@ The aim is to help you easily understand, optimize and secure your website.
 
 [![Screenshot](https://i.ibb.co/r0jXN6s/web-check.png)](https://github.com/Lissy93/web-check/tree/master/.github/screenshots)
 
-### Live Demo
-A hosted version can be accessed at: **[web-check.as93.net](https://web-check.as93.net)**
+### 在线演示
+托管版本可访问：**[web-check.as93.net](https://web-check.as93.net)**
 
-### Mirror
-The source for this repo is mirrored to CodeBerg, available at: **[codeberg.org/alicia/web-check](https://codeberg.org/alicia/web-check)**
+### 镜像
+此仓库的源代码已镜像到 CodeBerg，可访问：**[codeberg.org/alicia/web-check](https://codeberg.org/alicia/web-check)**
 
-### Status
+### 状态
 
 
-Build & Deploys: [![Netlify Status](https://api.netlify.com/api/v1/badges/c43453c1-5333-4df7-889b-c1d2b52183c0/deploy-status)](https://app.netlify.com/sites/web-check/deploys)
+构建与部署：[![Netlify Status](https://api.netlify.com/api/v1/badges/c43453c1-5333-4df7-889b-c1d2b52183c0/deploy-status)](https://app.netlify.com/sites/web-check/deploys)
 [![Vercel Status](https://therealsujitk-vercel-badge.vercel.app/?app=web-check-ten)](https://vercel.com/as93/web-check/)
 [![🐳 Build + Publish Docker Image](https://github.com/Lissy93/web-check/actions/workflows/docker.yml/badge.svg)](https://github.com/Lissy93/web-check/actions/workflows/docker.yml)
 [![🚀 Deploy to AWS](https://github.com/Lissy93/web-check/actions/workflows/deploy-aws.yml/badge.svg)](https://github.com/Lissy93/web-check/actions/workflows/deploy-aws.yml)
 <br />
-Repo Management & Miscellaneous: [![🪞 Mirror to Codeberg](https://github.com/Lissy93/web-check/actions/workflows/mirror.yml/badge.svg)](https://github.com/Lissy93/web-check/actions/workflows/mirror.yml)
+仓库管理与其他：[![🪞 Mirror to Codeberg](https://github.com/Lissy93/web-check/actions/workflows/mirror.yml/badge.svg)](https://github.com/Lissy93/web-check/actions/workflows/mirror.yml)
 [![💓 Inserts Contributors & Sponsors](https://github.com/Lissy93/web-check/actions/workflows/credits.yml/badge.svg)](https://github.com/Lissy93/web-check/actions/workflows/credits.yml)
 
 
-### Features
+### 功能特性
 
 <details open>
-<summary><b>Click to expand / collapse section</b></summary>
+<summary><b>点击展开 / 折叠部分</b></summary>
 
-<sup>**Note** _this list needs updating, many more jobs have been added since..._</sup>
+<sup>**注意** _此列表需要更新，自添加以来已经添加了更多任务..._</sup>
 
-The following section outlines the core features, and briefly explains why this data might be useful for you to know, as well as linking to further resources for learning more.
+以下部分概述了核心功能，并简要解释了为什么这些数据对您有用，以及提供了进一步学习的资源链接。
 
 <details>
-<summary><b>IP Info</b></summary>
+<summary><b>IP 信息</b></summary>
 
-###### Description
-An IP address (Internet Protocol address) is a numerical label assigned to each device connected to a network / the internet. The IP associated with a given domain can be found by querying the Domain Name System (DNS) for the domain's A (address) record.
+###### 描述
+IP 地址（Internet Protocol address，互联网协议地址）是分配给连接到网络/互联网的每个设备的数字标签。与给定域名关联的 IP 可以通过查询域名系统的 A（地址）记录来找到。
 
-###### Use Cases
-Finding the IP of a given server is the first step to conducting further investigations, as it allows us to probe the server for additional info. Including creating a detailed map of a target's network infrastructure, pinpointing the physical location of a server, identifying the hosting service, and even discovering other domains that are hosted on the same IP address.
+###### 使用场景
+找到给定服务器的 IP 是进行进一步调查的第一步，因为它允许我们探测服务器以获取更多信息。包括创建目标网络基础设施的详细地图、精确定位服务器的物理位置、识别托管服务，甚至发现托管在同一 IP 地址上的其他域名。
 
-###### Useful Links
-- [Understanding IP Addresses](https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking)
-- [IP Addresses - Wiki](https://en.wikipedia.org/wiki/IP_address)
-- [RFC-791 Internet Protocol](https://tools.ietf.org/html/rfc791)
+###### 有用链接
+- [理解 IP 地址](https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking)
+- [IP 地址 - 维基百科](https://en.wikipedia.org/wiki/IP_address)
+- [RFC-791 互联网协议](https://tools.ietf.org/html/rfc791)
 - [whatismyipaddress.com](https://whatismyipaddress.com/)
 
 </details>
 <details>
-<summary><b>SSL Chain</b></summary>
+<summary><b>SSL 证书链</b></summary>
 
 <img width="300" src="https://i.ibb.co/kB7LsV1/wc-ssl.png" align="right" />
 
-###### Description
-SSL certificates are digital certificates that authenticate the identity of a website or server, enable secure encrypted communication (HTTPS), and establish trust between clients and servers. A valid SSL certificate is required for a website to be able to use the HTTPS protocol, and encrypt user + site data in transit. SSL certificates are issued by Certificate Authorities (CAs), which are trusted third parties that verify the identity and legitimacy of the certificate holder.
+###### 描述
+SSL 证书是用于验证网站或服务器身份、启用安全加密通信（HTTPS）并在客户端和服务器之间建立信任的数字证书。网站要能够使用 HTTPS 协议并加密传输中的用户 + 站点数据，需要有效的 SSL 证书。SSL 证书由证书颁发机构（CAs）颁发，这些是验证证书持有者身份和合法性的可信第三方。
 
-###### Use Cases
-SSL certificates not only provide the assurance that data transmission to and from the website is secure, but they also provide valuable OSINT data. Information from an SSL certificate can include the issuing authority, the domain name, its validity period, and sometimes even organization details. This can be useful for verifying the authenticity of a website, understanding its security setup, or even for discovering associated subdomains or other services.
+###### 使用场景
+SSL 证书不仅提供与网站数据传输安全的保证，还提供有价值的 OSINT（开源情报）数据。来自 SSL 证书的信息可以包括颁发机构、域名、其有效期，有时甚至包括组织详细信息。这对于验证网站的真实性、了解其安全设置，甚至发现关联的子域名或其他服务非常有用。
 
-###### Useful Links
-- [TLS - Wiki](https://en.wikipedia.org/wiki/Transport_Layer_Security)
-- [What is SSL (via Cloudflare learning)](https://www.cloudflare.com/learning/ssl/what-is-ssl/)
+###### 有用链接
+- [TLS - 维基百科](https://en.wikipedia.org/wiki/Transport_Layer_Security)
+- [什么是 SSL（通过 Cloudflare 学习）](https://www.cloudflare.com/learning/ssl/what-is-ssl/)
 - [RFC-8446 - TLS](https://tools.ietf.org/html/rfc8446)
-- [SSL Checker](https://www.sslshopper.com/ssl-checker.html)
+- [SSL 检查器](https://www.sslshopper.com/ssl-checker.html)
 
 </details>
 <details>
-<summary><b>DNS Records</b></summary>
+<summary><b>DNS 记录</b></summary>
 
 <img width="300" src="https://i.ibb.co/7Q1kMwM/wc-dns.png" align="right" />
 
-###### Description
-This task involves looking up the DNS records associated with a specific domain. DNS is a system that translates human-readable domain names into IP addresses that computers use to communicate. Various types of DNS records exist, including A (address), MX (mail exchange), NS (name server), CNAME (canonical name), and TXT (text), among others.
+###### 描述
+此任务涉及查找与特定域名关联的 DNS 记录。DNS 是一个将人类可读的域名转换为计算机用于通信的 IP 地址的系统。存在多种类型的 DNS 记录，包括 A（地址）、MX（邮件交换）、NS（名称服务器）、CNAME（规范名称）和 TXT（文本）等。
 
-###### Use Cases
-Extracting DNS records can provide a wealth of information in an OSINT investigation. For example, A and AAAA records can disclose IP addresses associated with a domain, potentially revealing the location of servers. MX records can give clues about a domain's email provider. TXT records are often used for various administrative purposes and can sometimes inadvertently leak internal information. Understanding a domain's DNS setup can also be useful in understanding how its online infrastructure is built and managed.
+###### 使用场景
+提取 DNS 记录可以在 OSINT 调查中提供大量信息。例如，A 和 AAAA 记录可以披露与域名关联的 IP 地址，可能揭示服务器的位置。MX 记录可以提供关于域名电子邮件提供商的线索。TXT 记录通常用于各种管理目的，有时可能会意外泄露内部信息。了解域名的 DNS 设置对于理解其在线基础设施的构建和管理也很有用。
 
-###### Useful Links
-- [What are DNS records? (via Cloudflare learning)](https://www.cloudflare.com/learning/dns/dns-records/)
-- [DNS Record Types](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+###### 有用链接
+- [什么是 DNS 记录？（通过 Cloudflare 学习）](https://www.cloudflare.com/learning/dns/dns-records/)
+- [DNS 记录类型](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
 - [RFC-1035 - DNS](https://tools.ietf.org/html/rfc1035)
-- [DNS Lookup (via MxToolbox)](https://mxtoolbox.com/DNSLookup.aspx)
+- [DNS 查找（通过 MxToolbox）](https://mxtoolbox.com/DNSLookup.aspx)
 
 </details>
 <details>
-<summary><b>Cookies</b></summary>
+<summary><b>Cookie</b></summary>
 
 <img width="300" src="https://i.ibb.co/TTQ6DtP/wc-cookies.png" align="right" />
 
-###### Description
-The Cookies task involves examining the HTTP cookies set by the target website. Cookies are small pieces of data stored on the user's computer by the web browser while browsing a website. They hold a modest amount of data specific to a particular client and website, such as site preferences, the state of the user's session, or tracking information.
+###### 描述
+Cookie 任务涉及检查目标网站设置的 HTTP Cookie。Cookie 是 Web 浏览器在浏览网站时存储在用户计算机上的小数据片段。它们保存特定客户端和网站的少量数据，例如网站首选项、用户会话的状态或跟踪信息。
 
-###### Use Cases
-Cookies can disclose information about how the website tracks and interacts with its users. For instance, session cookies can reveal how user sessions are managed, and tracking cookies can hint at what kind of tracking or analytics frameworks are being used. Additionally, examining cookie policies and practices can offer insights into the site's security settings and compliance with privacy regulations.
+###### 使用场景
+Cookie 可以披露有关网站如何跟踪和与其用户交互的信息。例如，会话 Cookie 可以揭示用户会话的管理方式，跟踪 Cookie 可以暗示正在使用哪种跟踪或分析框架。此外，检查 Cookie 策略和实践可以提供对网站安全设置和隐私法规合规性的见解。
 
-###### Useful Links
-- [HTTP Cookie Docs (Mozilla)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
-- [What are Cookies (via Cloudflare Learning)](https://www.cloudflare.com/learning/privacy/what-are-cookies/)
-- [Testing for Cookie Attributes (OWASP)](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes)
-- [RFC-6265 - Coolies](https://tools.ietf.org/html/rfc6265)
+###### 有用链接
+- [HTTP Cookie 文档（Mozilla）](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+- [什么是 Cookie（通过 Cloudflare 学习）](https://www.cloudflare.com/learning/privacy/what-are-cookies/)
+- [测试 Cookie 属性（OWASP）](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes)
+- [RFC-6265 - Cookie](https://tools.ietf.org/html/rfc6265)
 
 </details>
 <details>
-<summary><b>Crawl Rules</b></summary>
+<summary><b>爬取规则</b></summary>
 
 <img width="300" src="https://i.ibb.co/KwQCjPf/wc-robots.png" align="right" />
 
-###### Description
-Robots.txt is a file found (usually) at the root of a domain, and is used to implement the Robots Exclusion Protocol (REP) to indicate which pages should be ignored by which crawlers and bots. It's good practice to avoid search engine crawlers from over-loading your site, but should not be used to keep pages out of search results (use the noindex meta tag or header instead).
+###### 描述
+Robots.txt 是一个（通常）在域名根目录找到的文件，用于实现机器人排除协议（REP），以指示哪些爬虫和机器人应该忽略哪些页面。避免搜索引擎爬虫使您的站点过载是一个好习惯，但不应该用于将页面排除在搜索结果之外（应使用 noindex 元标记或头）。
 
-###### Use Cases
-It's often useful to check the robots.txt file during an investigation, as it can sometimes disclose the directories and pages that the site owner doesn't want to be indexed, potentially because they contain sensitive information, or reveal the existence of otherwise hidden or unlinked directories. Additionally, understanding crawl rules may offer insights into a website's SEO strategies.
+###### 使用场景
+在调查期间检查 robots.txt 文件通常很有用，因为它有时可以披露站点所有者不希望被索引的目录和页面，可能是因为它们包含敏感信息，或者揭示其他隐藏或未链接目录的存在。此外，了解爬取规则可能会提供对网站 SEO 策略的见解。
 
-###### Useful Links
-- [Google Search Docs - Robots.txt](https://developers.google.com/search/docs/advanced/robots/intro)
-- [Learn about robots.txt (via Moz.com)](https://moz.com/learn/seo/robotstxt)
-- [RFC-9309 -  Robots Exclusion Protocol](https://datatracker.ietf.org/doc/rfc9309/)
-- [Robots.txt - wiki](https://en.wikipedia.org/wiki/Robots_exclusion_standard)
+###### 有用链接
+- [Google 搜索文档 - Robots.txt](https://developers.google.com/search/docs/advanced/robots/intro)
+- [了解 robots.txt（通过 Moz.com）](https://moz.com/learn/seo/robotstxt)
+- [RFC-9309 - 机器人排除协议](https://datatracker.ietf.org/doc/rfc9309/)
+- [Robots.txt - 维基百科](https://en.wikipedia.org/wiki/Robots_exclusion_standard)
 
 </details>
 <details>
-<summary><b>Headers</b></summary>
+<summary><b>HTTP 头</b></summary>
 
 <img width="300" src="https://i.ibb.co/t3xcwP1/wc-headers.png" align="right" />
 
-###### Description
-The Headers task involves extracting and interpreting the HTTP headers sent by the target website during the request-response cycle. HTTP headers are key-value pairs sent at the start of an HTTP response, or before the actual data. Headers contain important directives for how to handle the data being transferred, including cache policies, content types, encoding, server information, security policies, and more.
+###### 描述
+Headers 任务涉及提取和解释目标网站在请求-响应周期期间发送的 HTTP 头。HTTP 头是在 HTTP 响应开始时或在实际数据之前发送的键值对。头包含有关如何处理正在传输的数据的重要指令，包括缓存策略、内容类型、编码、服务器信息、安全策略等。
 
-###### Use Cases
-Analyzing HTTP headers can provide significant insights in an OSINT investigation. Headers can reveal specific server configurations, chosen technologies, caching directives, and various security settings. This information can help to determine a website's underlying technology stack, server-side security measures, potential vulnerabilities, and general operational practices.
+###### 使用场景
+分析 HTTP 头可以在 OSINT 调查中提供重要见解。头可以揭示特定的服务器配置、选择的技术、缓存指令和各种安全设置。此信息可以帮助确定网站的基础技术堆栈、服务器端安全措施、潜在漏洞和一般操作实践。
 
-###### Useful Links
-- [HTTP Headers - Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
-- [RFC-7231 Section 7 - Headers](https://datatracker.ietf.org/doc/html/rfc7231#section-7)
-- [List of header response fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)
-- [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)
+###### 有用链接
+- [HTTP 头 - 文档](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
+- [RFC-7231 第 7 节 - 头](https://datatracker.ietf.org/doc/html/rfc7231#section-7)
+- [头响应字段列表](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields)
+- [OWASP 安全头项目](https://owasp.org/www-project-secure-headers/)
 
 </details>
 <details>
-<summary><b>Quality Metrics</b></summary>
+<summary><b>质量指标</b></summary>
 
 <img width="300" src="https://i.ibb.co/Kqg8rx7/wc-quality.png" align="right" />
 
-###### Description
-Using Lighthouse, the Quality Metrics task measures the performance, accessibility, best practices, and SEO of the target website. This returns a simple checklist of 100 core metrics, along with a score for each category, to gauge the overall quality of a given site.
+###### 描述
+使用 Lighthouse，质量指标任务测量目标网站的性能、可访问性、最佳实践和 SEO。这返回一个简单的 100 个核心指标清单，以及每个类别的分数，以评估给定站点的整体质量。
 
-###### Use Cases
-Useful for assessing a site's technical health, SEO issues, identify vulnerabilities, and ensure compliance with standards.
+###### 使用场景
+用于评估站点的技术健康状况、SEO 问题、识别漏洞，并确保符合标准。
 
-###### Useful Links
-- [Lighthouse Docs](https://developer.chrome.com/docs/lighthouse/)
-- [Google Page Speed Tools](https://developers.google.com/speed)
-- [W3 Accessibility Tools](https://www.w3.org/WAI/test-evaluate/)
-- [Google Search Console](https://search.google.com/search-console)
-- [SEO Checker](https://www.seobility.net/en/seocheck/)
-- [PWA Builder](https://www.pwabuilder.com/)
+###### 有用链接
+- [Lighthouse 文档](https://developer.chrome.com/docs/lighthouse/)
+- [Google 页面速度工具](https://developers.google.com/speed)
+- [W3 可访问性工具](https://www.w3.org/WAI/test-evaluate/)
+- [Google 搜索控制台](https://search.google.com/search-console)
+- [SEO 检查器](https://www.seobility.net/en/seocheck/)
+- [PWA 构建器](https://www.pwabuilder.com/)
 
 </details>
 <details>
-<summary><b>Server Location</b></summary>
+<summary><b>服务器位置</b></summary>
 
 <img width="300" src="https://i.ibb.co/cXH2hfR/wc-location.png" align="right" />
 
-###### Description
-The Server Location task determines the physical location of the server hosting a given website based on its IP address. This is done by looking up the IP in a location database, which maps the IP to a lat + long of known data centers and ISPs. From the latitude and longitude, it's then possible to show additional contextual info, like a pin on the map, along with address, flag, time zone, currency, etc.
+###### 描述
+服务器位置任务根据 IP 地址确定托管给定网站的服务器的物理位置。这是通过在位置数据库中查找 IP 来完成的，该数据库将 IP 映射到已知数据中心和 ISP 的经纬度。从纬度和经度，可以显示额外的上下文信息，如地图上的图钉、地址、旗帜、时区、货币等。
 
-###### Use Cases
-Knowing the server location is a good first step in better understanding a website. For site owners this aids in optimizing content delivery, ensuring compliance with data residency requirements, and identifying potential latency issues that may impact user experience in specific geographical regions. And for security researcher, assess the risk posed by specific regions or jurisdictions regarding cyber threats and regulations.
+###### 使用场景
+了解服务器位置是更好地理解网站的良好第一步。对于站点所有者，这有助于优化内容交付，确保符合数据驻留要求，并识别可能影响特定地理区域用户体验的潜在延迟问题。对于安全研究人员，评估特定地区或司法管辖区关于网络威胁和法规的风险。
 
-###### Useful Links
-- [IP Locator](https://geobytes.com/iplocator/)
-- [Internet Geolocation - Wiki](https://en.wikipedia.org/wiki/Internet_geolocation)
+###### 有用链接
+- [IP 定位器](https://geobytes.com/iplocator/)
+- [互联网地理定位 - 维基百科](https://en.wikipedia.org/wiki/Internet_geolocation)
 
 </details>
 <details>
-<summary><b>Associated Hosts</b></summary>
+<summary><b>关联主机</b></summary>
 
 <img width="300" src="https://i.ibb.co/25j1sT7/wc-hosts.png" align="right" />
 
-###### Description
-This task involves identifying and listing all domains and subdomains (hostnames) that are associated with the website's primary domain. This process often involves DNS enumeration to discover any linked domains and hostnames, as well as looking at known DNS records.
+###### 描述
+此任务涉及识别和列出与网站主域名关联的所有域名和子域名（主机名）。此过程通常涉及 DNS 枚举以发现任何链接的域名和主机名，以及查看已知的 DNS 记录。
 
-###### Use Cases
-During an investigation, understanding the full scope of a target's web presence is critical. Associated domains could lead to uncovering related projects, backup sites, development/test sites, or services linked to the main site. These can sometimes provide additional information or potential security vulnerabilities. A comprehensive list of associated domains and hostnames can also give an overview of the organization's structure and online footprint.
+###### 使用场景
+在调查期间，了解目标的 Web 存在的完整范围至关重要。关联域名可能导致发现相关项目、备份站点、开发/测试站点或与主站点链接的服务。这些有时可以提供额外信息或潜在的安全漏洞。关联域名和主机名的综合列表还可以提供组织结构和在线足迹的概览。
 
-###### Useful Links
-- [DNS Enumeration - Wiki](https://en.wikipedia.org/wiki/DNS_enumeration)
-- [OWASP - Enumerate Applications on Webserver](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/04-Enumerate_Applications_on_Webserver)
-- [DNS Enumeration - DNS Dumpster](https://dnsdumpster.com/)
-- [Subdomain Finder](https://subdomainfinder.c99.nl/)
+###### 有用链接
+- [DNS 枚举 - 维基百科](https://en.wikipedia.org/wiki/DNS_enumeration)
+- [OWASP - 枚举 Web 服务器上的应用程序](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/01-Information_Gathering/04-Enumerate_Applications_on_Webserver)
+- [DNS 枚举 - DNS Dumpster](https://dnsdumpster.com/)
+- [子域名查找器](https://subdomainfinder.c99.nl/)
 
 </details>
 <details>
-<summary><b>Redirect Chain</b></summary>
+<summary><b>重定向链</b></summary>
 
 <img width="300" src="https://i.ibb.co/hVVrmwh/wc-redirects.png" align="right" />
 
-###### Description
-This task traces the sequence of HTTP redirects that occur from the original URL to the final destination URL. An HTTP redirect is a response with a status code that advises the client to go to another URL. Redirects can occur for several reasons, such as URL normalization (directing to the www version of the site), enforcing HTTPS, URL shorteners, or forwarding users to a new site location.
+###### 描述
+此任务跟踪从原始 URL 到最终目标 URL 发生的 HTTP 重定向序列。HTTP 重定向是建议客户端转到另一个 URL 的状态码响应。重定向可能由于多种原因发生，例如 URL 规范化（定向到站点的 www 版本）、强制 HTTPS、URL 缩短器或将用户转发到新的站点位置。
 
-###### Use Cases
-Understanding the redirect chain can be useful for several reasons. From a security perspective, long or complicated redirect chains can be a sign of potential security risks, such as unencrypted redirects in the chain. Additionally, redirects can impact website performance and SEO, as each redirect introduces additional round-trip-time (RTT). For OSINT, understanding the redirect chain can help identify relationships between different domains or reveal the use of certain technologies or hosting providers.
+###### 使用场景
+了解重定向链对于几个原因很有用。从安全角度来看，长或复杂的重定向链可能是潜在安全风险的迹象，例如链中的未加密重定向。此外，重定向可能会影响网站性能和 SEO，因为每个重定向都会引入额外的往返时间（RTT）。对于 OSINT，了解重定向链可以帮助识别不同域名之间的关系或揭示某些技术或托管提供商的使用。
 
-###### Useful Links
-- [HTTP Redirects - MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections)
-- [URL Redirection - Wiki](https://en.wikipedia.org/wiki/URL_redirection)
-- [301 Redirects explained](https://ahrefs.com/blog/301-redirects/)
+###### 有用链接
+- [HTTP 重定向 - MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections)
+- [URL 重定向 - 维基百科](https://en.wikipedia.org/wiki/URL_redirection)
+- [301 重定向解释](https://ahrefs.com/blog/301-redirects/)
 
 </details>
 <details>
-<summary><b>TXT Records</b></summary>
+<summary><b>TXT 记录</b></summary>
 
 <img width="300" src="https://i.ibb.co/wyt21QN/wc-txt-records.png" align="right" />
 
-###### Description
-TXT records are a type of DNS record that provides text information to sources outside your domain. They can be used for a variety of purposes, such as verifying domain ownership, ensuring email security, and even preventing unauthorized changes to your website.
+###### 描述
+TXT 记录是一种 DNS 记录，向域外的源提供文本信息。它们可用于各种目的，例如验证域名所有权、确保电子邮件安全，甚至防止对您网站的未经授权的更改。
 
-###### Use Cases
-The TXT records often reveal which external services and technologies are being used with a given domain. They may reveal details about the domain's email configuration, the use of specific services like Google Workspace or Microsoft 365, or security measures in place such as SPF and DKIM. Understanding these details can give an insight into the technologies used by the organization, their email security practices, and potential vulnerabilities.
+###### 使用场景
+TXT 记录通常揭示与给定域名一起使用的外部服务和技术。它们可能披露有关域名电子邮件配置的详细信息、使用特定服务（如 Google Workspace 或 Microsoft 365），或安全措施（如 SPF 和 DKIM）。了解这些细节可以提供对组织使用的技术、其电子邮件安全实践和潜在漏洞的见解。
 
-###### Useful Links
-- [TXT Records (via Cloudflare Learning)](https://www.cloudflare.com/learning/dns/dns-records/dns-txt-record/)
-- [TXT Records - Wiki](https://en.wikipedia.org/wiki/TXT_record)
-- [RFC-1464 - TXT Records](https://datatracker.ietf.org/doc/html/rfc1464)
-- [TXT Record Lookup (via MxToolbox)](https://mxtoolbox.com/TXTLookup.aspx)
+###### 有用链接
+- [TXT 记录（通过 Cloudflare 学习）](https://www.cloudflare.com/learning/dns/dns-records/dns-txt-record/)
+- [TXT 记录 - 维基百科](https://en.wikipedia.org/wiki/TXT_record)
+- [RFC-1464 - TXT 记录](https://datatracker.ietf.org/doc/html/rfc1464)
+- [TXT 记录查找（通过 MxToolbox）](https://mxtoolbox.com/TXTLookup.aspx)
 
 </details>
 <details>
-<summary><b>Server Status</b></summary>
+<summary><b>服务器状态</b></summary>
 
 <img width="300" src="https://i.ibb.co/V9CNLBK/wc-status.png" align="right" />
 
-###### Description
-Checks if a server is online and responding to requests.
+###### 描述
+检查服务器是否在线并响应请求。
 
-###### Use Cases
+###### 使用场景
 
 
-###### Useful Links
+###### 有用链接
 
 </details>
 <details>
-<summary><b>Open Ports</b></summary>
+<summary><b>开放端口</b></summary>
 
 <img width="300" src="https://i.ibb.co/F8D1hmf/wc-ports.png" align="right" />
 
-###### Description
-Open ports on a server are endpoints of communication which are available for establishing connections with clients. Each port corresponds to a specific service or protocol, such as HTTP (port 80), HTTPS (port 443), FTP (port 21), etc. The open ports on a server can be determined using techniques such as port scanning.
+###### 描述
+服务器上的开放端口是可用于与客户端建立连接的通信端点。每个端口对应于特定的服务或协议，例如 HTTP（端口 80）、HTTPS（端口 443）、FTP（端口 21）等。服务器上的开放端口可以使用端口扫描等技术确定。
 
-###### Use Cases
-Knowing which ports are open on a server can provide information about the services running on that server, useful for understanding the potential vulnerabilities of the system, or for understanding the nature of the services the server is providing.
+###### 使用场景
+了解服务器上哪些端口是开放的可以提供有关在该服务器上运行的服务的有用信息，这对于理解系统的潜在漏洞或了解服务器提供的服务的性质很有用。
 
-###### Useful Links
-- [List of TCP & UDP Port Numbers](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers)
-- [NMAP - Port Scanning Basics](https://nmap.org/book/man-port-scanning-basics.html)
+###### 有用链接
+- [TCP 和 UDP 端口号列表](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers)
+- [NMAP - 端口扫描基础](https://nmap.org/book/man-port-scanning-basics.html)
 
 </details>
 <details>
-<summary><b>Traceroute</b></summary>
+<summary><b>路由追踪</b></summary>
 
 <img width="300" src="https://i.ibb.co/M59qgxP/wc-trace-route.png" align="right" />
 
-###### Description
-Traceroute is a network diagnostic tool used to track in real-time the pathway taken by a packet of information from one system to another. It records each hop along the route, providing details about the IPs of routers and the delay at each point.
+###### 描述
+Traceroute（路由追踪）是一种网络诊断工具，用于实时跟踪信息包从一个系统到另一个系统所采用的路径。它记录路由上的每个跃点，提供有关路由器的 IP 和每个点的延迟的详细信息。
 
-###### Use Cases
-In OSINT investigations, traceroute can provide insights about the routing paths and geography of the network infrastructure supporting a website or service. This can help to identify network bottlenecks, potential censorship or manipulation of network traffic, and give an overall sense of the network's structure and efficiency. Additionally, the IP addresses collected during the traceroute may provide additional points of inquiry for further OSINT investigation.
+###### 使用场景
+在 OSINT 调查中，traceroute 可以提供有关支持网站或服务的网络基础设施的路由路径和地理的见解。这可以帮助识别网络瓶颈、潜在的网络流量审查或操纵，并提供网络结构和效率的整体感。此外，在 traceroute 期间收集的 IP 地址可能会为进一步的 OSINT 调查提供额外的调查点。
 
-###### Useful Links
+###### 有用链接
 - [undefined](function link() { [native code] })
 - [undefined](function link() { [native code] })
 - [undefined](function link() { [native code] })
@@ -339,36 +339,36 @@ In OSINT investigations, traceroute can provide insights about the routing paths
 
 </details>
 <details>
-<summary><b>Carbon Footprint</b></summary>
+<summary><b>碳足迹</b></summary>
 
 <img width="300" src="https://i.ibb.co/5v6fSyw/Screenshot-from-2023-07-29-19-07-50.png" align="right" />
 
-###### Description
-This task calculates the estimated carbon footprint of a website. It's based on the amount of data being transferred and processed, and the energy usage of the servers that host and deliver the website. The larger the website and the more complex its features, the higher its carbon footprint is likely to be.
+###### 描述
+此任务计算网站的预估碳足迹。它基于传输和处理的数据量，以及托管和交付网站的服务器能耗。网站越大、功能越复杂，其碳足迹可能就越高。
 
-###### Use Cases
-From an OSINT perspective, understanding a website's carbon footprint doesn't directly provide insights into its internal workings or the organization behind it. However, it can still be valuable data in broader analyses, especially in contexts where environmental impact is a consideration. For example, it can be useful for activists, researchers, or ethical hackers who are interested in the sustainability of digital infrastructure, and who want to hold organizations accountable for their environmental impact.
+###### 使用场景
+从 OSINT（开源网络情报）的角度来看，了解网站的碳足迹并不能直接提供关于其内部运作或背后组织的洞察。然而，在更广泛的分析中，特别是在考虑环境影响的情况下，它仍然是有价值的数据。例如，对于对数字基础设施可持续性感兴趣的活动家、研究人员或道德黑客来说，它非常有用，他们希望让组织对其环境影响负责。
 
-###### Useful Links
-- [WebsiteCarbon - Carbon Calculator](https://www.websitecarbon.com/)
-- [The Green Web Foundation](https://www.thegreenwebfoundation.org/)
-- [The Eco Friendly Web Alliance](https://ecofriendlyweb.org/)
+###### 有用链接
+- [WebsiteCarbon - 碳足迹计算器](https://www.websitecarbon.com/)
+- [绿色网络基金会](https://www.thegreenwebfoundation.org/)
+- [环保网络联盟](https://ecofriendlyweb.org/)
 - [Reset.org](https://en.reset.org/)
-- [Your website is killing the planet - via Wired](https://www.wired.co.uk/article/internet-carbon-footprint)
+- [您的网站正在毁灭地球 - Wired 文章](https://www.wired.co.uk/article/internet-carbon-footprint)
 
 </details>
 <details>
-<summary><b>Server Info</b></summary>
+<summary><b>服务器信息</b></summary>
 
 <img width="300" src="https://i.ibb.co/Mk1jx32/wc-server.png" align="right" />
 
-###### Description
-This task retrieves various pieces of information about the server hosting the target website. This can include the server type (e.g., Apache, Nginx), the hosting provider, the Autonomous System Number (ASN), and more. The information is usually obtained through a combination of IP address lookups and analysis of HTTP response headers.
+###### 描述
+此任务检索托管目标网站的服务器的各种信息。这可能包括服务器类型（例如 Apache、Nginx）、托管提供商、自治系统号（ASN）等。这些信息通常通过 IP 地址查询和 HTTP 响应头分析相结合的方式获得。
 
-###### Use Cases
-In an OSINT context, server information can provide valuable clues about the organization behind a website. For instance, the choice of hosting provider could suggest the geographical region in which the organization operates, while the server type could hint at the technologies used by the organization. The ASN could also be used to find other domains hosted by the same organization.
+###### 使用场景
+在 OSINT 上下文中，服务器信息可以提供关于网站背后组织的有价值的线索。例如，托管提供商的选择可能暗示组织运营的地理区域，而服务器类型可能暗示组织使用的技术。ASN 也可以用来查找同一组织托管的其他域名。
 
-###### Useful Links
+###### 有用链接
 - [undefined](function link() { [native code] })
 - [undefined](function link() { [native code] })
 - [undefined](function link() { [native code] })
@@ -376,51 +376,51 @@ In an OSINT context, server information can provide valuable clues about the org
 
 </details>
 <details>
-<summary><b>Whois Lookup</b></summary>
+<summary><b>Whois 查询</b></summary>
 
 <img width="300" src="https://i.ibb.co/89WLp14/wc-domain.png" align="right" />
 
-###### Description
-This task retrieves Whois records for the target domain. Whois records are a rich source of information, including the name and contact information of the domain registrant, the domain's creation and expiration dates, the domain's nameservers, and more. The information is usually obtained through a query to a Whois database server.
+###### 描述
+此任务检索目标域名的 Whois 记录。Whois 记录是丰富的信息来源，包括域名注册人的姓名和联系信息、域名的创建和过期日期、域名的名称服务器等。这些信息通常通过查询 Whois 数据库服务器获得。
 
-###### Use Cases
-In an OSINT context, Whois records can provide valuable clues about the entity behind a website. They can show when the domain was first registered and when it's set to expire, which could provide insights into the operational timeline of the entity. The contact information, though often redacted or anonymized, can sometimes lead to additional avenues of investigation. The nameservers could also be used to link together multiple domains owned by the same entity.
+###### 使用场景
+在 OSINT 上下文中，Whois 记录可以提供关于网站背后实体的有价值的线索。它们可以显示域名首次注册的时间和即将过期的时间，这可能提供实体运营时间线的洞察。联系信息虽然经常被编辑或匿名化，但有时可以导致额外的调查途径。名称服务器也可以用来链接同一实体拥有的多个域名。
 
-###### Useful Links
+###### 有用链接
 - [undefined](function link() { [native code] })
 - [undefined](function link() { [native code] })
 - [undefined](function link() { [native code] })
 
 </details>
 <details>
-<summary><b>Domain Info</b></summary>
+<summary><b>域名信息</b></summary>
 
 <img width="300" src="https://i.ibb.co/89WLp14/wc-domain.png" align="right" />
 
-###### Description
-This task retrieves Whois records for the target domain. Whois records are a rich source of information, including the name and contact information of the domain registrant, the domain's creation and expiration dates, the domain's nameservers, and more. The information is usually obtained through a query to a Whois database server.
+###### 描述
+此任务检索目标域名的 Whois 记录。Whois 记录是丰富的信息来源，包括域名注册人的姓名和联系信息、域名的创建和过期日期、域名的名称服务器等。这些信息通常通过查询 Whois 数据库服务器获得。
 
-###### Use Cases
-In an OSINT context, Whois records can provide valuable clues about the entity behind a website. They can show when the domain was first registered and when it's set to expire, which could provide insights into the operational timeline of the entity. The contact information, though often redacted or anonymized, can sometimes lead to additional avenues of investigation. The nameservers could also be used to link together multiple domains owned by the same entity.
+###### 使用场景
+在 OSINT 上下文中，Whois 记录可以提供关于网站背后实体的有价值的线索。它们可以显示域名首次注册的时间和即将过期的时间，这可能提供实体运营时间线的洞察。联系信息虽然经常被编辑或匿名化，但有时可以导致额外的调查途径。名称服务器也可以用来链接同一实体拥有的多个域名。
 
-###### Useful Links
+###### 有用链接
 - [undefined](function link() { [native code] })
 - [undefined](function link() { [native code] })
 - [undefined](function link() { [native code] })
 
 </details>
 <details>
-<summary><b>DNS Security Extensions</b></summary>
+<summary><b>DNS 安全扩展</b></summary>
 
 <img width="300" src="https://i.ibb.co/J54zVmQ/wc-dnssec.png" align="right" />
 
-###### Description
-Without DNSSEC, it's possible for MITM attackers to spoof records and lead users to phishing sites. This is because the DNS system includes no built-in methods to verify that the response to the request was not forged, or that any other part of the process wasn’t interrupted by an attacker. The DNS Security Extensions (DNSSEC) secures DNS lookups by signing your DNS records using public keys, so browsers can detect if the response has been tampered with. Another solution to this issue is DoH (DNS over HTTPS) and DoT (DNS over TLD).
+###### 描述
+没有 DNSSEC，MITM（中间人）攻击者可能伪造记录并将用户引导至钓鱼网站。这是因为 DNS 系统没有内置方法来验证对请求的响应是否被伪造，或者过程的任何其他部分是否被攻击者中断。DNS 安全扩展（DNSSEC）通过使用公钥对 DNS 记录进行签名来保护 DNS 查询，以便浏览器可以检测响应是否被篡改。解决此问题的另一个方案是 DoH（DNS over HTTPS，通过 HTTPS 的 DNS）和 DoT（DNS over TLD，通过 TLD 的 DNS）。
 
-###### Use Cases
-DNSSEC information provides insight into an organization's level of cybersecurity maturity and potential vulnerabilities, particularly around DNS spoofing and cache poisoning. If no DNS secururity (DNSSEC, DoH, DoT, etc) is implemented, this may provide an entry point for an attacker.
+###### 使用场景
+DNSSEC 信息提供了关于组织网络安全成熟度和潜在漏洞的洞察，特别是围绕 DNS 欺骗和缓存投毒。如果没有实施 DNS 安全（DNSSEC、DoH、DoT 等），这可能会为攻击者提供入口点。
 
-###### Useful Links
+###### 有用链接
 - [undefined](function link() { [native code] })
 - [undefined](function link() { [native code] })
 - [undefined](function link() { [native code] })
@@ -430,88 +430,88 @@ DNSSEC information provides insight into an organization's level of cybersecurit
 
 </details>
 <details>
-<summary><b>Site Features</b></summary>
+<summary><b>网站功能</b></summary>
 
 <img width="300" src="https://i.ibb.co/gP4P6kp/wc-features.png" align="right" />
 
-###### Description
-Checks which core features are present on a site. If a feature as marked as dead, that means it's not being actively used at load time
+###### 描述
+检查网站上存在哪些核心功能。如果某个功能被标记为"已失效"，则表示它在加载时未被主动使用。
 
-###### Use Cases
-This is useful to understand what a site is capable of, and what technologies to look for
+###### 使用场景
+这有助于了解网站能够做什么，以及需要寻找哪些技术。
 
-###### Useful Links
+###### 有用链接
 
 </details>
 <details>
-<summary><b>HTTP Strict Transport Security</b></summary>
+<summary><b>HTTP 严格传输安全</b></summary>
 
 <img width="300" src="https://i.ibb.co/k253fq4/Screenshot-from-2023-07-17-20-10-52.png" align="right" />
 
-###### Description
-HTTP Strict Transport Security (HSTS) is a web security policy mechanism that helps protect websites against protocol downgrade attacks and cookie hijacking. A website can be included in the HSTS preload list by conforming to a set of requirements and then submitting itself to the list.
+###### 描述
+HTTP 严格传输安全（HSTS）是一种 Web 安全策略机制，有助于保护网站免受协议降级攻击和 Cookie 劫持。网站可以通过符合一组要求然后将自己提交到列表中来包含在 HSTS 预加载列表中。
 
-###### Use Cases
-There are several reasons why it's important for a site to be HSTS enabled:
-      1. User bookmarks or manually types http://example.com and is subject to a man-in-the-middle attacker
-        HSTS automatically redirects HTTP requests to HTTPS for the target domain
-      2. Web application that is intended to be purely HTTPS inadvertently contains HTTP links or serves content over HTTP
-        HSTS automatically redirects HTTP requests to HTTPS for the target domain
-      3. A man-in-the-middle attacker attempts to intercept traffic from a victim user using an invalid certificate and hopes the user will accept the bad certificate
-        HSTS does not allow a user to override the invalid certificate message
+###### 使用场景
+网站启用 HSTS 有以下几个重要原因：
+      1. 用户收藏或手动输入 http://example.com 并受到中间人攻击
+        HSTS 自动将目标域的 HTTP 请求重定向到 HTTPS
+      2. 本应仅使用 HTTPS 的 Web 应用程序意外包含 HTTP 链接或通过 HTTP 提供内容
+        HSTS 自动将目标域的 HTTP 请求重定向到 HTTPS
+      3. 中间人攻击者尝试使用无效证书拦截受害用户的流量，并希望用户接受错误的证书
+        HSTS 不允许用户覆盖无效证书消息
         
 
-###### Useful Links
+###### 有用链接
 - [undefined](function link() { [native code] })
 - [undefined](function link() { [native code] })
 - [undefined](function link() { [native code] })
 
 </details>
 <details>
-<summary><b>DNS Server</b></summary>
+<summary><b>DNS 服务器</b></summary>
 
 <img width="300" src="https://i.ibb.co/tKpL8F9/Screenshot-from-2023-08-12-15-43-12.png" align="right" />
 
-###### Description
-This check determines the DNS server(s) that the requested URL / IP resolves to. Also fires off a rudimentary check to see if the DNS server supports DoH, and weather it's vulnerable to DNS cache poisoning.
+###### 描述
+此检查确定请求的 URL / IP 解析到的 DNS 服务器。还会启动一个基本检查，以查看 DNS 服务器是否支持 DoH，以及是否容易受到 DNS 缓存投毒攻击。
 
-###### Use Cases
+###### 使用场景
 
 
-###### Useful Links
+###### 有用链接
 
 </details>
 <details>
-<summary><b>Tech Stack</b></summary>
+<summary><b>技术栈</b></summary>
 
 <img width="300" src="https://i.ibb.co/bBQSQNz/Screenshot-from-2023-08-12-15-43-46.png" align="right" />
 
-###### Description
-Checks what technologies a site is built with. This is done by fetching and parsing the site, then comparing it against a bit list of RegEx maintained by Wappalyzer to identify the unique fingerprints that different technologies leave.
+###### 描述
+检查网站使用的技术构建。这是通过获取和解析网站，然后将其与 Wappalyzer 维护的正则表达式列表进行比较，以识别不同技术留下的独特指纹来完成的。
 
-###### Use Cases
-Identifying a website's tech stack aids in evaluating its security by exposing potential vulnerabilities, informs competitive analyses and development decisions, and can guide tailored marketing strategies. Ethical application of this knowledge is crucial to avoid harmful activities like data theft or unauthorized intrusion.
+###### 使用场景
+识别网站的技术栈有助于通过暴露潜在漏洞来评估其安全性，为竞争分析和开发决策提供信息，并可以指导定制的营销策略。道德地应用这些知识对于避免数据盗窃或未经授权的入侵等有害活动至关重要。
 
-###### Useful Links
-- [Wappalyzer fingerprints](https://github.com/wappalyzer/wappalyzer/tree/master/src/technologies)
-- [BuiltWith - Check what tech a site is using](https://builtwith.com/)
+###### 有用链接
+- [Wappalyzer 指纹](https://github.com/wappalyzer/wappalyzer/tree/master/src/technologies)
+- [BuiltWith - 检查网站使用的技术](https://builtwith.com/)
 
 </details>
 <details>
-<summary><b>Listed Pages</b></summary>
+<summary><b>已列出的页面</b></summary>
 
 <img width="300" src="https://i.ibb.co/GtrCQYq/Screenshot-from-2023-07-21-12-28-38.png" align="right" />
 
-###### Description
-This job finds and parses a site's listed sitemap. This file lists public sub-pages on the site, which the author wishes to be crawled by search engines. Sitemaps help with SEO, but are also useful for seeing all a sites public content at a glance.
+###### 描述
+此作业查找并解析网站的列出的站点地图（sitemap）。此文件列出了网站上希望被搜索引擎抓取的公共子页面。站点地图有助于 SEO（搜索引擎优化），但也有助于一目了然地查看网站的所有公共内容。
 
-###### Use Cases
-Understand the structure of a site's public-facing content, and for site-owners, check that you're site's sitemap is accessible, parsable and contains everything you wish it to.
+###### 使用场景
+了解网站面向公众的内容结构，对于网站所有者，检查您的网站站点地图是否可访问、可解析并包含您希望包含的所有内容。
 
-###### Useful Links
-- [Learn about Sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview)
-- [Sitemap XML spec](https://www.sitemaps.org/protocol.html)
-- [Sitemap tutorial](https://www.conductor.com/academy/xml-sitemap/)
+###### 有用链接
+- [了解站点地图](https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview)
+- [Sitemap XML 规范](https://www.sitemaps.org/protocol.html)
+- [Sitemap 教程](https://www.conductor.com/academy/xml-sitemap/)
 
 </details>
 <details>
@@ -519,70 +519,70 @@ Understand the structure of a site's public-facing content, and for site-owners,
 
 <img width="300" src="https://i.ibb.co/tq1FT5r/Screenshot-from-2023-07-24-20-31-21.png" align="right" />
 
-###### Description
-The security.txt file tells researchers how they can responsibly disclose any security issues found on your site. The standard was proposed in RFC 9116, and specifies that this file should include a point of contact (email address), as well as optionally other info, like a link to the security disclosure policy, PGP key, proffered language, policy expiry and more. The file should be located at the root of your domain, either at /security.txt or /.well-known/security.txt.
+###### 描述
+security.txt 文件告诉研究人员他们如何负责任地披露在您的网站上发现的任何安全问题。该标准在 RFC 9116 中提出，并指定此文件应包括联系点（电子邮件地址），以及可选的其他信息，如安全披露策略链接、PGP 密钥、首选语言、策略到期时间等。该文件应位于您的域的根目录，位于 /security.txt 或 /.well-known/security.txt。
 
-###### Use Cases
-This is important, as without a defined point of contact a security researcher may be unable to report a critical security issue, or may use insecure or possibly public channels to do so. From an OSINT perspective, you may also glean info about a site including their posture on security, their CSAF provider, and meta data from the PGP public key.
+###### 使用场景
+这很重要，因为没有定义的联系点，安全研究人员可能无法报告关键的安全问题，或者可能使用不安全或可能公开的渠道来报告。从 OSINT 的角度来看，您还可以收集有关网站的信息，包括他们对安全的立场、他们的 CSAF 提供商以及 PGP 公钥中的元数据。
 
-###### Useful Links
+###### 有用链接
 - [securitytxt.org](https://securitytxt.org/)
-- [RFC-9116 Proposal](https://datatracker.ietf.org/doc/html/rfc9116)
-- [RFC-9116 History](https://datatracker.ietf.org/doc/rfc9116/)
-- [Security.txt (Wikipedia)](https://en.wikipedia.org/wiki/Security.txt)
-- [Example security.txt (Cloudflare)](https://www.cloudflare.com/.well-known/security.txt)
-- [Tutorial for creating security.txt (Pieter Bakker)](https://pieterbakker.com/implementing-security-txt/)
+- [RFC-9116 提案](https://datatracker.ietf.org/doc/html/rfc9116)
+- [RFC-9116 历史](https://datatracker.ietf.org/doc/rfc9116/)
+- [Security.txt (维基百科)](https://en.wikipedia.org/wiki/Security.txt)
+- [示例 security.txt (Cloudflare)](https://www.cloudflare.com/.well-known/security.txt)
+- [创建 security.txt 的教程 (Pieter Bakker)](https://pieterbakker.com/implementing-security-txt/)
 
 </details>
 <details>
-<summary><b>Linked Pages</b></summary>
+<summary><b>链接页面</b></summary>
 
 <img width="300" src="https://i.ibb.co/LtK14XR/Screenshot-from-2023-07-29-11-16-44.png" align="right" />
 
-###### Description
-Displays all internal and external links found on a site, identified by the href attributes attached to anchor elements.
+###### 描述
+显示在网站上找到的所有内部和外部链接，这些链接由附加到锚元素的 href 属性标识。
 
-###### Use Cases
-For site owners, this is useful for diagnosing SEO issues, improving the site structure, understanding how content is inter-connected. External links can show partnerships, dependencies, and potential reputation risks. From a security standpoint, the outbound links can help identify any potential malicious or compromised sites the website is unknowingly linking to. Analyzing internal links can aid in understanding the site's structure and potentially uncover hidden or vulnerable pages which are not intended to be public. And for an OSINT investigator, it can aid in building a comprehensive understanding of the target, uncovering related entities, resources, or even potential hidden parts of the site.
+###### 使用场景
+对于网站所有者，这有助于诊断 SEO 问题、改进网站结构、了解内容如何相互连接。外部链接可以显示合作伙伴关系、依赖关系和潜在的声誉风险。从安全角度来看，出站链接可以帮助识别网站无意中链接到的任何潜在恶意或受损的网站。分析内部链接有助于了解网站的结构，并可能发现不应公开的隐藏或易受攻击的页面。对于 OSINT 调查人员，它有助于建立对目标的全面了解，发现相关实体、资源，甚至网站的潜在隐藏部分。
 
-###### Useful Links
-- [W3C Link Checker](https://validator.w3.org/checklink)
+###### 有用链接
+- [W3C 链接检查器](https://validator.w3.org/checklink)
 
 </details>
 <details>
-<summary><b>Social Tags</b></summary>
+<summary><b>社交标签</b></summary>
 
 <img width="300" src="https://i.ibb.co/4srTT1w/Screenshot-from-2023-07-29-11-15-27.png" align="right" />
 
-###### Description
-Websites can include certain meta tags, that tell search engines and social media platforms what info to display. This usually includes a title, description, thumbnail, keywords, author, social accounts, etc.
+###### 描述
+网站可以包含某些元标签，告诉搜索引擎和社交媒体平台要显示什么信息。这通常包括标题、描述、缩略图、关键词、作者、社交帐户等。
 
-###### Use Cases
-Adding this data to your site will boost SEO, and as an OSINT researcher it can be useful to understand how a given web app describes itself
+###### 使用场景
+将此数据添加到您的网站将提升 SEO，作为 OSINT 研究人员，它有助于了解给定的 Web 应用程序如何描述自己。
 
-###### Useful Links
+###### 有用链接
 - [SocialSharePreview.com](https://socialsharepreview.com/)
-- [The guide to social meta tags](https://css-tricks.com/essential-meta-tags-social-media/)
-- [Web.dev metadata tags](https://web.dev/learn/html/metadata/)
-- [Open Graph Protocol](https://ogp.me/)
+- [社交元标签指南](https://css-tricks.com/essential-meta-tags-social-media/)
+- [Web.dev 元数据标签](https://web.dev/learn/html/metadata/)
+- [Open Graph 协议](https://ogp.me/)
 - [Twitter Cards](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards)
 - [Facebook Open Graph](https://developers.facebook.com/docs/sharing/webmasters)
 
 </details>
 <details>
-<summary><b>Email Configuration</b></summary>
+<summary><b>电子邮件配置</b></summary>
 
 <img width="300" src="https://i.ibb.co/yqhwx5G/Screenshot-from-2023-07-29-18-22-20.png" align="right" />
 
-###### Description
-DMARC (Domain-based Message Authentication, Reporting & Conformance): DMARC is an email authentication protocol that works with SPF and DKIM to prevent email spoofing and phishing. It allows domain owners to specify how to handle unauthenticated mail via a published policy in DNS, and provides a way for receiving mail servers to send feedback about emails' compliance to the sender. BIMI (Brand Indicators for Message Identification): BIMI is an emerging email standard that enables organizations to display a logo in their customers' email clients automatically. BIMI ties the logo to the domain's DMARC record, providing another level of visual assurance to recipients that the email is legitimate. DKIM (DomainKeys Identified Mail): DKIM is an email security standard designed to make sure that messages were not altered in transit between the sending and recipient servers. It uses digital signatures linked to the domain of the sender to verify the sender and ensure message integrity. SPF (Sender Policy Framework): SPF is an email authentication method designed to prevent email spoofing. It specifies which mail servers are authorized to send email on behalf of a domain by creating a DNS record. This helps protect against spam by providing a way for receiving mail servers to check that incoming mail from a domain comes from a host authorized by that domain's administrators.
+###### 描述
+DMARC（基于域的消息身份验证、报告和一致性）：DMARC 是一种电子邮件身份验证协议，与 SPF 和 DKIM 一起工作，以防止电子邮件欺骗和网络钓鱼。它允许域所有者通过在 DNS 中发布的策略指定如何处理未经身份验证的邮件，并为接收邮件服务器提供一种向发送者发送有关电子邮件合规性反馈的方法。BIMI（消息识别的品牌指示器）：BIMI 是一种新兴的电子邮件标准，使组织能够在其客户的电子邮件客户端中自动显示徽标。BIMI 将徽标与域的 DMARC 记录绑定，为收件人提供另一层视觉保证，即电子邮件是合法的。DKIM（DomainKeys 识别邮件）：DKIM 是一种电子邮件安全标准，旨在确保邮件在发送和接收服务器之间传输时未被更改。它使用链接到发送者域的数字签名来验证发送者并确保邮件完整性。SPF（发送者策略框架）：SPF 是一种旨在防止电子邮件欺骗的电子邮件身份验证方法。它通过创建 DNS 记录来指定哪些邮件服务器被授权代表域发送电子邮件。这有助于防止垃圾邮件，为接收邮件服务器提供一种检查来自域的传入邮件是否来自该域管理员授权的主机的方法。
 
-###### Use Cases
-This information is helpful for researchers as it helps assess a domain's email security posture, uncover potential vulnerabilities, and verify the legitimacy of emails for phishing detection. These details can also provide insight into the hosting environment, potential service providers, and the configuration patterns of a target organization, assisting in investigative efforts.
+###### 使用场景
+此信息对研究人员很有帮助，因为它有助于评估域的电子邮件安全状况、发现潜在漏洞，并验证电子邮件的合法性以进行网络钓鱼检测。这些详细信息还可以提供有关托管环境、潜在服务提供商和目标组织的配置模式的洞察，协助调查工作。
 
-###### Useful Links
-- [Intro to DMARC, DKIM, and SPF (via Cloudflare)](https://www.cloudflare.com/learning/email-security/dmarc-dkim-spf/)
-- [EasyDMARC Domain Scanner](https://easydmarc.com/tools/domain-scanner)
+###### 有用链接
+- [DMARC、DKIM 和 SPF 介绍 (via Cloudflare)](https://www.cloudflare.com/learning/email-security/dmarc-dkim-spf/)
+- [EasyDMARC 域扫描器](https://easydmarc.com/tools/domain-scanner)
 - [MX Toolbox](https://mxtoolbox.com/)
 - [RFC-7208 - SPF](https://datatracker.ietf.org/doc/html/rfc7208)
 - [RFC-6376 - DKIM](https://datatracker.ietf.org/doc/html/rfc6376)
@@ -591,315 +591,315 @@ This information is helpful for researchers as it helps assess a domain's email 
 
 </details>
 <details>
-<summary><b>Firewall Detection</b></summary>
+<summary><b>防火墙检测</b></summary>
 
 <img width="300" src="https://i.ibb.co/MfcxQt2/Screenshot-from-2023-08-12-15-40-52.png" align="right" />
 
-###### Description
-A WAF or web application firewall helps protect web applications by filtering and monitoring HTTP traffic between a web application and the Internet. It typically protects web applications from attacks such as cross-site forgery, cross-site-scripting (XSS), file inclusion, and SQL injection, among others.
+###### 描述
+WAF 或 Web 应用程序防火墙通过过滤和监视 Web 应用程序与 Internet 之间的 HTTP 流量来帮助保护 Web 应用程序。它通常保护 Web 应用程序免受跨站伪造、跨站脚本（XSS）、文件包含和 SQL 注入等攻击。
 
-###### Use Cases
-It's useful to understand if a site is using a WAF, and which firewall software / service it is using, as this provides an insight into the sites protection against several attack vectors, but also may reveal vulnerabilities in the firewall itself.
+###### 使用场景
+了解网站是否使用 WAF 以及使用哪种防火墙软件/服务很有用，因为这提供了对网站针对多种攻击向量的保护洞察，但也可能揭示防火墙本身的漏洞。
 
-###### Useful Links
-- [What is a WAF (via Cloudflare Learning)](https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/)
-- [OWASP - Web Application Firewalls](https://owasp.org/www-community/Web_Application_Firewall)
-- [Web Application Firewall Best Practices](https://owasp.org/www-pdf-archive/Best_Practices_Guide_WAF_v104.en.pdf)
-- [WAF - Wiki](https://en.wikipedia.org/wiki/Web_application_firewall)
+###### 有用链接
+- [什么是 WAF (via Cloudflare Learning)](https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/)
+- [OWASP - Web 应用程序防火墙](https://owasp.org/www-community/Web_Application_Firewall)
+- [Web 应用程序防火墙最佳实践](https://owasp.org/www-pdf-archive/Best_Practices_Guide_WAF_v104.en.pdf)
+- [WAF - 维基百科](https://en.wikipedia.org/wiki/Web_application_firewall)
 
 </details>
 <details>
-<summary><b>HTTP Security Features</b></summary>
+<summary><b>HTTP 安全功能</b></summary>
 
 <img width="300" src="https://i.ibb.co/LP05HMV/Screenshot-from-2023-08-12-15-40-28.png" align="right" />
 
-###### Description
-Correctly configured security HTTP headers adds a layer of protection against common attacks to your site. The main headers to be aware of are: HTTP Strict Transport Security (HSTS): Enforces the use of HTTPS, mitigating man-in-the-middle attacks and protocol downgrade attempts. Content Security Policy (CSP): Constrains web page resources to prevent cross-site scripting and data injection attacks. X-Content-Type-Options: Prevents browsers from MIME-sniffing a response away from the declared content type, curbing MIME-type confusion attacks. X-Frame-Options: Protects users from clickjacking attacks by controlling whether a browser should render the page in a `<frame>`, `<iframe>`, `<embed>`, or `<object>`. 
+###### 描述
+正确配置的安全 HTTP 标头为您的网站增加了一层针对常见攻击的保护。需要注意的主要标头是：HTTP 严格传输安全（HSTS）：强制使用 HTTPS，缓解中间人攻击和协议降级尝试。内容安全策略（CSP）：限制网页资源以防止跨站脚本和数据注入攻击。X-Content-Type-Options：防止浏览器从声明的内容类型 MIME 嗅探响应，抑制 MIME 类型混淆攻击。X-Frame-Options：通过控制浏览器是否应该在 `<frame>`、`<iframe>`、`<embed>` 或 `<object>` 中呈现页面来保护用户免受点击劫持攻击。
 
-###### Use Cases
-Reviewing security headers is important, as it offers insights into a site's defensive posture and potential vulnerabilities, enabling proactive mitigation and ensuring compliance with security best practices.
+###### 使用场景
+审查安全标头很重要，因为它提供了对网站防御态势和潜在漏洞的洞察，能够主动缓解并确保符合安全最佳实践。
 
-###### Useful Links
-- [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)
-- [HTTP Header Cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html)
+###### 有用链接
+- [OWASP 安全标头项目](https://owasp.org/www-project-secure-headers/)
+- [HTTP 标头速查表](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html)
 - [content-security-policy.com](https://content-security-policy.com/)
 - [resourcepolicy.fyi](https://resourcepolicy.fyi/)
-- [HTTP Security Headers](https://securityheaders.com/)
+- [HTTP 安全标头](https://securityheaders.com/)
 - [Mozilla Observatory](https://observatory.mozilla.org/)
-- [CSP Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
-- [HSTS Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)
-- [X-Content-Type-Options Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)
-- [X-Frame-Options Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
-- [X-XSS-Protection Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection)
+- [CSP 文档](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+- [HSTS 文档](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)
+- [X-Content-Type-Options 文档](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)
+- [X-Frame-Options 文档](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
+- [X-XSS-Protection 文档](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection)
 
 </details>
 <details>
-<summary><b>Archive History</b></summary>
+<summary><b>存档历史</b></summary>
 
 <img width="300" src="https://i.ibb.co/nB9szT1/Screenshot-from-2023-08-14-22-31-16.png" align="right" />
 
-###### Description
-Fetches full history of archives from the Wayback machine
+###### 描述
+从 Wayback Machine 获取完整的存档历史记录。
 
-###### Use Cases
-This is useful for understanding the history of a site, and how it has changed over time. It can also be useful for finding old versions of a site, or for finding content that has been removed.
+###### 使用场景
+这有助于了解网站的历史，以及它如何随时间变化。它还可以用于查找网站的旧版本，或查找已被删除的内容。
 
-###### Useful Links
+###### 有用链接
 - [Wayback Machine](https://archive.org/web/)
 
 </details>
 <details>
-<summary><b>Global Ranking</b></summary>
+<summary><b>全球排名</b></summary>
 
 <img width="300" src="https://i.ibb.co/nkbczgb/Screenshot-from-2023-08-14-22-02-40.png" align="right" />
 
-###### Description
-This check shows the global rank of the requested site. This is only accurate for websites which are in the top 100 million list. We're using data from the Tranco project (see below), which collates the top sites on the web from Umbrella, Majestic, Quantcast, the Chrome User Experience Report and Cloudflare Radar.
+###### 描述
+此检查显示请求网站的全球排名。这仅对前 1 亿列表中的网站准确。我们使用来自 Tranco 项目的数据（见下文），该项目从 Umbrella、Majestic、Quantcast、Chrome 用户体验报告和 Cloudflare Radar 收集了 Web 上的顶级网站。
 
-###### Use Cases
-Knowing a websites overall global rank can be useful for understanding the scale of the site, and for comparing it to other sites. It can also be useful for understanding the relative popularity of a site, and for identifying potential trends.
+###### 使用场景
+了解网站的整体全球排名有助于了解网站的规模，并将其与其他网站进行比较。它还有助于了解网站的相对受欢迎程度，并识别潜在趋势。
 
-###### Useful Links
-- [Tranco List](https://tranco-list.eu/)
-- [Tranco Research Paper](https://tranco-list.eu/assets/tranco-ndss19.pdf)
+###### 有用链接
+- [Tranco 列表](https://tranco-list.eu/)
+- [Tranco 研究论文](https://tranco-list.eu/assets/tranco-ndss19.pdf)
 
 </details>
 <details>
-<summary><b>Block Detection</b></summary>
+<summary><b>阻止检测</b></summary>
 
 <img width="300" src="https://i.ibb.co/M5JSXbW/Screenshot-from-2023-08-26-12-12-43.png" align="right" />
 
-###### Description
-Checks access to the URL using 10+ of the most popular privacy, malware and parental control blocking DNS servers.
+###### 描述
+使用 10 多个最流行的隐私、恶意软件和家长控制阻止 DNS 服务器检查对 URL 的访问。
 
-###### Use Cases
+###### 使用场景
 
 
-###### Useful Links
-- [ThreatJammer Lists](https://threatjammer.com/osint-lists)
+###### 有用链接
+- [ThreatJammer 列表](https://threatjammer.com/osint-lists)
 
 </details>
 <details>
-<summary><b>Malware & Phishing Detection</b></summary>
+<summary><b>恶意软件和网络钓鱼检测</b></summary>
 
 <img width="300" src="https://i.ibb.co/hYgy621/Screenshot-from-2023-08-26-12-07-47.png" align="right" />
 
-###### Description
-Checks if a site appears in several common malware and phishing lists, to determine it's threat level.
+###### 描述
+检查网站是否出现在多个常见的恶意软件和网络钓鱼列表中，以确定其威胁级别。
 
-###### Use Cases
-Knowing if a site is listed as a threat by any of these services can be useful for understanding the reputation of a site, and for identifying potential trends.
+###### 使用场景
+了解网站是否被这些服务中的任何一个列为威胁有助于了解网站的声誉，并识别潜在趋势。
 
-###### Useful Links
+###### 有用链接
 - [URLHaus](https://urlhaus-api.abuse.ch/)
 - [PhishTank](https://www.phishtank.com/)
 
 </details>
 <details>
-<summary><b>TLS Cipher Suites</b></summary>
+<summary><b>TLS 加密套件</b></summary>
 
 <img width="300" src="https://i.ibb.co/6ydtH5R/Screenshot-from-2023-08-26-12-09-58.png" align="right" />
 
-###### Description
-These are combinations of cryptographic algorithms used by the server to establish a secure connection. It includes the key exchange algorithm, bulk encryption algorithm, MAC algorithm, and PRF (pseudorandom function).
+###### 描述
+这些是服务器用于建立安全连接的加密算法组合。它包括密钥交换算法、批量加密算法、MAC 算法和 PRF（伪随机函数）。
 
-###### Use Cases
-This is important info to test for from a security perspective. Because a cipher suite is only as secure as the algorithms that it contains. If the version of encryption or authentication algorithm in a cipher suite have known vulnerabilities the cipher suite and TLS connection may then vulnerable to a downgrade or other attack
+###### 使用场景
+从安全角度来看，测试这些信息很重要。因为加密套件的安全性取决于它所包含的算法。如果加密套件中的加密或身份验证算法版本存在已知漏洞，那么加密套件和 TLS 连接可能会受到降级或其他攻击的影响。
 
-###### Useful Links
+###### 有用链接
 - [sslscan2 CLI](https://github.com/rbsec/sslscan)
-- [ssl-enum-ciphers (NPMAP script)](https://nmap.org/nsedoc/scripts/ssl-enum-ciphers.html)
+- [ssl-enum-ciphers (NPMAP 脚本)](https://nmap.org/nsedoc/scripts/ssl-enum-ciphers.html)
 
 </details>
 <details>
-<summary><b>TLS Security Config</b></summary>
+<summary><b>TLS 安全配置</b></summary>
 
 <img width="300" src="https://i.ibb.co/FmksZJt/Screenshot-from-2023-08-26-12-12-09.png" align="right" />
 
-###### Description
-This uses guidelines from Mozilla's TLS Observatory to check the security of the TLS configuration. It checks for bad configurations, which may leave the site vulnerable to attack, as well as giving advice on how to fix. It will also give suggestions around outdated and modern TLS configs
+###### 描述
+这使用 Mozilla TLS Observatory 的指南来检查 TLS 配置的安全性。它检查可能导致网站容易受到攻击的错误配置，并提供有关如何修复的建议。它还将提供有关过时和现代 TLS 配置的建议。
 
-###### Use Cases
-Understanding issues with a site's TLS configuration will help you address potential vulnerabilities, and ensure the site is using the latest and most secure TLS configuration.
+###### 使用场景
+了解网站 TLS 配置的问题将帮助您解决潜在漏洞，并确保网站使用最新和最安全的 TLS 配置。
 
-###### Useful Links
+###### 有用链接
 
 </details>
 <details>
-<summary><b>TLS Handshake Simulation</b></summary>
+<summary><b>TLS 握手模拟</b></summary>
 
 <img width="300" src="https://i.ibb.co/F7qRZkh/Screenshot-from-2023-08-26-12-11-28.png" align="right" />
 
-###### Description
-This simulates how different clients (browsers, operating systems) would perform a TLS handshake with the server. It helps identify compatibility issues and insecure configurations.
+###### 描述
+这模拟不同的客户端（浏览器、操作系统）如何与服务器执行 TLS 握手。它有助于识别兼容性问题和安全配置。
 
-###### Use Cases
+###### 使用场景
 
 
-###### Useful Links
-- [TLS Handshakes (via Cloudflare Learning)](https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/)
-- [SSL Test (via SSL Labs)](https://www.ssllabs.com/ssltest/)
+###### 有用链接
+- [TLS 握手 (via Cloudflare Learning)](https://www.cloudflare.com/learning/ssl/what-happens-in-a-tls-handshake/)
+- [SSL 测试 (via SSL Labs)](https://www.ssllabs.com/ssltest/)
 
 </details>
 <details>
-<summary><b>Screenshot</b></summary>
+<summary><b>屏幕截图</b></summary>
 
 <img width="300" src="https://i.ibb.co/2F0x8kP/Screenshot-from-2023-07-29-18-34-48.png" align="right" />
 
-###### Description
-This check takes a screenshot of webpage that the requested URL / IP resolves to, and displays it.
+###### 描述
+此检查截取请求的 URL / IP 解析到的网页的屏幕截图，并显示它。
 
-###### Use Cases
-This may be useful to see what a given website looks like, free of the constraints of your browser, IP, or location.
+###### 使用场景
+这有助于查看给定网站的外观，不受浏览器、IP 或位置的限制。
 
-
-</details>
 
 </details>
 
-Read more here: **[web-check.xyz/about](https://web-check.xyz/about)**
+</details>
+
+在此处阅读更多信息：**[web-check.xyz/about](https://web-check.xyz/about)**
 
 ---
 
-## Usage
+## 使用方法
 
-### Deployment
+### 部署
 
-### Deploying - Option #1: Netlify
+### 部署 - 选项 #1：Netlify
 
-Click the button below, to deploy to Netlify 👇
+点击下面的按钮，部署到 Netlify 👇
 
 [![Deploy to Netlify](https://img.shields.io/badge/Deploy-Netlify-%2330c8c9?style=for-the-badge&logo=netlify&labelColor=1e0e41 'Deploy Web-Check to Netlify, via 1-Click Script')](https://app.netlify.com/start/deploy?repository=https://github.com/lissy93/web-check)
 
-### Deploying - Option #2: Vercel
+### 部署 - 选项 #2：Vercel
 
-Click the button below, to deploy to Vercel 👇
+点击下面的按钮，部署到 Vercel 👇
 
 [![Deploy with Vercel](https://img.shields.io/badge/Deploy-Vercel-%23ffffff?style=for-the-badge&logo=vercel&labelColor=1e0e41)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flissy93%2Fweb-check&project-name=web-check&repository-name=web-check-fork&demo-title=Web-Check%20Demo&demo-description=Check%20out%20web-check.xyz%20to%20see%20a%20live%20demo%20of%20this%20application%20running.&demo-url=https%3A%2F%2Fweb-check.xyz&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2FLissy93%2Fweb-check%2Fmaster%2F.github%2Fscreenshots%2Fweb-check-screenshot10.png)
 
-### Deploying - Option #3: Docker
+### 部署 - 选项 #3：Docker
 
-Run `docker run -p 3000:3000 lissy93/web-check`, then open [`localhost:3000`](http://localhost:3000)
+运行 `docker run -p 3000:3000 lissy93/web-check`，然后打开 [`localhost:3000`](http://localhost:3000)
 
 <details>
-<summary>Docker Options</summary>
+<summary>Docker 选项</summary>
 
-You can get the Docker image from:
+您可以从以下位置获取 Docker 镜像：
 - DockerHub: [`lissy93/web-check`](https://hub.docker.com/r/lissy93/web-check)
 - GHCR: [`ghcr.io/lissy93/web-check`](https://github.com/Lissy93/web-check/pkgs/container/web-check)
-- Or build the image yourself by cloning the repo and running `docker build -t web-check .`
+- 或者通过克隆仓库并运行 `docker build -t web-check .` 自己构建镜像
 
 </details>
 
-### Deploying - Option #4: From Source
+### 部署 - 选项 #4：从源代码部署
 
-Install the prerequisites listed in the [Developing](#developing) section, then run: 
+安装 [开发](#developing) 部分中列出的先决条件，然后运行：
 
 ```bash
-git clone https://github.com/Lissy93/web-check.git  # Download the code from GitHub
-cd web-check                                        # Navigate into the project dir
-yarn install                                        # Install the NPM dependencies
-yarn build                                          # Build the app for production
-yarn serve                                          # Start the app (API and GUI)
+git clone https://github.com/Lissy93/web-check.git  # 从 GitHub 下载代码
+cd web-check                                        # 进入项目目录
+yarn install                                        # 安装 NPM 依赖
+yarn build                                          # 构建生产版本应用
+yarn serve                                          # 启动应用（API 和 GUI）
 ```
 
 ---
 
-### Configuring
+### 配置
 
-By default, no configuration is needed.
+默认情况下，不需要配置。
 
-But there are some optional environmental variables that you can set to give you access to some additional checks, or to increase rate-limits for some checks that use external APIs.
+但是您可以设置一些可选的环境变量，以便访问一些额外的检查，或者为使用外部 API 的某些检查增加速率限制。
 
-**API Keys & Credentials**:
+**API 密钥和凭据**：
 
-Key | Value
+密钥 | 值
 ---|---
-`GOOGLE_CLOUD_API_KEY` | A Google API key ([get here](https://cloud.google.com/api-gateway/docs/authenticate-api-keys)). This can be used to return quality metrics for a site
-`REACT_APP_SHODAN_API_KEY` | A Shodan API key ([get here](https://account.shodan.io/)). This will show associated host names for a given domain
-`REACT_APP_WHO_API_KEY` | A WhoAPI key ([get here](https://whoapi.com/)). This will show more comprehensive WhoIs records than the default job
+`GOOGLE_CLOUD_API_KEY` | Google API 密钥（[在此获取](https://cloud.google.com/api-gateway/docs/authenticate-api-keys)）。这可用于返回网站的质量指标
+`REACT_APP_SHODAN_API_KEY` | Shodan API 密钥（[在此获取](https://account.shodan.io/)）。这将显示给定域的关联主机名
+`REACT_APP_WHO_API_KEY` | WhoAPI 密钥（[在此获取](https://whoapi.com/)）。这将显示比默认任务更全面的 WhoIs 记录
 
 <details>
-  <summary><small>Full / Upcoming Vals</small></summary>
+  <summary><small>完整/即将推出的值</small></summary>
   
-- `GOOGLE_CLOUD_API_KEY` - A Google API key ([get here](https://cloud.google.com/api-gateway/docs/authenticate-api-keys)). This can be used to return quality metrics for a site
-- `REACT_APP_SHODAN_API_KEY` - A Shodan API key ([get here](https://account.shodan.io/)). This will show associated host names for a given domain
-- `REACT_APP_WHO_API_KEY` - A WhoAPI key ([get here](https://whoapi.com/)). This will show more comprehensive WhoIs records than the default job
-- `SECURITY_TRAILS_API_KEY` - A Security Trails API key ([get here](https://securitytrails.com/corp/api)). This will show org info associated with the IP
-- `CLOUDMERSIVE_API_KEY` - API key for Cloudmersive ([get here](https://account.cloudmersive.com/)). This will show known threats associated with the IP
-- `TRANCO_USERNAME` - A Tranco email ([get here](https://tranco-list.eu/)). This will show the rank of a site, based on traffic
-- `TRANCO_API_KEY` - A Tranco API key ([get here](https://tranco-list.eu/)). This will show the rank of a site, based on traffic
-- `URL_SCAN_API_KEY` - A URLScan API key ([get here](https://urlscan.io/)). This will fetch miscalanious info about a site
-- `BUILT_WITH_API_KEY` - A BuiltWith API key ([get here](https://api.builtwith.com/)). This will show the main features of a site
-- `TORRENT_IP_API_KEY` - A torrent API key ([get here](https://iknowwhatyoudownload.com/en/api/)). This will show torrents downloaded by an IP
+- `GOOGLE_CLOUD_API_KEY` - Google API 密钥（[在此获取](https://cloud.google.com/api-gateway/docs/authenticate-api-keys)）。这可用于返回网站的质量指标
+- `REACT_APP_SHODAN_API_KEY` - Shodan API 密钥（[在此获取](https://account.shodan.io/)）。这将显示给定域的关联主机名
+- `REACT_APP_WHO_API_KEY` - WhoAPI 密钥（[在此获取](https://whoapi.com/)）。这将显示比默认任务更全面的 WhoIs 记录
+- `SECURITY_TRAILS_API_KEY` - Security Trails API 密钥（[在此获取](https://securitytrails.com/corp/api)）。这将显示与 IP 关联的组织信息
+- `CLOUDMERSIVE_API_KEY` - Cloudmersive 的 API 密钥（[在此获取](https://account.cloudmersive.com/)）。这将显示与 IP 关联的已知威胁
+- `TRANCO_USERNAME` - Tranco 邮箱（[在此获取](https://tranco-list.eu/)）。这将根据流量显示网站的排名
+- `TRANCO_API_KEY` - Tranco API 密钥（[在此获取](https://tranco-list.eu/)）。这将根据流量显示网站的排名
+- `URL_SCAN_API_KEY` - URLScan API 密钥（[在此获取](https://urlscan.io/)）。这将获取有关网站的各种信息
+- `BUILT_WITH_API_KEY` - BuiltWith API 密钥（[在此获取](https://api.builtwith.com/)）。这将显示网站的主要功能
+- `TORRENT_IP_API_KEY` - Torrent API 密钥（[在此获取](https://iknowwhatyoudownload.com/en/api/)）。这将显示 IP 下载的 torrent 文件
   
 </details>
 
-**Configuration Settings**:
+**配置设置**：
 
-Key | Value
+密钥 | 值
 ---|---
-`PORT` | Port to serve the API, when running server.js (e.g. `3000`)
-`API_ENABLE_RATE_LIMIT` | Enable rate-limiting for the /api endpoints (e.g. `true`)
-`API_TIMEOUT_LIMIT` | The timeout limit for API requests, in milliseconds (e.g. `10000`)
-`API_CORS_ORIGIN` | Enable CORS, by setting your allowed hostname(s) here (e.g. `example.com`)
-`CHROME_PATH` | The path the Chromium executable (e.g. `/usr/bin/chromium`)
-`DISABLE_GUI` | Disable the GUI, and only serve the API (e.g. `false`)
-`REACT_APP_API_ENDPOINT` | The endpoint for the API, either local or remote (e.g. `/api`)
+`PORT` | 运行 server.js 时提供 API 的端口（例如 `3000`）
+`API_ENABLE_RATE_LIMIT` | 为 /api 端点启用速率限制（例如 `true`）
+`API_TIMEOUT_LIMIT` | API 请求的超时限制，以毫秒为单位（例如 `10000`）
+`API_CORS_ORIGIN` | 通过在此处设置允许的主机名来启用 CORS（例如 `example.com`）
+`CHROME_PATH` | Chromium 可执行文件的路径（例如 `/usr/bin/chromium`）
+`DISABLE_GUI` | 禁用 GUI，仅提供 API（例如 `false`）
+`REACT_APP_API_ENDPOINT` | API 的端点，可以是本地或远程（例如 `/api`）
 
-All values are optional.
+所有值都是可选的。
 
-You can add these as environmental variables. Either put them directly into an `.env` file in the projects root, or via the Netlify / Vercel UI, or by passing to the Docker container with the --env flag, or using your own environmental variable management system
+您可以将这些作为环境变量添加。可以直接将它们放入项目根目录的 `.env` 文件中，或者通过 Netlify / Vercel UI，或者使用 --env 标志传递给 Docker 容器，或者使用您自己的环境变量管理系统
 
-Note that keys that are prefixed with `REACT_APP_` are used client-side, and as such they must be scoped correctly with minimum privileges, since may be made visible when intercepting browser <-> server network requests
-
----
-
-### Developing
-
-1. Clone the repo, `git clone git@github.com:Lissy93/web-check.git`
-2. Cd into it, `cd web-check`
-3. Install dependencies: `yarn`
-4. Start the dev server, with `yarn dev`
-
-You'll need [Node.js](https://nodejs.org/en) (V 18.16.1 or later) installed, plus [yarn](https://yarnpkg.com/getting-started/install) as well as [git](https://git-scm.com/).
-Some checks also require `chromium`, `traceroute` and `dns` to be installed within your environment. These jobs will just be skipped if those packages aren't present.
-
+请注意，以 `REACT_APP_` 为前缀的密钥在客户端使用，因此必须使用最小权限正确设置范围，因为在拦截浏览器 <-> 服务器网络请求时可能会可见
 
 ---
 
-## Community
+### 开发
 
-### Contributing
+1. 克隆仓库，`git clone git@github.com:Lissy93/web-check.git`
+2. 进入目录，`cd web-check`
+3. 安装依赖：`yarn`
+4. 使用 `yarn dev` 启动开发服务器
 
-Contributions of any kind are very welcome, and would be much appreciated.
-For Code of Conduct, see [Contributor Convent](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
-
-To get started, fork the repo, make your changes, add, commit and push the code, then come back here to open a pull request. If you're new to GitHub or open source, [this guide](https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3#let-s-make-our-first-pull-request-) or the [git docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) may help you get started, but feel free to reach out if you need any support.
-
-[![Submit a PR](https://img.shields.io/badge/Submit_a_PR-GitHub-%23060606?style=for-the-badge&logo=github&logoColor=fff)](https://github.com/Lissy93/web-check/compare)
-
-
-### Reporting Bugs
-
-If you've found something that doesn't work as it should, or would like to suggest a new feature, then go ahead and raise a ticket on GitHub.
-For bugs, please outline the steps needed to reproduce, and include relevant info like system info and resulting logs.
-
-[![Raise an Issue](https://img.shields.io/badge/Raise_an_Issue-GitHub-%23060606?style=for-the-badge&logo=github&logoColor=fff)](https://github.com/Lissy93/web-check/issues/new/choose)
-
-### Supporting
-
-The app will remain 100% free and open source.
-But due to the amount of traffic that the hosted instance gets, the lambda function usage is costing about $25/month.
-Any help with covering the costs via GitHub Sponsorship would be much appreciated.
-It's thanks to the support of the community that this project is able to be freely available for everyone :)
-
-[![Sponsor Lissy93 on GitHub](https://img.shields.io/badge/Sponsor_on_GitHub-Lissy93-%23ff4dda?style=for-the-badge&logo=githubsponsors&logoColor=ff4dda)](https://github.com/sponsors/Lissy93)
+您需要安装 [Node.js](https://nodejs.org/en)（V 18.16.1 或更高版本），以及 [yarn](https://yarnpkg.com/getting-started/install) 和 [git](https://git-scm.com/)。
+某些检查还需要在您的环境中安装 `chromium`、`traceroute` 和 `dns`。如果这些包不存在，这些任务将被跳过。
 
 
-### Contributors
+---
 
-Credit to the following users for contributing to Web-Check
+## 社区
+
+### 贡献
+
+非常欢迎任何形式的贡献，我们将不胜感激。
+关于行为准则，请参阅 [Contributor Convent](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)。
+
+要开始，请 fork 仓库，进行更改，添加、提交和推送代码，然后回到这里打开拉取请求。如果您是 GitHub 或开源的新手，[本指南](https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3#let-s-make-our-first-pull-request-)或 [git 文档](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)可能会帮助您入门，但如果您需要任何支持，请随时联系我们。
+
+[![提交 PR](https://img.shields.io/badge/Submit_a_PR-GitHub-%23060606?style=for-the-badge&logo=github&logoColor=fff)](https://github.com/Lissy93/web-check/compare)
+
+
+### 报告错误
+
+如果您发现某些功能无法正常工作，或者想建议新功能，请继续在 GitHub 上提出工单。
+对于错误，请概述重现所需的步骤，并包括相关信息，如系统信息和生成的日志。
+
+[![提出问题](https://img.shields.io/badge/Raise_an_Issue-GitHub-%23060606?style=for-the-badge&logo=github&logoColor=fff)](https://github.com/Lissy93/web-check/issues/new/choose)
+
+### 支持
+
+该应用将保持 100% 免费和开源。
+但由于托管实例获得的流量很大，lambda 函数的使用成本约为每月 25 美元。
+通过 GitHub 赞助帮助分担成本将不胜感激。
+感谢社区的支持，这个项目才能免费供所有人使用 :)
+
+[![在 GitHub 上赞助 Lissy93](https://img.shields.io/badge/Sponsor_on_GitHub-Lissy93-%23ff4dda?style=for-the-badge&logo=githubsponsors&logoColor=ff4dda)](https://github.com/sponsors/Lissy93)
+
+
+### 贡献者
+
+感谢以下用户为 Web-Check 做出的贡献
 
 <!-- readme: contributors -start -->
 <table>
@@ -1100,9 +1100,9 @@ Credit to the following users for contributing to Web-Check
 </table>
 <!-- readme: contributors -end -->
 
-### Sponsors
+### 赞助者
 
-Huge thanks to these wonderful people, who sponsor me on GitHub, their support helps cover the costs required to keep Web-Check and my other projects free for everyone. Consider joining them, by [sponsoring me on GitHub](https://github.com/sponsors/Lissy93) if you're able.
+非常感谢这些在 GitHub 上赞助我的优秀人士，他们的支持有助于支付保持 Web-Check 和我的其他项目免费供所有人使用所需的费用。如果您有能力，请考虑通过[在 GitHub 上赞助我](https://github.com/sponsors/Lissy93)加入他们的行列。
 
 <!-- readme: sponsors -start -->
 <table>
@@ -1268,47 +1268,37 @@ Huge thanks to these wonderful people, who sponsor me on GitHub, their support h
 
 ---
 
-## License
+## 许可证
 
-> _**[Lissy93/Web-Check](https://github.com/Lissy93/web-check)** is licensed under [MIT](https://github.com/Lissy93/web-check/blob/HEAD/LICENSE) © [Alicia Sykes](https://aliciasykes.com) 2023._<br>
-> <sup align="right">For information, see <a href="https://tldrlegal.com/license/mit-license">TLDR Legal > MIT</a></sup>
+> _**[Lissy93/Web-Check](https://github.com/Lissy93/web-check)** 采用 [MIT](https://github.com/Lissy93/web-check/blob/HEAD/LICENSE) 许可证 © [Alicia Sykes](https://aliciasykes.com) 2023._<br>
+> <sup align="right">有关信息，请参阅 <a href="https://tldrlegal.com/license/mit-license">TLDR Legal > MIT</a></sup>
 
 <details>
-<summary>Expand License</summary>
+<summary>展开许可证</summary>
 
 ```
-The MIT License (MIT)
-Copyright (c) Alicia Sykes <alicia@omg.com> 
+MIT 许可证（MIT）
+版权所有 (c) Alicia Sykes <alicia@omg.com>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy 
-of this software and associated documentation files (the "Software"), to deal 
-in the Software without restriction, including without limitation the rights 
-to use, copy, modify, merge, publish, distribute, sub-license, and/or sell 
-copies of the Software, and to permit persons to whom the Software is furnished 
-to do so, subject to the following conditions:
+特此免费授予任何获得本软件及相关文档文件（"软件"）副本的人不受限制地处理本软件的权利，包括但不限于使用、复制、修改、合并、发布、分发、再许可和/或销售软件副本的权利，并允许获得软件的人员这样做，但须符合以下条件：
 
-The above copyright notice and this permission notice shall be included install 
-copies or substantial portions of the Software.
+上述版权声明和本许可声明应包含在软件的所有副本或实质性部分中。
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANT ABILITY, FITNESS FOR A
-PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+本软件按"原样"提供，不提供任何形式的明示或暗示保证，包括但不限于对适销性、特定用途适用性和非侵权性的保证。在任何情况下，作者或版权持有人均不对任何索赔、损害或其他责任负责，无论是合同、侵权或其他方式的诉讼，由软件或软件的使用或其他交易引起、产生或与之相关。
+
 ```
 
-[![View Dependency Licenses & SBOM on FOSSA](https://app.fossa.com/api/projects/git%2Bgithub.com%2FLissy93%2Fweb-check.svg?type=large&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FLissy93%2Fweb-check?ref=badge_large&issueType=license)
+[![在 FOSSA 上查看依赖许可证和 SBOM](https://app.fossa.com/api/projects/git%2Bgithub.com%2FLissy93%2Fweb-check.svg?type=large&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FLissy93%2Fweb-check?ref=badge_large&issueType=license)
 
 </details>
 
 
-<!-- License + Copyright -->
+<!-- 许可证 + 版权 -->
 <p  align="center">
   <i>© <a href="https://aliciasykes.com">Alicia Sykes</a> 2023</i><br>
-  <i>Licensed under <a href="https://gist.github.com/Lissy93/143d2ee01ccc5c052a17">MIT</a></i><br>
+  <i>根据 <a href="https://gist.github.com/Lissy93/143d2ee01ccc5c052a17">MIT</a> 许可</i><br>
   <a href="https://github.com/lissy93"><img src="https://i.ibb.co/4KtpYxb/octocat-clean-mini.png" /></a><br>
-  <sup>Thanks for visiting :)</sup>
+  <sup>感谢访问 :)</sup>
 </p>
 
 <!-- Dinosaurs are Awesome -->

@@ -1,17 +1,33 @@
+# 应用程序名称，在 Fly.io 平台上的唯一标识符
 app = 'web-check'
+
+# 主要区域（Primary Region），指定应用部署的主要数据中心
+# lhr: 伦敦（London）
 primary_region = 'lhr'
 
+# 构建配置部分
 [build]
 
+# HTTP 服务配置部分
 [http_service]
+  # 内部端口，容器内部监听的端口号
   internal_port = 3000
+  # 强制使用 HTTPS，自动将 HTTP 请求重定向到 HTTPS
   force_https = true
+  # 自动停止机器，当没有流量时自动停止实例以节省资源
   auto_stop_machines = true
+  # 自动启动机器，当有请求到来时自动启动实例
   auto_start_machines = true
+  # 最小运行机器数量，0 表示允许完全停止以节省成本
   min_machines_running = 0
+  # 进程列表，定义要运行的进程类型
   processes = ['app']
 
+# 虚拟机配置部分
 [[vm]]
+  # 内存大小，分配给虚拟机的内存容量
   memory = '1gb'
+  # CPU 类型，shared 表示共享 CPU（成本较低）
   cpu_kind = 'shared'
+  # CPU 核心数量，分配给虚拟机的 CPU 核心数
   cpus = 1

@@ -1,128 +1,200 @@
-name: 🚀 Deploy to AWS
+# 工作流名称：部署到 AWS
+name: 🚀 部署到 AWS
 
+# 工作流触发条件
 on:
+  # 手动触发：允许在 GitHub Actions 界面手动运行此工作流
   workflow_dispatch:
+  # 推送触发：当代码推送到指定分支或标签时触发
   push:
+    # 分支：只监听 master 分支的推送
     branches:
       - master
+    # 标签：监听所有标签的推送
     tags:
       - '*'
+    # 路径：只监听以下文件或目录的变更
     paths:
       - api/**
       - serverless.yml
       - package.json
       - .github/workflows/deploy-aws.yml
 
+# 任务（Jobs）定义
 jobs:
+  # 任务 1：部署 API 到 AWS
   deploy-api:
+    # 运行环境：使用最新版本的 Ubuntu
     runs-on: ubuntu-latest
 
+    # 步骤（Steps）定义
     steps:
-    - name: Checkout code
+    # 步骤 1：检出代码仓库
+    - name: 检出代码
       uses: actions/checkout@v4
 
-    - name: Setup Node.js
+    # 步骤 2：设置 Node.js 环境
+    - name: 设置 Node.js
       uses: actions/setup-node@v4
       with:
+        # Node.js 版本：使用 16.x 版本
         node-version: 16
 
-    - name: Cache node_modules
+    # 步骤 3：缓存 node_modules 以加速构建
+    - name: 缓存 node_modules
       uses: actions/cache@v4
       with:
+        # 缓存路径：node_modules 目录
         path: node_modules
+        # 缓存键：基于操作系统和 yarn.lock 文件的哈希值
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        # 恢复键：如果缓存未命中，尝试匹配这些键
         restore-keys: |
           ${{ runner.os }}-yarn-
 
-    - name: Create GitHub deployment for API
+    # 步骤 4：为 API 创建 GitHub 部署记录
+    - name: 为 API 创建 GitHub 部署记录
       uses: chrnorm/deployment-action@releases/v2
       id: deployment_api
       with:
+        # 使用 BOT_TOKEN 或 GITHUB_TOKEN 进行认证
         token: ${{ secrets.BOT_TOKEN || secrets.GITHUB_TOKEN }}
+        # 部署环境名称
         environment: AWS (Backend API)
+        # 部署的引用（分支或标签）
         ref: ${{ github.ref }}
-      
-    - name: Install Serverless CLI and dependencies
+
+    # 步骤 5：安装 Serverless CLI 和项目依赖
+    - name: 安装 Serverless CLI 和依赖
       run: |
+        # 全局安装 Serverless CLI
         npm i -g serverless
+        # 安装项目依赖
         yarn
 
-    - name: Deploy to AWS
+    # 步骤 6：部署到 AWS
+    - name: 部署到 AWS
       env:
+        # AWS 访问密钥 ID
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        # AWS 秘密访问密钥
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        # AWS 账户 ID
         AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      # 执行 Serverless 部署命令
       run: serverless deploy
-      
-    - name: Update GitHub deployment status (API)
+
+    # 步骤 7：更新 GitHub 部署状态（API）
+    - name: 更新 GitHub 部署状态（API）
+      # 无论成功或失败都执行此步骤
       if: always()
       uses: chrnorm/deployment-status@v2
       with:
+        # 使用 BOT_TOKEN 或 GITHUB_TOKEN 进行认证
         token: ${{ secrets.BOT_TOKEN || secrets.GITHUB_TOKEN }}
+        # 部署状态：使用任务的实际状态
         state: "${{ job.status }}"
+        # 部署 ID：从之前的步骤中获取
         deployment_id: ${{ steps.deployment_api.outputs.deployment_id }}
+        # 部署的引用（分支或标签）
         ref: ${{ github.ref }}
 
+  # 任务 2：部署前端到 AWS
   deploy-frontend:
+    # 运行环境：使用最新版本的 Ubuntu
     runs-on: ubuntu-latest
 
+    # 步骤（Steps）定义
     steps:
-    - name: Checkout code
+    # 步骤 1：检出代码仓库
+    - name: 检出代码
       uses: actions/checkout@v4
 
-    - name: Setup Node.js
+    # 步骤 2：设置 Node.js 环境
+    - name: 设置 Node.js
       uses: actions/setup-node@v4
       with:
+        # Node.js 版本：使用 16.x 版本
         node-version: 16
-    
-    - name: Cache node_modules
+
+    # 步骤 3：缓存 node_modules 以加速构建
+    - name: 缓存 node_modules
       uses: actions/cache@v4
       with:
+        # 缓存路径：node_modules 目录
         path: node_modules
+        # 缓存键：基于操作系统和 yarn.lock 文件的哈希值
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        # 恢复键：如果缓存未命中，尝试匹配这些键
         restore-keys: |
           ${{ runner.os }}-yarn-
 
-    - name: Create GitHub deployment for Frontend
+    # 步骤 4：为前端创建 GitHub 部署记录
+    - name: 为前端创建 GitHub 部署记录
       uses: chrnorm/deployment-action@v2
       id: deployment_frontend
       with:
+        # 使用 BOT_TOKEN 或 GITHUB_TOKEN 进行认证
         token: ${{ secrets.BOT_TOKEN || secrets.GITHUB_TOKEN }}
+        # 部署环境名称
         environment: AWS (Frontend Web UI)
+        # 部署的引用（分支或标签）
         ref: ${{ github.ref }}
-        
-    - name: Install dependencies and build
+
+    # 步骤 5：安装依赖并构建项目
+    - name: 安装依赖并构建项目
       run: |
+        # 安装项目依赖
         yarn install
+        # 构建项目
         yarn build
-    
-    - name: Setup AWS
+
+    # 步骤 6：配置 AWS 凭证
+    - name: 配置 AWS
       uses: aws-actions/configure-aws-credentials@v4
       with:
+        # AWS 访问密钥 ID
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        # AWS 秘密访问密钥
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        # AWS 区域：美国东部（弗吉尼亚北部）
         aws-region: us-east-1
 
-    - name: Upload to S3
+    # 步骤 7：上传到 S3 存储桶
+    - name: 上传到 S3
       env:
+        # S3 存储桶名称
         AWS_S3_BUCKET: 'web-check-frontend'
+      # 将构建产物同步到 S3，并删除 S3 中多余的文件
       run: aws s3 sync ./build/ s3://$AWS_S3_BUCKET/ --delete
 
-    - name: Invalidate CloudFront cache
+    # 步骤 8：使 CloudFront 缓存失效
+    - name: 使 CloudFront 缓存失效
       uses: chetan/invalidate-cloudfront-action@v2
       env:
+        # CloudFront 分发 ID
         DISTRIBUTION: E30XKAM2TG9FD8
+        # 要失效的路径：所有路径
         PATHS: '/*'
+        # AWS 区域：美国东部（弗吉尼亚北部）
         AWS_REGION: 'us-east-1'
+        # AWS 访问密钥 ID
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        # AWS 秘密访问密钥
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        
-    - name: Update GitHub deployment status (Frontend)
+
+    # 步骤 9：更新 GitHub 部署状态（前端）
+    - name: 更新 GitHub 部署状态（前端）
+      # 无论成功或失败都执行此步骤
       if: always()
       uses: chrnorm/deployment-status@v2
       with:
+        # 使用 BOT_TOKEN 或 GITHUB_TOKEN 进行认证
         token: ${{ secrets.BOT_TOKEN || secrets.GITHUB_TOKEN }}
+        # 部署状态：使用任务的实际状态
         state: "${{ job.status }}"
+        # 部署 ID：从之前的步骤中获取
         deployment_id: ${{ steps.deployment_frontend.outputs.deployment_id }}
+        # 部署的引用（分支或标签）
         ref: ${{ github.ref }}
 

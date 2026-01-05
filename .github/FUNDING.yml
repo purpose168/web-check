@@ -1,1 +1,8 @@
+# GitHub 赞助配置文件
+# 此文件用于在 GitHub 仓库页面显示赞助按钮和赞助者信息
+# 支持的赞助平台：github, patreon, open_collective, ko_fi, tidelift, community_bridge, issuehunt, otechie, liberapay, custom
+
+# GitHub 赞助者配置
+# 指定 GitHub 用户名，用于显示 GitHub Sponsors 赞助按钮
+# 用户可以通过 GitHub Sponsors 平台赞助该项目
 github: [lissy93]

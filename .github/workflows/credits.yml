@@ -1,37 +1,61 @@
-# Inserts list of community members into ./README.md
-name: 💓 Inserts Contributors & Sponsors
-on:
-  workflow_dispatch: # Manual dispatch
-  schedule:
-    - cron: '45 1 * * 0' # At 01:45 on Sunday.
+# 将社区成员列表插入到 ./README.md 文件中
+name: 💓 插入贡献者和赞助者列表
 
+# 工作流触发条件
+on:
+  # 手动触发：允许在 GitHub Actions 界面手动运行此工作流
+  workflow_dispatch:
+  # 定时触发：使用 cron 表达式设置定时任务
+  schedule:
+    # 每周日凌晨 01:45 执行
+    - cron: '45 1 * * 0'
+
+# 任务（Jobs）定义
 jobs:
-  # Job #1 - Fetches sponsors and inserts table into readme
+  # 任务 #1 - 获取赞助者列表并将表格插入到 README 文件中
   insert-sponsors:
+    # 运行环境：使用最新版本的 Ubuntu
     runs-on: ubuntu-latest
-    name: Inserts Sponsors 💓
+    # 任务名称
+    name: 插入赞助者列表 💓
+    # 步骤（Steps）定义
     steps:
-      - name: Checkout
+      # 步骤 1：检出代码仓库
+      - name: 检出代码
         uses: actions/checkout@v4
-      - name: Updates readme with sponsors
+      # 步骤 2：使用赞助者列表更新 README 文件
+      - name: 使用赞助者列表更新 README 文件
         uses: JamesIves/github-sponsors-readme-action@v1
         with:
+          # 使用 BOT_TOKEN 或 GITHUB_TOKEN 进行认证
           token: ${{ secrets.BOT_TOKEN || secrets.GITHUB_TOKEN }}
+          # 要更新的文件路径
           file: .github/README.md
 
-  # Job #2 - Fetches contributors and inserts table into readme
+  # 任务 #2 - 获取贡献者列表并将表格插入到 README 文件中
   insert-contributors:
+    # 运行环境：使用最新版本的 Ubuntu
     runs-on: ubuntu-latest
-    name: Inserts Contributors 💓
+    # 任务名称
+    name: 插入贡献者列表 💓
+    # 步骤（Steps）定义
     steps:
-      - name: Updates readme with contributors
+      # 步骤 1：使用贡献者列表更新 README 文件
+      - name: 使用贡献者列表更新 README 文件
         uses: akhilmhdh/contributors-readme-action@v2.3.10
         env:
+          # 使用 BOT_TOKEN 或 GITHUB_TOKEN 进行认证
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN || secrets.GITHUB_TOKEN }}
         with:
+          # 贡献者头像大小（像素）
           image_size: 80
+          # README 文件路径
           readme_path: .github/README.md
+          # 每行显示的列数（贡献者数量）
           columns_per_row: 6
-          commit_message: 'docs: Updates contributors list'
+          # 提交消息
+          commit_message: 'docs: 更新贡献者列表'
+          # 提交者用户名
           committer_username: liss-bot
+          # 提交者邮箱
           committer_email: liss-bot@d0h.co

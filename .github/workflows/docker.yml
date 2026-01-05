@@ -1,73 +1,111 @@
-name: 🐳 Build + Publish Docker Image
+# 工作流名称：构建并发布 Docker 镜像
+name: 🐳 构建并发布 Docker 镜像
 
+# 工作流触发条件
 on:
+  # 手动触发：允许在 GitHub Actions 界面手动运行此工作流
   workflow_dispatch:
+  # 推送触发：当代码推送到指定分支或标签时触发
   push:
+    # 分支：只监听 master 分支的推送
     branches:
       - master
+    # 标签：监听所有标签的推送
     tags:
       - '*'
+    # 路径：只监听以下文件或目录的变更
     paths:
       - src/**
       - api/**
       - public/**
       - Dockerfile
 
+# 环境变量配置
 env:
+  # Docker 镜像名称
   IMAGE_NAME: web-check
+  # Docker Hub 用户名
   DOCKER_USER: lissy93
+  # GitHub Container Registry 地址
   GHCR_REGISTRY: ghcr.io
+  # Docker Hub Registry 地址
   DOCKERHUB_REGISTRY: docker.io
 
+# 任务（Jobs）定义
 jobs:
+  # 任务：构建和发布 Docker 镜像
   docker:
+    # 运行环境：使用最新版本的 Ubuntu
     runs-on: ubuntu-latest
+    # 步骤（Steps）定义
     steps:
-      - name: Checkout 🛎️
+      # 步骤 1：检出代码仓库
+      - name: 检出代码 🛎️
         uses: actions/checkout@v2
 
-      - name: Extract tag name 🏷️
+      # 步骤 2：提取标签名称
+      - name: 提取标签名称 🏷️
         shell: bash
+        # 从 GitHub 引用中提取标签名，并将斜杠替换为下划线
         run: echo "GIT_TAG=$(echo ${GITHUB_REF#refs/tags/} | sed 's/\//_/g')" >> $GITHUB_ENV
 
-      - name: Compute tags 🔖
+      # 步骤 3：计算镜像标签
+      - name: 计算镜像标签 🔖
         id: compute-tags
         run: |
+          # 如果是 master 分支，使用 latest 标签
           if [[ "${{ github.ref }}" == "refs/heads/master" ]]; then
             echo "GHCR_TAG=${GHCR_REGISTRY}/${DOCKER_USER}/${IMAGE_NAME}:latest" >> $GITHUB_ENV
             echo "DOCKERHUB_TAG=${DOCKERHUB_REGISTRY}/${DOCKER_USER}/${IMAGE_NAME}:latest" >> $GITHUB_ENV
+          # 如果是标签推送，使用标签名作为镜像标签
           else
             echo "GHCR_TAG=${GHCR_REGISTRY}/${DOCKER_USER}/${IMAGE_NAME}:${GIT_TAG}" >> $GITHUB_ENV
             echo "DOCKERHUB_TAG=${DOCKERHUB_REGISTRY}/${DOCKER_USER}/${IMAGE_NAME}:${GIT_TAG}" >> $GITHUB_ENV
           fi
 
-      - name: Set up QEMU 🐧
+      # 步骤 4：设置 QEMU（用于多架构构建）
+      - name: 设置 QEMU 🐧
         uses: docker/setup-qemu-action@v1
-        
-      - name: Set up Docker Buildx 🐳
+
+      # 步骤 5：设置 Docker Buildx（Docker 的增强构建工具）
+      - name: 设置 Docker Buildx 🐳
         uses: docker/setup-buildx-action@v1
-        
-      - name: Login to GitHub Container Registry 🔑
+
+      # 步骤 6：登录到 GitHub Container Registry
+      - name: 登录到 GitHub Container Registry 🔑
         uses: docker/login-action@v1
         with:
+          # Registry 地址
           registry: ${{ env.GHCR_REGISTRY }}
+          # 用户名：使用 GitHub Actions 的触发者
           username: ${{ github.actor }}
+          # 密码：使用 GitHub Token
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Login to DockerHub 🔑
+      # 步骤 7：登录到 DockerHub
+      - name: 登录到 DockerHub 🔑
         uses: docker/login-action@v1
         with:
+          # Registry 地址
           registry: ${{ env.DOCKERHUB_REGISTRY }}
+          # 用户名：从环境变量中获取
           username: ${{ env.DOCKER_USER }}
+          # 密码：从 Secrets 中获取
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build and push Docker images 🛠️
+      # 步骤 8：构建并推送 Docker 镜像
+      - name: 构建并推送 Docker 镜像 🛠️
         uses: docker/build-push-action@v2
         with:
+          # 构建上下文：当前目录
           context: .
+          # Dockerfile 路径
           file: ./Dockerfile
+          # 推送到镜像仓库
           push: true
+          # 支持的平台架构：AMD64 和 ARM64
           platforms: linux/amd64,linux/arm64/v8
+          # 镜像标签列表
           tags: |
             ${{ env.GHCR_TAG }}
             ${{ env.DOCKERHUB_TAG }}

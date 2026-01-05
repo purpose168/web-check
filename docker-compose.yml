@@ -1,8 +1,18 @@
+# Docker Compose 文件版本，指定使用的 Compose 文件格式版本
 version: '3.9'
+
+# 服务配置部分，定义要运行的容器服务
 services:
+  # 服务名称：web-check
   web-check:
+    # 容器名称，指定运行时的容器名称
     container_name: Web-Check
+    # 镜像名称，指定要使用的 Docker 镜像
     image: lissy93/web-check
+    # 端口映射配置
     ports:
+      # 将主机的 3000 端口映射到容器的 3000 端口
       - 3000:3000
+    # 重启策略，指定容器在何种情况下自动重启
+    # unless-stopped: 除非手动停止容器，否则总是重启（包括系统重启）
     restart: unless-stopped

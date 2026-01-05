@@ -1,16 +1,32 @@
-# Pushes the contents of the repo to the Codeberg mirror
-name: 🪞 Mirror to Codeberg
+# 将仓库内容推送到 Codeberg 镜像仓库
+name: 🪞 镜像到 Codeberg
+
+# 工作流触发条件
 on:
+  # 手动触发：允许在 GitHub Actions 界面手动运行此工作流
   workflow_dispatch:
+  # 定时触发：使用 cron 表达式设置定时任务
   schedule:
+    # 每周日凌晨 00:30 执行
     - cron: '30 0 * * 0'
+
+# 任务（Jobs）定义
 jobs:
+  # 任务：镜像到 Codeberg
   codeberg:
+    # 运行环境：使用最新版本的 Ubuntu
     runs-on: ubuntu-latest
+    # 步骤（Steps）定义
     steps:
+      # 步骤 1：检出代码仓库
       - uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
+        with:
+          # 获取完整的 Git 历史（fetch-depth: 0 表示不限制深度）
+          { fetch-depth: 0 }
+      # 步骤 2：使用镜像操作将代码推送到 Codeberg
       - uses: pixta-dev/repository-mirroring-action@v1
         with:
+          # 目标仓库 URL：Codeberg 仓库的 SSH 地址
           target_repo_url: git@codeberg.org:alicia/web-check.git
+          # SSH 私钥：用于认证 Codeberg 仓库的 SSH 密钥
           ssh_private_key: ${{ secrets.CODEBERG_SSH }}

@@ -1,41 +1,56 @@
-# Build settings and site core config
+# 构建设置和站点核心配置
 [build]
+  # 基础目录，构建命令执行的起始目录
   base = "/"
+  # 构建命令，用于构建项目的命令
   command = "yarn build"
+  # 发布目录，构建完成后要部署的目录
   publish = "dist"
+  # 函数目录，存放无服务器函数的目录
   functions = "api"
 
-# Environmental variables and optional secrets
+# 环境变量和可选的密钥配置
 [build.environment]
+  # 平台标识，指定部署平台为 Netlify
   PLATFORM = "netlify"
+  # 公共 API 端点，指向 Netlify 函数的路径
   PUBLIC_API_ENDPOINT = "/.netlify/functions"
-  # Build configuration env vars (uncomment if you want to conigure these)
-  # CI="false" # Set CI to false, to prevent warnings from exiting the build
-  # CHROME_PATH='/usr/bin/chromium' # Path to Chromium binary
-  # NODE_VERSION = "16.16.0"  # Set the version of Node.js to use
+  # 构建配置环境变量（如需配置请取消注释）
+  # CI="false" # 将 CI 设置为 false，防止警告导致构建退出
+  # CHROME_PATH='/usr/bin/chromium' # Chromium 二进制文件的路径
+  # NODE_VERSION = "16.16.0"  # 设置要使用的 Node.js 版本
 
-  # Optional secrets and API keys (uncomment if you want to add these)
-  # GOOGLE_CLOUD_API_KEY=''     # Google Cloud API key, for running Lighthouse scans
-  # BUILT_WITH_API_KEY=''       # BuiltWith API key, for detecting site features
-  # REACT_APP_SHODAN_API_KEY='' # Shodan API key, for using Shodan scan API
-  # REACT_APP_WHO_API_KEY=''    # WhoAPI key, for iniiating client-side whois lookup
+  # 可选的密钥和 API 密钥（如需添加请取消注释）
+  # GOOGLE_CLOUD_API_KEY=''     # Google Cloud API 密钥，用于运行 Lighthouse 扫描
+  # BUILT_WITH_API_KEY=''       # BuiltWith API 密钥，用于检测站点功能
+  # REACT_APP_SHODAN_API_KEY='' # Shodan API 密钥，用于使用 Shodan 扫描 API
+  # REACT_APP_WHO_API_KEY=''    # WhoAPI 密钥，用于发起客户端端的 whois 查询
 
-# Redirect the /api/* path to the lambda functions
+# 将 /api/* 路径重定向到 Lambda 函数
 [[redirects]]
+  # 源路径，匹配所有 /api/ 开头的请求
   from = "/api/*"
+  # 目标路径，重定向到 Netlify 函数
   to = "/.netlify/functions/:splat"
+  # HTTP 状态码，301 表示永久重定向
   status = 301
+  # 强制重定向，即使目标路径存在也执行重定向
   force = true
 
-# Plugins
+# 插件配置
 [[plugins]]
-package = "netlify-plugin-chromium"
+  # 插件包名，安装 Netlify Chromium 插件
+  package = "netlify-plugin-chromium"
+  # 插件输入参数
   [plugins.inputs]
+  # 包管理器，指定使用 yarn 作为包管理器
   packageManager = "yarn"
 
-# Set any security headers here
+# 在此处设置任何安全头
 [[headers]]
+  # 应用范围，匹配所有路径
   for = "/*"
+  # 头部值配置
   [headers.values]
-  # Uncomment to enable Netlify user control. Requires premium plan.
+  # 取消注释以启用 Netlify 用户控制。需要付费计划。
   # Basic-Auth = "someuser:somepassword anotheruser:anotherpassword"
