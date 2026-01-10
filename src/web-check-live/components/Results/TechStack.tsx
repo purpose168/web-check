@@ -4,6 +4,7 @@ import { Card } from 'web-check-live/components/Form/Card';
 import Heading from 'web-check-live/components/Form/Heading';
 import colors from 'web-check-live/styles/colors';
 
+// 卡片样式定义，设置网格行跨度和链接样式
 const cardStyles = `
   grid-row: span 2;
   small {
@@ -14,6 +15,7 @@ const cardStyles = `
   }
 `;
 
+// 技术栈行样式组件，用于显示单个技术的详细信息
 const TechStackRow = styled.div`
 transition: all 0.2s ease-in-out;
 .r1 {
@@ -78,10 +80,14 @@ h4 {
 }
 `;
 
-const TechStackCard = (props: {data: any, title: string, actionButtons: any }): JSX.Element => {
+// 技术栈卡片组件，用于显示网站使用的技术栈信息
+const TechStackCard = (props: {data: any, title: string, actionButtons: any}): JSX.Element => {
+  // 从props中解构获取技术栈数据
   const technologies = props.data.technologies;
+  // 图标CDN基础URL
   const iconsCdn = 'https://www.wappalyzer.com/images/icons/';
   return (
+    // 使用Card组件作为容器，显示标题和操作按钮
     <Card heading={props.title} actionButtons={props.actionButtons} styles={cardStyles}>
       {technologies.map((tech: any, index: number) => {
         return (
@@ -91,7 +97,7 @@ const TechStackCard = (props: {data: any, title: string, actionButtons: any }): 
               {tech.name}
               <span className="tech-version">{tech.version? `(v${tech.version})` : ''}</span>
             </Heading>  
-            <span className="tech-confidence" title={`${tech.confidence}% certain`}>Certainty: {tech.confidence}%</span>
+            <span className="tech-confidence" title={`${tech.confidence}% 确定`}>确定度: {tech.confidence}%</span>
             <span className="tech-categories">
               {tech.categories.map((cat: any, i: number) => `${cat.name}${i < tech.categories.length - 1 ? ', ' : ''}`)}
             </span>
@@ -100,7 +106,7 @@ const TechStackCard = (props: {data: any, title: string, actionButtons: any }): 
             <img className="tech-icon" width="10" src={`${iconsCdn}${tech.icon}`} alt={tech.name} />
             <div>
             <p className="tech-description">{tech.description}</p>
-            <p className="tech-website">Learn more at: <a href={tech.website}>{tech.website}</a></p>
+            <p className="tech-website">了解更多: <a href={tech.website}>{tech.website}</a></p>
             </div>
           </div>
           

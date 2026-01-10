@@ -1,36 +1,97 @@
+// ==================== 根元素颜色主题配置 ====================
+// 定义默认主题（暗色主题）的颜色变量
+// 使用 CSS 自定义属性（CSS Variables）实现主题切换
 :root {
+  // 主色调（Primary Color）- 亮绿色，用于主要操作和品牌标识
   --primary: #d6fb41;
+  
+  // 主色调的浅色变体（Primary Lighter）- 较浅的绿色，用于悬停状态和次要强调
   --primary-lighter: #cff97a;
+  
+  // 主要文字颜色（Text Color）- 白色，用于主要文本内容
   --text-color: #ffffff;
+  
+  // 次要文字颜色（Text Color Secondary）- 半透明白色，用于辅助文本和说明文字
   --text-color-secondary: #ffffffb6;
+  
+  // 第三级文字颜色（Text Color Thirdly）- 更淡的半透明白色，用于占位符或提示文本
   --text-color-thirdly: #ffffff5b;
+  
+  // 背景色（Background）- 深黑色，用于页面主背景
   --background: #111211;
+  
+  // 较深的背景色（Background Darker）- 深蓝灰色，用于卡片或面板背景
   --background-darker: #111927;
-  // --background-lighter: #1a2332;
-  --background-lighter: #3A3B3A;
+  
+  // 较浅的背景色（Background Lighter）- 灰色，用于内容区域或高亮背景
+  // --background-lighter: #1a2332;  // 原始值（深蓝灰色）
+  --background-lighter: #3A3B3A;  // 当前值（灰色）
+  
+  // 半透明背景色（Background 50）- 50% 透明度的深黑色，用于遮罩层或覆盖层
   --background-50: #11121180;
+  
+  // 背景阴影颜色（Background Shadow Color）- 深蓝灰色，用于背景元素的阴影效果
   --bg-shadow-color: #0f1620;
+  
+  // 前景阴影颜色（Foreground Shadow Color）- 深绿色，用于前景元素（如按钮、卡片）的阴影效果
   --fg-shadow-color: #456602;
+  
+  // 半透明主色调（Primary Transparent）- 30% 透明度的亮绿色，用于背景高亮或装饰
   --primary-transparent: #d6fb4130;
 
-  // Action Colors
+  // ==================== 操作颜色（Action Colors） ====================
+  // 用于不同状态和操作的颜色标识
+  
+  // 信息色（Info）- 青色，用于信息提示和通知
   --info: #04e4f4;
+  
+  // 成功色（Success）- 绿色，用于成功状态和确认操作
   --success: #20e253;
+  
+  // 警告色（Warning）- 黄色，用于警告提示和注意事项
   --warning: #f6f000;
+  
+  // 错误色（Error）- 橙色，用于错误提示和异常状态
   --error: #fca016;
+  
+  // 危险色（Danger）- 红粉色，用于危险操作和严重错误
   --danger: #f80363;
+  
+  // 中性色（Neutral）- 蓝灰色，用于中性状态和禁用元素
   --neutral: #272f4d;
 }
 
+// ==================== 浅色主题（Light Theme）配置 ====================
+// 当 HTML 元素的 data-theme 属性设置为 "light" 时，应用以下颜色变量
+// 用于实现主题切换功能（如深色/浅色模式切换）
 html[data-theme="light"] {
+  // 主色调 - 深绿色，与暗色主题形成对比
   --primary: #4a7700;
+  
+  // 主色调的浅色变体 - 浅绿色，用于悬停状态
   --primary-lighter: #a4cf50;
+  
+  // 主要文字颜色 - 深灰色，用于主要文本内容
   --text-color: #333333;
+  
+  // 次要文字颜色 - 蓝灰色，用于辅助文本
   --text-color-secondary: #57667e;
+  
+  // 背景色 - 白色，用于页面主背景
   --background: #ffffff;
+  
+  // 较深的背景色 - 浅灰色，用于卡片或面板背景
   --background-darker: #f0f0f0;
+  
+  // 较浅的背景色 - 极浅灰色，用于内容区域
   --background-lighter: #fafafa;
+  
+  // 背景阴影颜色 - 浅灰色，用于背景元素的阴影效果
   --bg-shadow-color: #e0e0e0;
+  
+  // 前景阴影颜色 - 深绿色，用于前景元素的阴影效果
   --fg-shadow-color: #678800;
+  
+  // 半透明主色调 - 20% 透明度的深绿色，用于背景高亮
   --primary-transparent: #4a770033;
 }

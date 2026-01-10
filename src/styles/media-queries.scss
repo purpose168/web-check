@@ -1,77 +1,116 @@
-// Breakpoints
+// ==================== 响应式断点配置（Breakpoints）====================
+// 定义不同设备屏幕宽度的断点值，用于响应式设计
+// 这些断点用于创建媒体查询，以适应不同尺寸的设备
+
+// 超小屏幕断点（Extra Small）- 最大宽度 599px，仅适用于手机设备
 $breakpoint-xs: 599px;  // Max width for mobile only
+
+// 小屏幕断点（Small）- 最小宽度 600px，适用于平板竖屏及以上
 $breakpoint-sm: 600px;  // Min width for tablet portrait
+
+// 中等屏幕断点（Medium）- 最小宽度 768px，适用于平板横屏及以上
 $breakpoint-md: 768px;  // Min width for tablet landscape
+
+// 大屏幕断点（Large）- 最小宽度 1024px，适用于桌面设备及以上
 $breakpoint-lg: 1024px; // Min width for desktop
+
+// 超大屏幕断点（Extra Large）- 最小宽度 1440px，适用于大桌面设备及以上
 $breakpoint-xl: 1440px; // Min width for large desktop
 
-// Mixins for specific breakpoints
+// ==================== 媒体查询混入（Media Query Mixins）====================
+// SCSS 混入（Mixins）用于封装常用的媒体查询模式
+// 使用 @include 指令调用这些混入，简化响应式样式编写
+
+// 仅限手机设备（Mobile Only）
+// 适用于屏幕宽度小于等于 599px 的设备
 @mixin for-mobile-only {
   @media (max-width: $breakpoint-xs) {
     @content;
   }
 }
 
+// 手机及以上（Mobile Up）
+// 适用于屏幕宽度大于 599px 的设备（平板、桌面等）
 @mixin mobile-up {
   @media (min-width: calc($breakpoint-xs + 1px)) {
     @content;
   }
 }
 
+// 平板竖屏（Tablet Portrait）
+// 适用于屏幕宽度在 600px 到 767px 之间的设备（平板竖屏）
 @mixin for-tablet-portrait {
   @media (min-width: $breakpoint-sm) and (max-width: calc($breakpoint-md - 1px)) {
     @content;
   }
 }
 
+// 平板竖屏及以下（Tablet Portrait Down）
+// 适用于屏幕宽度小于等于 767px 的设备（手机、平板竖屏）
 @mixin tablet-portrait-down {
   @media (max-width: calc($breakpoint-md - 1px)) {
     @content;
   }
 }
 
+// 平板及以上（Tablet Up）
+// 适用于屏幕宽度大于等于 600px 的设备（平板、桌面等）
 @mixin tablet-up {
   @media (min-width: $breakpoint-sm) {
     @content;
   }
 }
 
+// 平板横屏（Tablet Landscape）
+// 适用于屏幕宽度在 768px 到 1023px 之间的设备（平板横屏）
 @mixin for-tablet-landscape {
   @media (min-width: $breakpoint-md) and (max-width: calc($breakpoint-lg - 1px)) {
     @content;
   }
 }
 
+// 平板横屏及以下（Tablet Landscape Down）
+// 适用于屏幕宽度小于等于 1023px 的设备（手机、平板）
 @mixin tablet-landscape-down {
   @media (max-width: calc($breakpoint-lg - 1px)) {
     @content;
   }
 }
 
+// 桌面设备（Desktop）
+// 适用于屏幕宽度在 1024px 到 1439px 之间的设备（标准桌面）
 @mixin for-desktop {
   @media (min-width: $breakpoint-lg) and (max-width: calc($breakpoint-xl - 1px)) {
     @content;
   }
 }
 
+// 桌面及以下（Desktop Down）
+// 适用于屏幕宽度小于等于 1439px 的设备（手机、平板、标准桌面）
 @mixin desktop-down {
   @media (max-width: calc($breakpoint-xl - 1px)) {
     @content;
   }
 }
 
+// 大桌面设备（Large Desktop）
+// 适用于屏幕宽度大于等于 1440px 的设备（大桌面、超宽屏）
 @mixin for-large-desktop {
   @media (min-width: $breakpoint-xl) {
     @content;
   }
 }
 
+// 大桌面及以上（Large Desktop Up）
+// 适用于屏幕宽度大于等于 1440px 的设备（与 for-large-desktop 相同）
 @mixin large-desktop-up {
   @media (min-width: $breakpoint-xl) {
     @content;
   }
 }
 
+// 手机及以下（Mobile Down）
+// 适用于屏幕宽度小于等于 599px 的设备（仅手机）
 @mixin mobile-down {
   @media (max-width: $breakpoint-xs) {
     @content;

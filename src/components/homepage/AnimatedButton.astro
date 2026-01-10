@@ -1,91 +1,176 @@
 ---
-const buttonText = 'Analyze URL';
+// Astro 组件的前置元数据（Frontmatter）部分
+// 使用 --- 分隔符，这部分代码在构建时执行
+
+// 定义按钮文本
+// 这是按钮上显示的文本内容
+const buttonText = '分析 URL';
+
+// 定义按钮类型
+// type="submit" 表示这是一个提交按钮，通常用于表单
+// 其他可能的值：button（普通按钮）、reset（重置按钮）
 const buttonType = 'submit';
 ---
 
+<!-- 按钮元素 -->
+<!-- class="button": 自定义类名，用于样式控制 -->
+<!-- type={buttonType}: 动态设置按钮类型，值为 "submit" -->
+<!-- {buttonText}: 动态设置按钮文本，值为 "分析 URL" -->
 <button class="button" type={buttonType}>{buttonText}</button>
 
+<!-- 样式部分：使用 SCSS 语法 -->
+<!-- lang="scss": 指定样式语言为 SCSS -->
 <style lang="scss">
+  /* 定义 CSS 自定义属性 --angle（角度） */
+  /* @property 规则允许注册自定义属性并设置其类型、初始值和继承性 */
+  /* syntax: '<angle>' 表示属性值为角度类型（如 90deg、180deg） */
+  /* initial-value: 90deg 表示初始角度为 90 度 */
+  /* inherits: true 表示属性可以继承 */
   @property --angle {
     syntax: '<angle>';
     initial-value: 90deg;
     inherits: true;
   }
 
+  /* 定义 CSS 自定义属性 --gradX（渐变 X 坐标） */
+  /* syntax: '<percentage>' 表示属性值为百分比类型（如 50%、100%） */
+  /* initial-value: 50% 表示初始 X 坐标为 50% */
   @property --gradX {
     syntax: '<percentage>';
     initial-value: 50%;
     inherits: true;
   }
 
+  /* 定义 CSS 自定义属性 --gradY（渐变 Y 坐标） */
+  /* syntax: '<percentage>' 表示属性值为百分比类型 */
+  /* initial-value: 0% 表示初始 Y 坐标为 0% */
   @property --gradY {
     syntax: '<percentage>';
     initial-value: 0%;
     inherits: true;
   }
 
+  /* 按钮样式 */
   .button {
-    padding: 1rem;
-    background: transparent;
-    font-size: 2rem;
-    color: var(--text-color-secondary);
-    border: 2px solid var(--text-color-thirdly);
-    border-radius: 3px;
-    font-weight: bold;
-    background: var(--background);   
-    cursor: pointer;
-    overflow: hidden;
-    --angle: 90deg;
-    --gradX: 100%;
-    --gradY: 50%;
-    --c1: var(--primary);
-    --c2: var(--text-color-thirdly);
+    padding: 1rem;  /* 内边距：1rem（约 16 像素） */
+    background: transparent;  /* 背景色：透明 */
+    font-size: 2rem;  /* 字体大小：2rem（约 32 像素） */
+    color: var(--text-color-secondary);  /* 文字颜色：使用 CSS 变量 --text-color-secondary */
+    border: 2px solid var(--text-color-thirdly);  /* 边框：2px 实线，使用 CSS 变量 --text-color-thirdly */
+    border-radius: 3px;  /* 圆角：3 像素 */
+    font-weight: bold;  /* 字体粗细：粗体 */
+    background: var(--background);  /* 背景色：使用 CSS 变量 --background */
+    cursor: pointer;  /* 鼠标样式：指针（表示可点击） */
+    overflow: hidden;  /* 溢出：隐藏（防止内容溢出） */
+    
+    /* 设置 CSS 自定义属性的值 */
+    --angle: 90deg;  /* 角度：90 度 */
+    --gradX: 100%;  /* 渐变 X 坐标：100% */
+    --gradY: 50%;  /* 渐变 Y 坐标：50% */
+    --c1: var(--primary);  /* 颜色 1：使用 CSS 变量 --primary（主色调） */
+    --c2: var(--text-color-thirdly);  /* 颜色 2：使用 CSS 变量 --text-color-thirdly */
+    
+    /* 边框图像：使用圆锥渐变（conic-gradient）创建旋转边框效果 */
+    /* from var(--angle): 从角度变量开始 */
+    /* var(--c2), var(--c1) 0.5turn: 从颜色 2 到颜色 1，旋转 0.5 圈（180 度） */
+    /* var(--c1) 0.15turn, var(--c2) 0.25turn: 颜色 1 持续 0.15 圈，然后到颜色 2 持续 0.1 圈 */
+    /* 1: 边框宽度为 1 */
     border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.5turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 1;
+    
+    /* 边框旋转动画 */
+    /* 3500ms: 动画持续时间 */
+    /* linear: 线性动画（匀速） */
+    /* infinite: 无限循环 */
+    /* forwards: 动画结束后保持最后状态 */
     animation: borderRotate 3500ms linear infinite forwards;
+    
+    /* 边框过渡效果 */
+    /* 0.3s: 过渡持续时间 */
+    /* ease-in-out: 缓动函数（开始和结束时慢，中间快） */
     transition: border 0.3s ease-in-out;
+    
+    /* 鼠标悬停状态 */
     &:hover {
-      border: 2px solid var(--primary);
+      border: 2px solid var(--primary);  /* 边框：2px 实线，使用主色调 */
     }
   }
 
+  /* 定义边框旋转动画的关键帧 */
+  /* 通过改变 --angle 变量实现旋转效果 */
   @keyframes borderRotate {
-    0% { --angle: 90deg; }
-    25% { --angle: 180deg; }
-    50% { --angle: 270deg; }
-    75% { --angle: 360deg; }
-    100% { --angle: 450deg; }
+    0% { --angle: 90deg; }    /* 开始：90 度 */
+    25% { --angle: 180deg; }   /* 25%：180 度 */
+    50% { --angle: 270deg; }   /* 50%：270 度 */
+    75% { --angle: 360deg; }   /* 75%：360 度 */
+    100% { --angle: 450deg; }  /* 结束：450 度（旋转 360 度） */
   }
 </style>
 
+<!-- 客户端脚本 -->
+<!-- 这部分代码在浏览器中执行 -->
 <script>
-// Workaround to add fancy border animation for users who use a REAL browser
-// Since CSS @property attribute isn't supported in Firefox yet
+// 为使用真正浏览器的用户提供花哨的边框动画
+// 因为 Firefox 浏览器还不支持 CSS @property 属性
+// 这是一个降级方案（polyfill），使用 JavaScript 实现动画效果
+
+// 监听 DOM 内容加载完成事件
 document.addEventListener('DOMContentLoaded', () => {
+  // 检测是否为 Firefox 浏览器
+  // window.InstallTrigger 是 Firefox 特有的属性
   const isFirefox = typeof (window as any).InstallTrigger !== 'undefined';
+  
+  // 如果是 Firefox 浏览器，使用 JavaScript 实现动画
   if (isFirefox) {
+    // 获取按钮元素
     const button = document.querySelector('.button') as HTMLElement | null;
+    
+    // 如果找到按钮元素
     if (button) {
+      // 动画持续时间：3500 毫秒（3.5 秒）
       const duration = 3500;
+      
+      // 起始角度：90 度
       const startAngle = 90;
+      
+      // 结束角度：420 度（旋转 330 度）
       const endAngle = 420;
+      
+      // 动画角度的函数
       function animateAngle() {
+        // 记录动画开始时间
         let start: number | null = null;
+        
+        // 动画步进函数
+        // timestamp: 当前时间戳（由 requestAnimationFrame 提供）
         function step(timestamp: number) {
+          // 如果是第一次调用，记录开始时间
           if (!start) start = timestamp;
+          
+          // 计算动画进度（0 到 1 之间）
           const progress = (timestamp - start) / duration;
+          
+          // 根据进度计算当前角度
+          // 线性插值：从 startAngle 到 endAngle
           const angle = startAngle + progress * (endAngle - startAngle);
 
+          // 设置 CSS 自定义属性 --angle 的值
           button && button.style.setProperty('--angle', `${angle}deg`);
 
+          // 如果动画未完成，继续下一帧
           if (progress < 1) {
             window.requestAnimationFrame(step);
           } else {
+            // 动画完成后，重置开始时间并继续动画
             start = null;
             window.requestAnimationFrame(step);
           }
         }
+        
+        // 启动动画
         window.requestAnimationFrame(step);
       }
+      
+      // 开始动画
       animateAngle();
     }
   }

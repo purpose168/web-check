@@ -1,106 +1,136 @@
 ---
 
 ---
+<!-- 导航栏组件：显示网站导航菜单 -->
 
+<!-- 导航栏容器 -->
 <nav class="navbar">
+  <!-- 左侧区域：Logo 和网站标题 -->
   <div class="nav-left">
+    <!-- Logo 链接：点击返回首页 -->
     <a href="/" class="logo-link" aria-label="Home">
+      <!-- 网站 Logo 图标 -->
       <img width="64" src="/favicon.svg" alt="Site Logo" />
+      <!-- 网站标题：Web Check -->
       <h2 class="site-title">
         <span class="first">Web</span>
         <span class="second">Check</span>
       </h2>
     </a>
   </div>
+  
+  <!-- 右侧区域：导航链接 -->
   <div class="nav-right">
+    <!-- 检查页面链接 -->
     <a href="/check" class="nav-link">Check</a>
+    <!-- API 文档链接 -->
     <a href="/web-check-api" class="nav-link">API</a>
+    <!-- 登录页面链接 -->
     <a href="/account" class="nav-link">Login</a>
   </div>
 </nav>
 
-
 <style lang="scss">
+  // 导航栏容器样式
   .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    flex-wrap: wrap;
-    background-color: var(--background);
-    color: var(--text-color);
-    width: 80vw;
-    margin: 0 auto;
-    border-radius: 2rem;
-    border: 1px solid var(--primary-transparent);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    display: flex;                  // 使用 Flexbox 布局
+    justify-content: space-between; // 内容两端对齐
+    align-items: center;           // 垂直居中对齐
+    padding: 0.5rem 1rem;         // 内边距：上下 0.5rem，左右 1rem
+    flex-wrap: wrap;               // 允许换行
+    background-color: var(--background);  // 背景色使用背景色变量
+    color: var(--text-color);        // 文字颜色使用文本色变量
+    width: 80vw;                   // 宽度为视口宽度的 80%
+    margin: 0 auto;                 // 水平居中
+    border-radius: 2rem;            // 圆角为 2rem
+    border: 1px solid var(--primary-transparent);  // 边框：1px 实线，使用主色调透明变量
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);  // 阴影效果
+    backdrop-filter: blur(5px);      // 背景模糊效果（标准）
+    -webkit-backdrop-filter: blur(5px);  // 背景模糊效果（Webkit 前缀）
+    
+    // 左侧区域样式
     .nav-left {
-      display: flex;
-      align-items: center;
-
+      display: flex;            // 使用 Flexbox 布局
+      align-items: center;       // 垂直居中对齐
+      
+      // Logo 链接样式
       .logo-link {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: var(--text-color);
-
+        display: flex;          // 使用 Flexbox 布局
+        align-items: center;     // 垂直居中对齐
+        text-decoration: none;  // 移除下划线
+        color: var(--text-color);  // 文字颜色使用文本色变量
+        
+        // Logo 图片样式
         img {
-          width: 2rem;
-          max-width: 64px;
-          margin-right: 0.5rem;
+          width: 2rem;          // 宽度为 2rem
+          max-width: 64px;     // 最大宽度为 64px
+          margin-right: 0.5rem; // 右边距为 0.5rem
         }
-
+        
+        // 网站标题样式
         .site-title {
-          margin: 0;
-          font-weight: bold;
-          color: var(--primary);
-          font-size: 1.8rem;
+          margin: 0;            // 外边距为 0
+          font-weight: bold;    // 字体加粗
+          color: var(--primary); // 文字颜色使用主色调变量
+          font-size: 1.8rem;   // 字体大小为 1.8rem
+          
+          // "Web" 文字样式
           .first {
-            color: var(--primary);
+            color: var(--primary); // 文字颜色使用主色调变量
           }
+          
+          // "Check" 文字样式
           .second {
-            color: var(--text-color);
-            font-style: italic;
+            color: var(--text-color);  // 文字颜色使用文本色变量
+            font-style: italic;          // 斜体样式
           }
         }
       }
     }
-
+    
+    // 右侧区域样式
     .nav-right {
-      display: flex;
-
+      display: flex;  // 使用 Flexbox 布局
+      
+      // 导航链接样式
       .nav-link {
-        text-decoration: none;
-        color: var(--text-color);
-        margin-left: 1rem;
-        padding: 0.5rem;
-        transition: background-color 0.3s;
-        position: relative;
+        text-decoration: none;      // 移除下划线
+        color: var(--text-color);    // 文字颜色使用文本色变量
+        margin-left: 1rem;             // 左边距为 1rem
+        padding: 0.5rem;             // 内边距为 0.5rem
+        transition: background-color 0.3s;  // 背景色过渡效果（0.3 秒）
+        position: relative;           // 相对定位（用于伪元素）
+        
+        // 鼠标悬停状态
         &:hover {
-          background-color: var(--primary-light);
+          background-color: var(--primary-light);  // 背景色使用主色调浅色变量
         }
+        
+        // 键盘焦点状态
         &:focus {
-          outline: none;
-          background-color: var(--primary-dark);
-          box-shadow: 0 0 0 3px var(--primary);
+          outline: none;              // 移除默认焦点轮廓
+          background-color: var(--primary-dark);  // 背景色使用主色调深色变量
+          box-shadow: 0 0 0 3px var(--primary);  // 添加阴影效果
         }
+        
+        // 伪元素：用于创建下划线动画效果
         &:after {    
-          background: none repeat scroll 0 0 transparent;
-          bottom: 0;
-          content: "";
-          display: block;
-          height: 2px;
-          left: 50%;
-          position: absolute;
-          background: var(--primary);
-          transition: width 0.3s ease 0s, left 0.3s ease 0s;
-          width: 0;
+          background: none repeat scroll 0 0 transparent;  // 背景渐变（用于动画）
+          bottom: 0;                  // 底部位置为 0
+          content: "";               // 空内容
+          display: block;             // 块级显示
+          height: 2px;               // 高度为 2px
+          left: 50%;                // 左侧位置为 50%
+          position: absolute;        // 绝对定位
+          background: var(--primary);  // 背景色使用主色调变量
+          transition: width 0.3s ease 0s, left 0.3s ease 0s;  // 宽度和左侧位置的过渡效果（0.3 秒）
+          width: 0;                 // 初始宽度为 0
         }
+        
+        // 鼠标悬停时的伪元素状态
         &:hover:after { 
-          width: 100%; 
-          left: 0; 
+          width: 100%;   // 宽度为 100%（完全展开）
+          left: 0;       // 左侧位置为 0（从左到右展开）
         }
       }
     }

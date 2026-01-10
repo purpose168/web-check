@@ -1,15 +1,29 @@
 ---
+// 赞助商名称
 const sponsorName = 'Terminal Trove';
+
+// 赞助商标语
 const sponsorTagline = 'The $HOME of all things terminal.';
+
+// 赞助商链接（包含 UTM 参数用于追踪来源）
 const sponsorLink = 'https://terminaltrove.com/?utm_campaign=github&utm_medium=referral&utm_content=web-check&utm_source=wcgh';
 
+// 行动号召（CTA）前置文本
 const ctaPreText = 'Get updates on the latest CLI/TUI tools via the';
+
+// 行动号召链接
 const ctaLinkHref = 'https://terminaltrove.com/newsletter?utm_campaign=github&utm_medium=referral&utm_content=web-check&utm_source=wcgh';
+
+// 行动号召链接文本
 const ctaLinkText = 'Terminal Trove Newsletter';
+
+// 行动号召图片
 const ctaImageSrc = 'https://i.ibb.co/5jJ4bzZ/terminal-trove-cta.png';
 ---
 
+<!-- 赞助商区域：显示赞助商信息和推广内容 -->
 <div class="sponsored-but-dont-block">
+  <!-- 赞助商文本信息 -->
   <div>
     <h5>Sponsored by <a href={sponsorLink}>{sponsorName}</a></h5>
     <p>
@@ -17,46 +31,63 @@ const ctaImageSrc = 'https://i.ibb.co/5jJ4bzZ/terminal-trove-cta.png';
       {ctaPreText} <a href={ctaLinkHref}>{ctaLinkText}</a>
     </p>
   </div>
+  <!-- 赞助商图片链接 -->
   <a href={sponsorLink}>
     <img width="256" src={ctaImageSrc} alt={`Check out ${sponsorName}`} />
   </a>
 </div>
 
 <style lang="scss">
+  // 导入全局样式文件
   @import '@styles/global.scss';
+  
+  // 赞助商区域样式
   .sponsored-but-dont-block {
-    background: var(--text-color);
-    color: var(--background);
-    padding: 2rem;
-    border-radius: 3px;
-    gap: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background: var(--text-color);    // 背景色使用文本颜色变量
+    color: var(--background);          // 文字颜色使用背景色变量
+    padding: 2rem;                     // 内边距为 2rem
+    border-radius: 3px;                // 圆角为 3px
+    gap: 1rem;                         // 元素间距为 1rem
+    display: flex;                     // 使用 Flexbox 布局
+    justify-content: space-between;     // 内容两端对齐
+    align-items: center;               // 垂直居中对齐
     
+    // 在平板竖屏及以下设备上换行
     @include tablet-portrait-down {
       flex-wrap: wrap;
     }
+    
+    // 在仅移动设备上垂直排列
     @include for-mobile-only {
       flex-direction: column;
       align-items: center;
     }
+    
+    // 标题、段落和链接的颜色
     h5, p, a {
       color: var(--background);
     }
+    
+    // 标题样式
     h5 {
-      font-size: 1.5rem;
+      font-size: 1.5rem;               // 字体大小为 1.5rem
     }
+    
+    // 段落样式
     p {
-      font-size: 1.2rem;
-      line-height: 1.5;
+      font-size: 1.2rem;               // 字体大小为 1.2rem
+      line-height: 1.5;                // 行高为 1.5
     }
+    
+    // 链接样式
     a {
-      text-decoration: underline;
+      text-decoration: underline;     // 添加下划线
     }
+    
+    // 图片样式
     img {
-      width: 20rem;
-      border-radius: 3px;
+      width: 20rem;                    // 宽度为 20rem
+      border-radius: 3px;              // 圆角为 3px
     }
   }
 </style>

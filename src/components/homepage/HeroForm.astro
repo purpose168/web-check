@@ -1,141 +1,235 @@
 ---
+// Astro 组件的前置元数据（Frontmatter）部分
+// 使用 --- 分隔符，这部分代码在构建时执行
+
+// 导入 AnimatedButton 组件：带有旋转边框动画的按钮
+// "./AnimatedButton.astro": 相对路径
 import AnimatedButton from "./AnimatedButton.astro"
+// 导入 AnimatedInput 组件：带有动态占位符动画的输入框
+// "./AnimatedInput.astro": 相对路径
 import AnimatedInput from "./AnimatedInput.astro"
+// 导入 Screenshots 组件：显示网站截图预览
+// "./Screenshots.astro": 相对路径
 import Screenshots from "./Screenshots.astro"
 ---
 
+<!-- 英雄区域（Hero Section）主容器 -->
+<!-- class="hero": 自定义类名，用于样式控制 -->
 <div class="hero">
-<div class="left">
-  <h1>
-    <img src="/favicon.svg" alt="Check Web" width="64" />
-    <span class="web">Web</span>
-    <span class="check">Check</span>
-  </h1>
-  <div class="homepage-action-content">
-    <h2>We give you X-Ray<br />Vision for your Website</h2>
-    <h3>
-      In just 20 seconds, you can see
-      <span>what attackers already know</span>
-    </h3>
-    <form name="live-start" autocomplete="off" action="/check" class="live-start" id="live-start">
-      <label for="url">Enter a URL to start 👇</label>
-      <AnimatedInput />
-      <AnimatedButton />
-    </form>
+  <!-- 左侧内容区域：包含标题和表单 -->
+  <div class="left">
+    <!-- 主标题：包含 Logo 和网站名称 -->
+    <h1>
+      <!-- Logo 图片：网站图标 -->
+      <!-- src="/favicon.svg": 图片路径 -->
+      <!-- alt="Check Web": 替代文本，用于无障碍访问 -->
+      <!-- width="64": 图片宽度为 64 像素 -->
+      <img src="/favicon.svg" alt="检查 Web" width="64" />
+      <!-- 网站名称第一部分 -->
+      <span class="web">Web</span>
+      <!-- 网站名称第二部分 -->
+      <span class="check">Check</span>
+    </h1>
+    
+    <!-- 首页操作内容区域：包含描述和表单 -->
+    <div class="homepage-action-content">
+      <!-- 副标题：描述网站的功能 -->
+      <h2>我们为您提供网站的<br />X 射线视野</h2>
+      
+      <!-- 描述文本：说明工具的价值 -->
+      <h3>
+        在短短 20 秒内，您可以查看
+        <span>攻击者已经知道的信息</span>
+      </h3>
+      
+      <!-- 表单：用于输入 URL 并提交检查请求 -->
+      <!-- name="live-start": 表单名称 -->
+      <!-- autocomplete="off": 禁用自动完成，保护隐私 -->
+      <!-- action="/check": 表单提交的目标 URL -->
+      <!-- class="live-start": 自定义类名，用于样式控制 -->
+      <!-- id="live-start": 元素 ID，用于 JavaScript 选择器 -->
+      <form name="live-start" autocomplete="off" action="/check" class="live-start" id="live-start">
+        <!-- 标签：关联到输入框 -->
+        <!-- for="url": 关联的输入框 ID -->
+        <label for="url">输入 URL 开始 👇</label>
+        
+        <!-- 动画输入框组件 -->
+        <AnimatedInput />
+        
+        <!-- 动画按钮组件 -->
+        <AnimatedButton />
+      </form>
+    </div>
   </div>
-</div>
-<Screenshots />
+  
+  <!-- 截图组件：显示网站截图预览 -->
+  <Screenshots />
 </div>
 
+<!-- 客户端脚本 -->
+<!-- 这部分代码在浏览器中执行 -->
 <script>
   /**
-   * Form management actions (validation, submission, etc.)
-   * We just use normal, old school JavaScript for this
+   * 表单管理操作（验证、提交等）
+   * 我们使用普通的、传统的 JavaScript 来实现这些功能
    */
-
-  // Select the form and input elements from the DOM
-  const form = document.getElementById('live-start');
-  const urlInput = document.getElementById('url-input') as HTMLInputElement;
+  
+  // 从 DOM 中选择表单和输入框元素
+  const form = document.getElementById('live-start');  // 获取表单元素
+  const urlInput = document.getElementById('url-input') as HTMLInputElement;  // 获取输入框元素
     
-  // Submit Event - called when user submits form with a valid URL
-  // Gets and checks the URL, then redirects user to /check/:url
+  // 提交事件：当用户使用有效 URL 提交表单时调用
+  // 获取并检查 URL，然后重定向用户到 /check/:url
   form?.addEventListener('submit', (event) => {
-    event.preventDefault();
+    event.preventDefault();  // 阻止表单的默认提交行为（避免页面刷新）
+    
+    // 获取输入框的值并去除首尾空格
     const url = urlInput.value.trim();
+    
+    // 如果 URL 不为空，进行处理
     if (url) {
+      // 对 URL 进行 URL 编码，确保特殊字符正确传输
       const encodedUrl = encodeURIComponent(url);
+      
+      // 重定向到检查页面，URL 作为路径参数
       window.location.href = `/check/${encodedUrl}`;
     }
   });
   
-  // User presses enter, forgets to add protocol
-  // Will add https:// to the URL, and retry form submit
+  // 键盘事件：当用户按下回车键时，忘记添加协议
+  // 将自动添加 https:// 到 URL，并重试表单提交
   urlInput?.addEventListener('keydown', (event) => {
+    // 检查是否按下回车键
     if (event.key === 'Enter') {
+      // 获取输入框的值并去除首尾空格
       const url = urlInput.value.trim();
+      
+      // 正则表达式：匹配没有协议的域名
+      // 允许字母、数字、点和连字符
+      // 必须以点号和至少两个字母的顶级域名结尾（如 .com、.org）
       const urlWithoutProtocolRegex = /^[a-zA-Z0-9]+[a-zA-Z0-9.-]*\.[a-zA-Z]{2,}$/;
+      
+      // 如果 URL 存在，且不以 https:// 开头，且匹配无协议的域名格式
       if (url && !/^https?:\/\//i.test(url) && urlWithoutProtocolRegex.test(url)) {
+        // 自动添加 https:// 协议
         urlInput.value = 'https://' + url;
+        
+        // 触发表单提交事件
         form?.dispatchEvent(new Event('submit'));
       }
     }
   });
-  </script>
+</script>
 
+<!-- 样式部分：使用 SCSS 语法 -->
+<!-- lang="scss": 指定样式语言为 SCSS -->
 <style lang="scss">
+// 导入全局样式
 @import '@styles/global.scss';
+
+// 英雄区域容器样式
 .hero {
-  display: flex;
-  justify-content: space-around;
-  width: 100vw;
+  display: flex;  /* 显示：flexbox 布局 */
+  justify-content: space-around;  /* 水平对齐：空间均匀分布 */
+  width: 100vw;  /* 宽度：100 视口宽度（填满屏幕） */
+  
+  // 桌面及以下设备的样式
   @include desktop-down {
-    display: block;
-    width: 80vw;
-    margin: 0 auto;
+    display: block;  /* 显示：块级元素 */
+    width: 80vw;  /* 宽度：80 视口宽度 */
+    margin: 0 auto;  /* 外边距：上下 0，左右自动（水平居中） */
   }
 }
+
+// 左侧内容区域样式
 .left {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 20vh;
+  min-height: 100vh;  /* 最小高度：100 视口高度（填满屏幕） */
+  display: flex;  /* 显示：flexbox 布局 */
+  flex-direction: column;  /* 弹性方向：垂直排列子元素 */
+  gap: 20vh;  /* 间距：20 视口高度（子元素之间的垂直间距） */
+  
+  // 平板横屏及以下设备的样式
+  @include tablet-landscape-down {
+    gap: 6rem;  /* 间距：6rem（约 96 像素） */
+  }
+  
+  // 移动设备及以下设备的样式
+  @include mobile-down {
+    gap: 4rem;  /* 间距：4rem（约 64 像素） */
+  }
+  
+  // 主标题样式
+  h1 {
+    margin: 0;  /* 外边距：0（去除默认外边距） */
+    fontis-size: 3em;  /* 字体大小：3em（相对于父元素） */
+    z-index: 5;  /* 层级：5（控制堆叠顺序） */
+    display: flex;  /* 显示：flexbox 布局，使 Logo 和文字水平排列 */
+    gap: 0.1rem;  /* 间距：0.1rem（约 1.6 像素），Logo 和文字之间的间距 */
+    align-items: center;  /* 垂直对齐：居中 */
+    
+    // Logo 图片样式
+    img {
+      vertical-align: middle;  /* 垂直对齐：中间（与文字基线对齐） */
+      width: 3rem;  /* 宽度：3rem（约 48 像素） */
+      margin-right: 0.5rem;  /* 右外边距：0.5rem（约 8 像素） */
+    }
+    
+    // "Web" 文字样式
+    .web {
+      color: var(--text-color);  /* 文字颜色：使用 CSS 变量 --text-color */
+    }
+    
+    // "Check" 文字样式
+    .check {
+      color: var(--primary);  /* 文字颜色：使用 CSS 变量 --primary（主色调） */
+      font-style: italic;  /* 字体样式：斜体 */
+    }
+  }
+  
+  // 首页操作内容区域样式
+  .homepage-action-content {
+    display: flex;  /* 显示：flexbox 布局 */
+    flex-direction: column;  /* 弹性方向：垂直排列子元素 */
+    gap: 1rem;  /* 间距：1rem（约 16 像素） */
+    max-width: 700px;  /* 最大宽度：700 像素 */
+    z-index: 1;  /* 层级：1（控制堆叠顺序） */
+    
+    // 平板横屏及以下设备的样式
     @include tablet-landscape-down {
-      gap: 6rem;
+      gap: 0.25rem;  /* 间距：0.25rem（约 4 像素） */
     }
-    @include mobile-down {
-      gap: 4rem;
+    
+    // 副标题样式
+    h2 {
+      font-size: 3rem;  /* 字体大小：3rem（约 48 像素） */
+      font-weight: bold;  /* 字体粗细：粗体 */
     }
-    h1 {
-      margin: 0;
-      fontis-size: 3em;
-      z-index: 5;
-      display: flex;
-      gap: 0.1rem;
-      align-items: center;
-      img {
-        vertical-align: middle;
-        width: 3rem;
-        margin-right: 0.5rem;
-      }
-      .web {
-        color: var(--text-color);
-      }
-      .check {
-        color: var(--primary);
-        font-style: italic;
+    
+    // 描述文本样式
+    h3 {
+      font-weight: normal;  /* 字体粗细：正常 */
+      font-size: 1.3rem;  /* 字体大小：1.3rem（约 20.8 像素） */
+      
+      // 强调文本样式
+      span {
+        color: var(--primary);  /* 文字颜色：使用 CSS 变量 --primary（主色调） */
+        font-style: italic;  /* 字体样式：斜体 */
       }
     }
-    .homepage-action-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 700px;
-      z-index: 1;
-      @include tablet-landscape-down {
-        gap: 0.25rem;
-      }
-      h2 {
-        font-size: 3rem;
-        font-weight: bold;
-      }
-      h3 {
-        font-weight: normal;
-        font-size: 1.3rem;
-        span {
-          color: var(--primary);
-          font-style: italic;
-        }
-      }
-      form {
-        margin-top: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        label {
-          font-size: 1.3rem;
-          font-weight: bold;
-        }
+    
+    // 表单样式
+    form {
+      margin-top: 1.5rem;  /* 上外边距：1.5rem（约 24 像素） */
+      display: flex;  /* 显示：flexbox 布局 */
+      flex-direction: column;  /* 弹性方向：垂直排列子元素 */
+      gap: 1rem;  /* 间距：1rem（约 16 像素） */
+      
+      // 标签样式
+      label {
+        font-size: 1.3rem;  /* 字体大小：1.3rem（约 20.8 像素） */
+        font-weight: bold;  /* 字体粗细：粗体 */
       }
     }
   }
+}
 </style>

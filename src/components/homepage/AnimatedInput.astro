@@ -1,186 +1,255 @@
 ---
+// Astro 组件的前置元数据（Frontmatter）部分
+// 使用 --- 分隔符，这部分代码在构建时执行
+
+// 定义占位符列表
+// 这些是输入框中轮播显示的示例 URL
+// 用于提示用户可以输入哪些类型的网站地址
 const placeholders = [
-  'duck.com',
-  'github.com',
-  'google.com',
-  'x.com',
-  'bbc.co.uk',
-  'wikipedia.org',
-  'openai.com',
+  'duck.com',        // 示例 1：DuckDuckGo 搜索引擎
+  'github.com',       // 示例 2：GitHub 代码托管平台
+  'google.com',       // 示例 3：Google 搜索引擎
+  'x.com',            // 示例 4：X（原 Twitter）社交媒体平台
+  'bbc.co.uk',        // 示例 5：BBC 新闻网站
+  'wikipedia.org',    // 示例 6：维基百科
+  'openai.com',       // 示例 7：OpenAI 人工智能公司
 ];
 ---
 
 
+<!-- 输入框容器 -->
+<!-- class="input-container": 自定义类名，用于样式控制 -->
 <div class="input-container">
+  <!-- URL 输入框 -->
+  <!-- required: 必填属性，表单提交时必须有值 -->
+  <!-- id="url-input": 元素 ID，用于 JavaScript 选择器 -->
+  <!-- type="url": 输入类型为 URL，浏览器会进行格式验证 -->
+  <!-- name="url": 表单字段名称 -->
+  <!-- placeholder: 占位符文本，提示用户输入格式 -->
   <input
     required
     id="url-input"
     type="url"
     name="url"
-    placeholder="E.g. duck.com"
+    placeholder="例如：duck.com"
   />
+  
+  <!-- 占位符容器：显示轮播的示例 URL -->
+  <!-- class="placeholder-container": 自定义类名，用于样式控制 -->
   <div class="placeholder-container">
-    <span class="starter" aria-hidden="true">E.g.</span>
+    <!-- 固定前缀文本："E.g."（例如） -->
+    <!-- aria-hidden="true": 屏幕阅读器隐藏，因为这是装饰性文本 -->
+    <span class="starter" aria-hidden="true">例如：</span>
+    
+    <!-- 动态生成占位符列表 -->
+    <!-- 使用 map 方法遍历 placeholders 数组 -->
+    <!-- index === 0 ? 'active' : '': 第一个占位符添加 active 类 -->
     {placeholders.map((placeholder, index) => (
       <span class={`placeholder ${index === 0 ? 'active' : ''}`} aria-hidden="true">{placeholder}</span>
     ))}
   </div>
 </div>
 
+<!-- 客户端脚本 -->
+<!-- 这部分代码在浏览器中执行 -->
 <script>
+// 监听 DOM 内容加载完成事件
 document.addEventListener('DOMContentLoaded', () => {
-  // Grab the DOM elements we need
-  const placeholders = document.querySelectorAll('.placeholder');
-  const starter = document.querySelector('.starter') as HTMLElement;
-  const inputField = document.getElementById('url-input') as HTMLInputElement;
-
-  // Variables for the configuring + tracking the placeholder animation
-  let currentIndex = 0;
-  const timeBetweenPlaceholders = 3000;
-  let interval: ReturnType<typeof setInterval>;
+  // 获取需要的 DOM 元素
+  const placeholders = document.querySelectorAll('.placeholder');  // 获取所有占位符元素
+  const starter = document.querySelector('.starter') as HTMLElement;  // 获取前缀文本元素
+  const inputField = document.getElementById('url-input') as HTMLInputElement;  // 获取输入框元素
   
-  // Function to change which placeholder is currently visible
+  // 配置和跟踪占位符动画的变量
+  let currentIndex = 0;  // 当前显示的占位符索引
+  const timeBetweenPlaceholders = 3000;  // 占位符切换间隔：3000 毫秒（3 秒）
+  let interval: ReturnType<typeof setInterval>;  // 定时器引用，用于清除定时器
+  
+  // 切换当前可见占位符的函数
   const changePlaceholder = () => {
+    // 遍历所有占位符元素
     placeholders.forEach((el, index) => {
+      // 移除前缀文本的隐藏类
       starter.classList.remove('hide');
+      
+      // 如果是当前索引，设置为活动状态
       if (index === currentIndex) {
-        el.classList.add('active');
-        el.classList.remove('inactive');
-        el.classList.remove('still-inactive');
-      } else {
-        el.classList.add('inactive');
-        el.classList.remove('active');
+        el.classList.add('active');  // 添加活动类（显示）
+        el.classList.remove('inactive');  // 移除非活动类
+        el.classList.remove('still-inactive');  // 移除静止非活动类
+      } 
+      // 否则，设置为非活动状态
+      else {
+        el.classList.add('inactive');  // 添加非活动类（向下移动）
+        el.classList.remove('active');  // 移除活动类
+        
+        // 延迟添加静止非活动类，创建过渡效果
+        // timeBetweenPlaceholders / 5 = 600 毫秒后添加
         setTimeout(() => {
-          el.classList.add('still-inactive');
+          el.classList.add('still-inactive');  // 添加静止非活动类（向上移动）
         }, timeBetweenPlaceholders / 5);
       }
     });
+    
+    // 更新当前索引，循环到下一个占位符
+    // 使用模运算（%）实现循环：0 -> 1 -> 2 -> ... -> 0
     currentIndex = (currentIndex + 1) % placeholders.length;
   };
 
-  // Begin the placeholder animation
+  // 开始占位符动画
   const startPlaceholderAnimation = () => {
+    // 使用 setInterval 定时调用 changePlaceholder 函数
     interval = setInterval(changePlaceholder, timeBetweenPlaceholders);
   };
 
-  // Stop the placeholder animation
+  // 停止占位符动画
   const stopPlaceholderAnimation = () => {
+    // 清除定时器，停止动画
     clearInterval(interval);
+    
+    // 隐藏前缀文本
     starter.classList.add('hide');
+    
+    // 将所有占位符设置为非活动状态
     placeholders.forEach((el) => {
-      el.classList.remove('active');
-      el.classList.add('inactive');
+      el.classList.remove('active');  // 移除活动类
+      el.classList.add('inactive');  // 添加非活动类
     });
   };
 
-  // When user focuses on the input field, stop the animation
+  // 当用户聚焦到输入框时，停止占位符动画
+  // focus 事件：元素获得焦点
   inputField.addEventListener('focus', () => {
-    stopPlaceholderAnimation();
+    stopPlaceholderAnimation();  // 停止动画
   });
 
-  // And, when user un-focuses on input, resume the placeholder animation
+  // 当用户失去焦点时，恢复占位符动画
+  // blur 事件：元素失去焦点
   inputField.addEventListener('blur', () => {
+    // 只有当输入框为空时才恢复动画
     if (!inputField.value) {
-      startPlaceholderAnimation();
+      startPlaceholderAnimation();  // 开始动画
     }
   });
 
-  // If user types something, stop the animation
+  // 当用户输入内容时，停止占位符动画
+  // input 事件：输入框内容变化
   inputField.addEventListener('input', () => {
+    // 如果输入框有值，停止动画
     if (inputField.value) {
-      stopPlaceholderAnimation();
-    } else if (document.activeElement !== inputField) {
-      startPlaceholderAnimation();
+      stopPlaceholderAnimation();  // 停止动画
+    } 
+    // 如果输入框为空且不是当前焦点元素，恢复动画
+    else if (document.activeElement !== inputField) {
+      startPlaceholderAnimation();  // 开始动画
     }
   });
 
-  // Disable the input's placeholder attribute
+  // 禁用输入框的原生 placeholder 属性
+  // 因为我们使用自定义的占位符动画
   inputField.setAttribute('placeholder', '');
 
-  // Make visible the placeholder container
+  // 显示占位符容器
+  // 将 display 设置为 flex，使占位符可见
   (document.querySelector('.placeholder-container') as HTMLElement).style.display = 'flex';
 
-  // And finally, start the animation!
+  // 最后，开始占位符动画！
   startPlaceholderAnimation();
 });
 </script>
 
 
+<!-- 样式部分：使用 SCSS 语法 -->
+<!-- lang="scss": 指定样式语言为 SCSS -->
 <style lang="scss">
+// 导入排版样式
 @import '@styles/typography.scss';
+// 导入全局样式
 @import '@styles/global.scss';
 
+// 输入框容器样式
 .input-container {
-  position: relative;
-  overflow: hidden;
+  position: relative;  /* 定位：相对定位，为绝对定位的子元素提供参考 */
+  overflow: hidden;  /* 溢出：隐藏（防止内容溢出容器） */
+  
+  // 输入框样式
   input {
-    width: 100%;
-    padding: 1rem;
-    background: var(--background-50);
-    font-size: 2rem;
-    color: var(--text-color-secondary);
-    border: 2px solid var(--text-color);
-    border-radius: 3px;
-    transition: all 0.3s ease-in-out;
+    width: 100%;  /* 宽度：100%（填满容器） */
+    padding: 1rem;  /* 内边距：1rem（约 16 像素） */
+    background: var(--background-50);  /* 背景色：使用 CSS 变量 --background-50 */
+    font-size: 2rem;  /* 字体大小：2rem（约 32 像素） */
+    color: var(--text-color-secondary);  /* 文字颜色：使用 CSS 变量 --text-color-secondary */
+    border: 2px solid var(--text-color);  /* 边框：2px 实线，使用 CSS 变量 --text-color */
+    border-radius: 3px;  /* 圆角：3 像素 */
+    transition: all 0.3s ease-in-out;  /* 过渡：所有属性，0.3 秒，缓动函数 */
+    
+    // 聚焦状态
     &:focus {
-      border-color: var(--primary);
+      border-color: var(--primary);  /* 边框颜色：使用 CSS 变量 --primary（主色调） */
     }
   }
 }
 
+// 占位符容器样式
 .input-container .placeholder-container {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  padding-left: 16px;
-  pointer-events: none;
+  display: none;  /* 显示：初始隐藏，由 JavaScript 控制显示 */
+  position: absolute;  /* 定位：绝对定位，相对于父容器 */
+  top: 0;  /* 顶部：0（与父容器顶部对齐） */
+  left: 0;  /* 左侧：0（与父容器左侧对齐） */
+  width: 100%;  /* 宽度：100%（填满父容器） */
+  height: 100%;  /* 高度：100%（填满父容器） */
+  align-items: center;  /* 垂直对齐：居中 */
+  padding-left: 16px;  /* 左内边距：16 像素 */
+  pointer-events: none;  /* 指针事件：无（不响应鼠标事件，允许点击穿透到输入框） */
 }
 
+// 前缀文本和占位符的通用样式
 .starter, .placeholder {
-  position: absolute;
-  width: 100%;
-  font-size: 2rem;
-  color: var(--text-color-thirdly);
-  padding: 0.1rem 0;
-  user-select: none;
+  position: absolute;  /* 定位：绝对定位 */
+  width: 100%;  /* 宽度：100% */
+  font-size: 2rem;  /* 字体大小：2rem（约 32 像素） */
+  color: var(--text-color-thirdly);  /* 文字颜色：使用 CSS 变量 --text-color-thirdly */
+  padding: 0.1rem 0;  /* 内边距：上下 0.1rem，左右 0 */
+  user-select: none;  /* 用户选择：禁止选择文本 */
 }
 
+// 前缀文本样式
 .starter {
-  transition: opacity 0.6s, transform 0.5s;
+  transition: opacity 0.6s, transform 0.5s;  /* 过渡：透明度和变换，0.6 秒和 0.5 秒 */
+  
+  // 隐藏状态
   &.hide {
-    opacity: 0;
-    transform: translateX(-50%);
+    opacity: 0;  /* 透明度：0（完全透明） */
+    transform: translateX(-50%);  /* 变换：向左平移 50%（淡出效果） */
   }
 }
 
+// 占位符样式
 .placeholder {
-  padding-left: 4rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: transform 0.5s ease-in-out, opacity 0.6s;
-  opacity: 0;
-  transform: translateY(-150%);
+  padding-left: 4rem;  /* 左内边距：4rem（约 64 像素），为前缀文本留出空间 */
+  white-space: nowrap;  /* 空白：不换行 */
+  overflow: hidden;  /* 溢出：隐藏 */
+  text-overflow: ellipsis;  /* 文本溢出：显示省略号（...） */
+  transition: transform 0.5s ease-in-out, opacity 0.6s;  /* 过渡：变换和透明度 */
+  opacity: 0;  /* 透明度：0（初始不可见） */
+  transform: translateY(-150%);  /* 变换：向上平移 150%（初始在上方） */
 }
 
+// 活动状态的占位符
 .placeholder.active {
-  transform: translateY(0);
-  opacity: 1;
+  transform: translateY(0);  /* 变换：无平移（显示在正常位置） */
+  opacity: 1;  /* 透明度：1（完全可见） */
 }
 
+// 非活动状态的占位符（向下移动）
 .placeholder.inactive {
-  transform: translateY(150%);
-  opacity: 0;
+  transform: translateY(150%);  /* 变换：向下平移 150%（移出视图） */
+  opacity: 0;  /* 透明度：0（不可见） */
 }
 
+// 静止非活动状态的占位符（向上移动）
 .placeholder.still-inactive {
-  transform: translateY(-150%);
-  opacity: 0;
+  transform: translateY(-150%);  /* 变换：向上平移 150%（移出视图） */
+  opacity: 0;  /* 透明度：0（不可见） */
 }
-
-
 </style>

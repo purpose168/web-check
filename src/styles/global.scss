@@ -1,129 +1,157 @@
-/* Global Stylesheet */
+// ==================== 全局样式表（Global Stylesheet）====================
+// 这是应用程序的主样式表，负责导入所有基础样式模块
+// 并定义全局 CSS 重置、基础样式和工具类
+
+// 导入颜色主题配置
 @import './colors.scss';
+// 导入媒体查询断点和混入
 @import './media-queries.scss';
+// 导入字体和排版样式
 @import './typography.scss';
 
-/* CSS Reset - Normalize dimensions and spacing across browsers */
+// ==================== CSS 重置（CSS Reset）====================
+// 标准化不同浏览器的尺寸和间距，确保跨浏览器一致性
+// 使用通用选择器（*）匹配所有元素及其伪元素
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: inherit;
+  box-sizing: border-box;  // 使用 border-box 盒模型，padding 和 border 包含在 width 内
+  margin: 0;  // 移除所有元素的外边距
+  padding: 0;  // 移除所有元素的内边距
+  font-family: inherit;  // 继承父元素的字体
 }
 
+// 文本选择样式（用户选中文本时的背景和文字颜色）
 ::selection {
-  background: var(--primary);
-  color: var(--background);
+  background: var(--primary);  // 选择背景色使用主色调
+  color: var(--background);  // 选择文字颜色使用背景色
 }
 
-/* HTML and body basic setup */
+// ==================== HTML 和 Body 基础设置 ====================
+// HTML 元素样式
 html {
-  font-size: 16px;
-  scroll-behavior: smooth;
+  font-size: 16px;  // 设置根字体大小为 16px（浏览器默认值）
+  scroll-behavior: smooth;  // 启用平滑滚动效果（点击锚点链接时平滑滚动）
 }
 
+// Body 元素样式
 body {
-  font-family: 'Hubot Sans', 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  line-height: 1;
-  color: var(--text-color);
-  background: var(--background);
-  overflow-x: hidden;
-  font-weight: 400;
-  margin: 0;
-  min-height: 100vh;
-  position: relative;
+  font-family: 'Hubot Sans', 'Inter', 'Helvetica Neue', Arial, sans-serif;  // 字体栈：优先使用 Hubot Sans，回退到 Inter，最后使用系统字体
+  line-height: 1;  // 行高为 1（紧凑行高）
+  color: var(--text-color);  // 文字颜色使用 CSS 变量（支持主题切换）
+  background: var(--background);  // 背景色使用 CSS 变量（支持主题切换）
+  overflow-x: hidden;  // 隐藏水平滚动条（防止内容溢出）
+  font-weight: 400;  // 字体粗细为 400（正常粗细）
+  margin: 0;  // 移除外边距
+  min-height: 100vh;  // 最小高度为视口高度的 100%
+  position: relative;  // 相对定位（为绝对定位的子元素提供参考）
 }
 
-/* Links */
+// ==================== 链接样式（Links）====================
 a {
-  color: inherit;
-  text-decoration: none;
-  &:hover,
-  &:focus {
-    text-decoration: underline;
+  color: inherit;  // 继承父元素的颜色
+  text-decoration: none;  // 移除下划线
+  &:hover,  // 鼠标悬停状态
+  &:focus {  // 键盘焦点状态
+    text-decoration: underline;  // 显示下划线
   }
 }
 
-/* Images */
+// ==================== 图片样式（Images）====================
 img {
-  max-width: 100%;
-  height: auto;
+  max-width: 100%;  // 最大宽度为父元素的 100%（响应式图片）
+  height: auto;  // 高度自动调整（保持宽高比）
 }
 
-/* Typography */
+// ==================== 排版样式（Typography）====================
+// 标题元素样式（h1-h6）
 h1, h2, h3, h4, h5, h6 {
-  color: inherit;
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  font-weight: normal;
+  color: inherit;  // 继承父元素的颜色
+  margin-top: 0;  // 顶部外边距为 0
+  margin-bottom: 0.5em;  // 底部外边距为 0.5em（相对于字体大小）
+  font-weight: normal;  // 字体粗细为 normal（正常粗细）
 }
 
+// 段落样式
 p {
-  margin-top: 0;
-  margin-bottom: 1em;
+  margin-top: 0;  // 顶部外边距为 0
+  margin-bottom: 1em;  // 底部外边距为 1em（相对于字体大小）
 }
 
+// 列表样式（有序列表和无序列表）
 ul, ol {
-  margin-top: 0;
-  margin-bottom: 1em;
-  padding-left: 20px;
+  margin-top: 0;  // 顶部外边距为 0
+  margin-bottom: 1em;  // 底部外边距为 1em
+  padding-left: 20px;  // 左侧内边距为 20px（用于列表缩进）
 }
 
-/* Forms */
+// ==================== 表单样式（Forms）====================
+// 表单元素样式（输入框、按钮、文本域、下拉选择框）
 input, button, textarea, select {
-  font: inherit;
-  &:focus {
-    outline: 1px solid var(--primary);
+  font: inherit;  // 继承父元素的字体属性
+  &:focus {  // 获得焦点状态
+    outline: 1px solid var(--primary);  // 显示 1px 实线边框，颜色为主色调
   }
 }
 
-/* Utility Classes */
+// ==================== 工具类（Utility Classes）====================
+// 文本居中
 .text-center { text-align: center; }
+// 隐藏元素
 .hidden { display: none; }
+// 粗体文本
 .bold { font-weight: 600; }
+// 斜体文本
 .italic { font-style: italic; }
+// 下划线文本
 .underline { text-decoration: underline; }
+// 大写文本
 .uppercase { text-transform: uppercase; }
 
+// ==================== 响应式字体大小（Responsive Font Sizes）====================
+// 在小屏幕设备（最大宽度 768px）上调整字体大小
 @media (max-width: 768px) {
   html {
-    font-size: 14px;
+    font-size: 14px;  // 根字体大小调整为 14px（移动端更小的字体）
   }
 }
 
+// ==================== 标题字体大小（Heading Font Sizes）====================
+// 标题元素样式（重新定义，覆盖上面的设置）
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  font-weight: 600;
-  color: var(--text-color);
+  margin-top: 0;  // 顶部外边距为 0
+  margin-bottom: 0.5em;  // 底部外边距为 0.5em
+  font-weight: 600;  // 字体粗细为 600（半粗体）
+  color: var(--text-color);  // 文字颜色使用 CSS 变量
 }
 
-h1 { font-size: 2.25rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.2rem; }
-h5 { font-size: 1rem; }
-h6 { font-size: 0.85rem; }
+// 各级标题的字体大小（基于根字体大小 16px）
+h1 { font-size: 2.25rem; }  // 36px
+h2 { font-size: 1.8rem; }  // 28.8px
+h3 { font-size: 1.5rem; }  // 24px
+h4 { font-size: 1.2rem; }  // 19.2px
+h5 { font-size: 1rem; }  // 16px
+h6 { font-size: 0.85rem; }  // 13.6px
 
-// Responsive font sizes
+// 响应式标题字体大小（在小屏幕设备上调整）
 @media (max-width: 768px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.6rem; }
-  h3 { font-size: 1.4rem; }
+  h1 { font-size: 2rem; }  // 32px（移动端）
+  h2 { font-size: 1.6rem; }  // 25.6px（移动端）
+  h3 { font-size: 1.4rem; }  // 22.4px（移动端）
 }
 
+// 段落样式（重新定义）
 p {
-  margin-top: 0;
-  margin-bottom: 1em;
+  margin-top: 0;  // 顶部外边距为 0
+  margin-bottom: 1em;  // 底部外边距为 1em
 }
 
+// 链接样式（重新定义，覆盖上面的设置）
 a {
-  color: var(--primary);
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
+  color: var(--primary);  // 链接颜色使用主色调
+  text-decoration: none;  // 移除下划线
+  &:hover {  // 鼠标悬停状态
+    text-decoration: underline;  // 显示下划线
   }
 }
 

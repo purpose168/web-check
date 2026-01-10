@@ -1,22 +1,42 @@
 ---
+// ==================== 前置元数据（Frontmatter）====================
+
+// 仓库地址（GitHub）
 const repo = 'github.com/lissy93/web-check';
+
+// GitHub 仓库完整 URL
 const github = `https://${repo}`;
 
+// 许可证文本
 const licenseText = 'MIT';
+
+// 许可证文件链接
 const licenseLink = `${github}/blob/master/LICENSE`;
 
+// 关于页面链接
 const aboutLink = '/about';
+
+// 项目名称
 const projectName = 'Web Check';
 
+// 作者姓名
 const authorName = 'Alicia Sykes';
+
+// 作者网站链接
 const authorLink = 'https://aliciasykes.com';
+
+// 获取当前年份（用于版权声明）
 const currentYear = new Date().getFullYear();
 ---
 
+<!-- 页脚组件：显示项目信息和版权声明 -->
 <footer>
+  <!-- 第一段：显示源代码链接 -->
   <p>
     View source at <a href={github}>{repo}</a>
   </p>
+  
+  <!-- 第二段：显示项目名称、许可证和版权信息 -->
   <p>
     <a href={aboutLink}>{projectName}</a>
     is licensed under
@@ -27,27 +47,36 @@ const currentYear = new Date().getFullYear();
 </footer>
 
 <style lang="scss">
+  // 导入全局样式文件
   @import '@styles/global.scss';
+  
+  // 页脚容器样式
   footer {
-    margin-top: 1rem;
-    background: var(--primary);
-    color: var(--background);
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
+    margin-top: 1rem;              // 上边距为 1rem
+    background: var(--primary);      // 背景色使用主色调变量
+    color: var(--background);        // 文字颜色使用背景色变量
+    padding: 1rem;                 // 内边距为 1rem
+    display: flex;                  // 使用 Flexbox 布局
+    justify-content: space-between; // 内容两端对齐
+    gap: 1rem;                    // 元素间距为 1rem
+    flex-wrap: wrap;               // 允许换行
+    
+    // 段落和链接的样式
     p, a {
-      margin: 0;
-      color: var(--background);
-      font-size: 1rem;
+      margin: 0;                    // 外边距为 0
+      color: var(--background);    // 文字颜色使用背景色变量
+      font-size: 1rem;             // 字体大小为 1rem
     }
+    
+    // 链接样式
     a {
-      text-decoration: underline;
+      text-decoration: underline;    // 添加下划线
     }
+    
+    // 平板竖屏及以下设备的响应式样式
     @include tablet-portrait-down {
-      flex-direction: column;
-      align-items: center;
+      flex-direction: column;       // 垂直排列
+      align-items: center;         // 居中对齐
     }
   }
 </style>

@@ -1,164 +1,196 @@
+// ==================== Inter 字体家族定义 ====================
+// Inter 是一款开源的无衬线字体，专为屏幕阅读优化
+// 字体文件格式：TrueType (.ttf)
+// font-display: swap 确保字体加载时先显示后备字体，避免文本不可见（FOIT）
+
+// Inter 字体 - 极细（Thin，字重 100）
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-Thin.ttf') format('truetype');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Inter';  // 字体家族名称
+  src: url('/fonts/Inter-Thin.ttf') format('truetype');  // 字体文件路径和格式
+  font-weight: 100;  // 字重：极细（Thin）
+  font-style: normal;  // 字体样式：正常（非斜体）
+  font-display: swap;  // 字体显示策略：交换（立即显示后备字体，字体加载后替换）
 }
 
+// Inter 字体 - 特细（Extra Light，字重 200）
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-ExtraLight.ttf') format('truetype');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Inter';  // 字体家族名称
+  src: url('/fonts/Inter-ExtraLight.ttf') format('truetype');  // 字体文件路径和格式
+  font-weight: 200;  // 字重：特细（Extra Light）
+  font-style: normal;  // 字体样式：正常（非斜体）
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Inter 字体 - 细体（Light，字重 300）
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Inter';  // 字体家族名称
+  src: url('/fonts/Inter-Light.ttf') format('truetype');  // 字体文件路径和格式
+  font-weight: 300;  // 字重：细体（Light）
+  font-style: normal;  // 字体样式：正常（非斜体）
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Inter 字体 - 常规（Regular，字重 400）
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Inter';  // 字体家族名称
+  src: url('/fonts/Inter-Regular.ttf') format('truetype');  // 字体文件路径和格式
+  font-weight: 400;  // 字重：常规（Regular）
+  font-style: normal;  // 字体样式：正常（非斜体）
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Inter 字体 - 中等（Medium，字重 500）
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Inter';  // 字体家族名称
+  src: url('/fonts/Inter-Medium.ttf') format('truetype');  // 字体文件路径和格式
+  font-weight: 500;  // 字重：中等（Medium）
+  font-style: normal;  // 字体样式：正常（非斜体）
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Inter 字体 - 半粗体（Semi Bold，字重 600）
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Inter';  // 字体家族名称
+  src: url('/fonts/Inter-SemiBold.ttf') format('truetype');  // 字体文件路径和格式
+  font-weight: 600;  // 字重：半粗体（Semi Bold）
+  font-style: normal;  // 字体样式：正常（非斜体）
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Inter 字体 - 粗体（Bold，字重 700）
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Inter';  // 字体家族名称
+  src: url('/fonts/Inter-Bold.ttf') format('truetype');  // 字体文件路径和格式
+  font-weight: 700;  // 字重：粗体（Bold）
+  font-style: normal;  // 字体样式：正常（非斜体）
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Inter 字体 - 特粗（Extra Bold，字重 800）
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-ExtraBold.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Inter';  // 字体家族名称
+  src: url('/fonts/Inter-ExtraBold.ttf') format('truetype');  // 字体文件路径和格式
+  font-weight: 800;  // 字重：特粗（Extra Bold）
+  font-style: normal;  // 字体样式：正常（非斜体）
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Inter 字体 - 黑体（Black，字重 900）
 @font-face {
-  font-family: 'Inter';
-  src: url('/fonts/Inter-Black.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Inter';  // 字体家族名称
+  src: url('/fonts/Inter-Black.ttf') format('truetype');  // 字体文件路径和格式
+  font-weight: 900;  // 字重：黑体（Black）
+  font-style: normal;  // 字体样式：正常（非斜体）
+  font-display: swap;  // 字体显示策略：交换
 }
 
-// Regular Weights and Styles
+// ==================== Hubot Sans 字体家族定义 ====================
+// Hubot Sans 是一款现代无衬线字体，提供多种字重和样式
+// 字体文件格式：WOFF2（优先）和 TrueType（后备）
+// WOFF2 格式具有更好的压缩率，加载更快
+// font-display: swap 确保字体加载时先显示后备字体
+
+// ==================== 常规字重和样式（Regular Weights and Styles）====================
+
+// Hubot Sans 字体 - 常规（Regular，字重 400，正常样式）
 @font-face {
-  font-family: 'Hubot Sans';
-  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-Regular.woff2') format('woff2'),
-       url('/fonts/Hubot-Sans/TTF/HubotSans-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Hubot Sans';  // 字体家族名称
+  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-Regular.woff2') format('woff2'),  // WOFF2 格式（优先）
+       url('/fonts/Hubot-Sans/TTF/HubotSans-Regular.ttf') format('truetype');  // TrueType 格式（后备）
+  font-weight: 400;  // 字重：常规（Regular）
+  font-style: normal;  // 字体样式：正常（非斜体）
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Hubot Sans 字体 - 常规斜体（Regular Italic，字重 400，斜体样式）
 @font-face {
-  font-family: 'Hubot Sans';
-  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-Italic.woff2') format('woff2'),
-       url('/fonts/Hubot-Sans/TTF/HubotSans-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
+  font-family: 'Hubot Sans';  // 字体家族名称
+  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-Italic.woff2') format('woff2'),  // WOFF2 格式（优先）
+       url('/fonts/Hubot-Sans/TTF/HubotSans-Italic.ttf') format('truetype');  // TrueType 格式（后备）
+  font-weight: 400;  // 字重：常规（Regular）
+  font-style: italic;  // 字体样式：斜体
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Hubot Sans 字体 - 粗体（Bold，字重 700，正常样式）
 @font-face {
-  font-family: 'Hubot Sans';
-  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-Bold.woff2') format('woff2'),
-       url('/fonts/Hubot-Sans/TTF/HubotSans-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Hubot Sans';  // 字体家族名称
+  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-Bold.woff2') format('woff2'),  // WOFF2 格式（优先）
+       url('/fonts/Hubot-Sans/TTF/HubotSans-Bold.ttf') format('truetype');  // TrueType 格式（后备）
+  font-weight: 700;  // 字重：粗体（Bold）
+  font-style: normal;  // 字体样式：正常（非斜体）
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Hubot Sans 字体 - 粗体斜体（Bold Italic，字重 700，斜体样式）
 @font-face {
-  font-family: 'Hubot Sans';
-  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-BoldItalic.woff2') format('woff2'),
-       url('/fonts/Hubot-Sans/TTF/HubotSans-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
+  font-family: 'Hubot Sans';  // 字体家族名称
+  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-BoldItalic.woff2') format('woff2'),  // WOFF2 格式（优先）
+       url('/fonts/Hubot-Sans/TTF/HubotSans-BoldItalic.ttf') format('truetype');  // TrueType 格式（后备）
+  font-weight: 700;  // 字重：粗体（Bold）
+  font-style: italic;  // 字体样式：斜体
+  font-display: swap;  // 字体显示策略：交换
 }
 
-// Light, Medium, and ExtraBold variants
+// ==================== 细体、中等和特粗变体（Light, Medium, and ExtraBold variants）====================
+
+// Hubot Sans 字体 - 细体（Light，字重 300，正常样式）
 @font-face {
-  font-family: 'Hubot Sans';
-  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-Light.woff2') format('woff2'),
-       url('/fonts/Hubot-Sans/TTF/HubotSans-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Hubot Sans';  // 字体家族名称
+  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-Light.woff2') format('woff2'),  // WOFF2 格式（优先）
+       url('/fonts/Hubot-Sans/TTF/HubotSans-Light.ttf') format('truetype');  // TrueType 格式（后备）
+  font-weight: 300;  // 字重：细体（Light）
+  font-style: normal;  // 字体样式：正常（非斜体）
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Hubot Sans 字体 - 细体斜体（Light Italic，字重 300，斜体样式）
 @font-face {
-  font-family: 'Hubot Sans';
-  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-LightItalic.woff2') format('woff2'),
-       url('/fonts/Hubot-Sans/TTF/HubotSans-LightItalic.ttf') format('truetype');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
+  font-family: 'Hubot Sans';  // 字体家族名称
+  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-LightItalic.woff2') format('woff2'),  // WOFF2 格式（优先）
+       url('/fonts/Hubot-Sans/TTF/HubotSans-LightItalic.ttf') format('truetype');  // TrueType 格式（后备）
+  font-weight: 300;  // 字重：细体（Light）
+  font-style: italic;  // 字体样式：斜体
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Hubot Sans 字体 - 中等（Medium，字重 500，正常样式）
 @font-face {
-  font-family: 'Hubot Sans';
-  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-Medium.woff2') format('woff2'),
-       url('/fonts/Hubot-Sans/TTF/HubotSans-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Hubot Sans';  // 字体家族名称
+  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-Medium.woff2') format('woff2'),  // WOFF2 格式（优先）
+       url('/fonts/Hubot-Sans/TTF/HubotSans-Medium.ttf') format('truetype');  // TrueType 格式（后备）
+  font-weight: 500;  // 字重：中等（Medium）
+  font-style: normal;  // 字体样式：正常（非斜体）
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Hubot Sans 字体 - 中等斜体（Medium Italic，字重 500，斜体样式）
 @font-face {
-  font-family: 'Hubot Sans';
-  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-MediumItalic.woff2') format('woff2'),
-       url('/fonts/Hubot-Sans/TTF/HubotSans-MediumItalic.ttf') format('truetype');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
+  font-family: 'Hubot Sans';  // 字体家族名称
+  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-MediumItalic.woff2') format('woff2'),  // WOFF2 格式（优先）
+       url('/fonts/Hubot-Sans/TTF/HubotSans-MediumItalic.ttf') format('truetype');  // TrueType 格式（后备）
+  font-weight: 500;  // 字重：中等（Medium）
+  font-style: italic;  // 字体样式：斜体
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Hubot Sans 字体 - 特粗（Extra Bold，字重 800，正常样式）
 @font-face {
-  font-family: 'Hubot Sans';
-  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-ExtraBold.woff2') format('woff2'),
-       url('/fonts/Hubot-Sans/TTF/HubotSans-ExtraBold.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
+  font-family: 'Hubot Sans';  // 字体家族名称
+  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-ExtraBold.woff2') format('woff2'),  // WOFF2 格式（优先）
+       url('/fonts/Hubot-Sans/TTF/HubotSans-ExtraBold.ttf') format('truetype');  // TrueType 格式（后备）
+  font-weight: 800;  // 字重：特粗（Extra Bold）
+  font-style: normal;  // 字体样式：正常（非斜体）
+  font-display: swap;  // 字体显示策略：交换
 }
 
+// Hubot Sans 字体 - 特粗斜体（Extra Bold Italic，字重 800，斜体样式）
 @font-face {
-  font-family: 'Hubot Sans';
-  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-ExtraBoldItalic.woff2') format('woff2'),
-       url('/fonts/Hubot-Sans/TTF/HubotSans-ExtraBoldItalic.ttf') format('truetype');
-  font-weight: 800;
-  font-style: italic;
-  font-display: swap;
+  font-family: 'Hubot Sans';  // 字体家族名称
+  src: url('/fonts/Hubot-Sans/WOFF2/HubotSans-ExtraBoldItalic.woff2') format('woff2'),  // WOFF2 格式（优先）
+       url('/fonts/Hubot-Sans/TTF/HubotSans-ExtraBoldItalic.ttf') format('truetype');  // TrueType 格式（后备）
+  font-weight: 800;  // 字重：特粗（Extra Bold）
+  font-style: italic;  // 字体样式：斜体
+  font-display: swap;  // 字体显示策略：交换
 }
 

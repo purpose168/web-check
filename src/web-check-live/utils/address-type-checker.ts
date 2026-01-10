@@ -1,22 +1,22 @@
 /** 
- * Helper functions to determine if a string is a valid web address,
- * and what type of address it is: URL, IPv4, IPv6 or none of those.
+ * 辅助函数，用于确定字符串是否是有效的Web地址，
+ * 以及它是什么类型的地址：URL、IPv4、IPv6或其他。
  */
 
 export type AddressType = 'ipV4' | 'ipV6' | 'url' | 'err' | 'empt';
 
-/* Checks if a given string looks like a URL */
+/* 检查给定字符串是否看起来像URL */
 const isUrl = (value: string):boolean => {
-  var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
-    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
-    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
-    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
-    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
-    '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
+  var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // 验证协议
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // 验证域名
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // 验证或IP（v4）地址
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // 验证端口和路径
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // 验证查询字符串
+    '(\\#[-a-z\\d_]*)?$','i'); // 验证片段定位符
   return urlPattern.test(value);
 };
 
-// /* Checks if a given string looks like a URL */
+// /* 检查给定字符串是否看起来像URL */
 // const isUrl = (value: string):boolean => {
 //   const urlRegex= new RegExp(''
 //     // + /(?:(?:(https?|ftp):)?\/\/)/.source
@@ -29,14 +29,14 @@ const isUrl = (value: string):boolean => {
 //   return urlRegex.test(value);
 // };
 
-/* Checks if a given string looks like an IP Version 4 Address */
+/* 检查给定字符串是否看起来像IP版本4地址 */
 const isIpV4 = (value: string): boolean => {
   const ipPart = '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)';
   const ipV4Regex = new RegExp(`^${ipPart}.${ipPart}.${ipPart}.${ipPart}$`);
   return ipV4Regex.test(value);
 };
 
-/* Checks if a given string looks like an IP Version 6 Address */
+/* 检查给定字符串是否看起来像IP版本6地址 */
 const isIPv6 = (value: string): boolean => {
   const components = value.split(':');
   
@@ -57,11 +57,12 @@ const isIPv6 = (value: string): boolean => {
   return true;
 };
 
+/* 检查给定字符串是否为短字符串 */
 const isShort = (value: string): boolean => {
   return (!value || value.length <=3);
 };
 
-/* Returns the address type for a given address */
+/* 返回给定地址的地址类型 */
 export const determineAddressType = (address: string | undefined): AddressType => {
   if (!address) return 'err';
   if (isShort(address)) return 'empt';

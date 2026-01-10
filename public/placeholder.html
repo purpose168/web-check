@@ -1,38 +1,111 @@
+<!-- 文档类型声明 -->
+<!-- 声明这是一个 HTML5 文档 -->
 <!DOCTYPE html>
-<html lang="en">
+<!-- HTML 根元素，lang 属性设置为中文 -->
+<html lang="zh-CN">
+  <!-- 头部区域：包含文档的元数据 -->
   <head>
+    <!-- 字符编码声明：使用 UTF-8 编码，支持中文等国际字符 -->
     <meta charset="UTF-8" />
+    <!-- 视口设置：确保页面在移动设备上正确显示 -->
+    <!-- width=device-width: 视口宽度等于设备宽度 -->
+    <!-- initial-scale=1.0: 初始缩放比例为 1.0，不缩放 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 页面标题：显示在浏览器标签页上 -->
     <title>Web-Check</title>
   </head>
+  <!-- 主体区域：包含页面的可见内容 -->
   <body>
+    <!-- 主要内容区域：使用语义化的 section 标签 -->
     <section>
-      <a class="t" href="/"><h1><img src="https://i.ibb.co/q1gZN2p/web-check-logo.png" width="48" />Web-Check</h1></a>
-      <p><!-- CONTENT --></p>
-      <span>Docs and Source: <a href="https://github.com/lissy93/web-check">github.com/lissy93/web-check</a></span>
+      <!-- 返回首页的链接 -->
+      <!-- class="t": 自定义类名，用于样式控制 -->
+      <a class="t" href="/">
+        <!-- 主标题：包含 Logo 和网站名称 -->
+        <!-- 使用 flexbox 布局，使 Logo 和文字水平排列 -->
+        <h1>
+          <!-- Logo 图片：从外部图片服务加载 -->
+          <!-- width="48": 图片宽度为 48 像素 -->
+          <img src="https://i.ibb.co/q1gZN2p/web-check-logo.png" width="48" />
+          <!-- 网站名称 -->
+          Web-Check
+        </h1>
+      </a>
+      <!-- 内容占位符：用于显示动态内容 -->
+      <!-- <!-- CONTENT --> 是一个注释标记，表示这里会被动态内容替换 -->
+      <p><!-- 内容 --></p>
+      <!-- 文档和源代码链接 -->
+      <!-- span 标签：用于分组和样式控制 -->
+      <span>文档和源代码: <a href="https://github.com/lissy93/web-check">github.com/lissy93/web-check</a></span>
     </section>
+    <!-- 样式区域：定义页面的 CSS 样式 -->
     <style>
-      body { background: #141d2b; color: #fff; }
-      h1 {
-        color: #9fef00; text-shadow: #0f1620 2px 2px 0px;
-        font-size: 3rem; margin: 1rem auto; flex-wrap: wrap;
-        display: flex; align-items: flex-start; gap: 1rem;
+      /* 主体样式 */
+      body { 
+        background: #141d2b;  /* 背景色：深蓝色 */
+        color: #fff;  /* 文字颜色：白色 */
       }
+      /* 主标题样式 */
+      h1 {
+        color: #9fef00;  /* 文字颜色：亮绿色 */
+        text-shadow: #0f1620 2px 2px 0px;  /* 文字阴影：深蓝色，向右下偏移 2 像素 */
+        font-size: 3rem;  /* 字体大小：3rem（约 48 像素） */
+        margin: 1rem auto;  /* 外边距：上下 1rem，左右自动（水平居中） */
+        flex-wrap: wrap;  /* 允许 flex 项目换行 */
+        display: flex;  /* 使用 flexbox 布局 */
+        align-items: flex-start;  /* 垂直对齐：顶部对齐 */
+        gap: 1rem;  /* flex 项目之间的间距：1rem */
+      }
+      /* 主要内容区域样式 */
       section {
-        display: flex; flex-direction: column; align-items: center; margin: 1rem; gap: 0.5rem;
-        background: #1a2332; box-shadow: #0f1620 4px 4px 0px; border-radius: 8px; padding: 1rem;
-        max-width: 800px; margin: 1rem auto;
+        display: flex;  /* 使用 flexbox 布局 */
+        flex-direction: column;  /* 垂直方向排列子元素 */
+        align-items: center;  /* 水平居中对齐子元素 */
+        margin: 1rem;  /* 外边距：1rem */
+        gap: 0.5rem;  /* 子元素之间的间距：0.5rem */
+        background: #1a2332;  /* 背景色：深蓝色 */
+        box-shadow: #0f1620 4px 4px 0px;  /* 盒子阴影：深蓝色，向右下偏移 4 像素 */
+        border-radius: 8px;  /* 圆角：8 像素 */
+        padding: 1rem;  /* 内边距：1rem */
+        max-width: 800px;  /* 最大宽度：800 像素 */
+        margin: 1rem auto;  /* 外边距：上下 1rem，左右自动（水平居中） */
       }
-      p { font-size: 1.2rem; }
-      a { color: #9fef00; font-family: monospace; }
-      a.t { text-decoration: none; margin: 0;}
-      span { opacity: 0.8; font-size: 0.85rem; }
+      /* 段落样式 */
+      p { 
+        font-size: 1.2rem;  /* 字体大小：1.2rem（约 19.2 像素） */
+      }
+      /* 链接样式 */
+      a { 
+        color: #9fef00;  /* 链接颜色：亮绿色 */
+        font-family: monospace;  /* 字体：等宽字体 */
+      }
+      /* 顶部链接的特殊样式 */
+      a.t { 
+        text-decoration: none;  /* 去除下划线 */
+        margin: 0;  /* 外边距：0 */
+      }
+      /* span 标签样式 */
+      span { 
+        opacity: 0.8;  /* 透明度：0.8（稍微透明） */
+        font-size: 0.85rem;  /* 字体大小：0.85rem（约 13.6 像素） */
+      }
+      /* 主标题字体样式 */
       h1 {
-        font-family: PTMono, Ubuntu, Fira Sans, Helvetica, sans-serif;
+        font-family: PTMono, Ubuntu, Fira Sans, Helvetica, sans-serif;  /* 字体族：优先使用 PTMono，然后是 Ubuntu 等 */
       }
-      p, span, a, section, div { font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
-      code { color: #9fef00cc;}
-      .logs { background: #141d2b; padding: 0.5rem;}
+      /* 段落、链接、section、div 的字体样式 */
+      p, span, a, section, div { 
+        font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;  /* 字体族：等宽字体，适合代码显示 */
+      }
+      /* 代码样式 */
+      code { 
+        color: #9fef00cc;  /* 文字颜色：亮绿色，带透明度 */
+      }
+      /* 日志区域样式 */
+      .logs { 
+        background: #141d2b;  /* 背景色：深蓝色 */
+        padding: 0.5rem;  /* 内边距：0.5rem */
+      }
     </style>
   </body>
 </html>

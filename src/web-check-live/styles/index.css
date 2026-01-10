@@ -1,3 +1,4 @@
+/* 定义自定义字体PTMono */
 @font-face {
   font-family: 'PTMono';
   src: url('/fonts/PTMono-Regular.ttf') format('truetype');
@@ -5,10 +6,12 @@
   font-style: normal;
 }
 
+/* 设置HTML元素的平滑滚动行为 */
 html {
   scroll-behavior: smooth;
 }
 
+/* 设置body元素的样式 */
 body {
   margin: 0;
   font-family: 'PTMono', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -20,24 +23,27 @@ body {
   color: #fff;
 }
 
+/* 设置代码元素的字体 */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* 设置背景装饰区域的颜色 */
 #fancy-background { color: var(--background, #141517); }
 
-
+/* 设置文本选中时的样式 */
 ::selection {
   background: var(--primary, #d6fb41);
   color: var(--background, #141517);
 }
 
-
+/* 设置SVG地图的背景和圆角 */
 svg.rsm-svg {
   background: #141517;
   border-radius: 6px;
 }
 
+/* 设置根元素的CSS变量，用于Toastify通知组件 */
 :root {
   --toastify-color-dark: #111927 !important;
   --toastify-color-info: #04e4f4 !important;
@@ -46,6 +52,7 @@ svg.rsm-svg {
   --toastify-color-error: #f80363 !important;
 }
 
+/* 设置背景装饰区域的定位 */
 #fancy-background {
   position: absolute;
 }

@@ -1,42 +1,58 @@
 ---
+// 导入基础布局组件
 import BaseLayout from '@layouts/Base.astro';
+// 导入主组件（React 组件）
 import Main from '../../web-check-live/main.tsx';
+// 导入主组件的样式文件
 import '../../web-check-live/styles/index.css';
 
+// 禁用预渲染（动态路由需要）
 export const prerender = false;
 
+// 获取当前请求的 URL
 const { pathname, search } = new URL(Astro.request.url);
 
+// 从查询参数中获取 url 参数的值
 const searchUrl = new URLSearchParams(search).get('url');
 
+// 如果查询参数中包含 url 参数，则重定向到检查页面
+// 例如：/check?url=example.com 重定向到 /check/example.com
 if (searchUrl) {
   Astro.redirect(`/check/${encodeURIComponent(searchUrl)}`);
 }
 
 ---
 
+<!-- 渲染基础布局组件 -->
 <BaseLayout>
+  <!-- 渲染主组件 -->
+  <!-- pathname：当前路径名 -->
+  <!-- client:load：在客户端加载时渲染组件 -->
   <Main {pathname} client:load />
 </BaseLayout>
 
+<!-- ==================== 客户端脚本 ==================== -->
 <script>
-  // Fallback, if Astro hasn't initialized the RC comp yet, then check the url
-  // And if form has been submitted with ?url=, redirect to the results page
+  // 回退方案：如果 Astro 尚未初始化 React 组件，则检查 URL
+  // 如果表单已提交并包含 ?url= 参数，则重定向到结果页面
   const searchParams = new URL(window.location.href).searchParams;
   if (searchParams.has('url')) {
     window.location.href = `/check/${encodeURIComponent(searchParams.get('url') || '')}`;
   }
 
-  // And add a manual no-react form submit handler
+  // 添加手动非 React 表单提交处理程序
   const form = document.querySelector<HTMLFormElement>('form');
   if (form) {
     form.addEventListener('submit', function(event: Event) {
-      event.preventDefault();
+      event.preventDefault();  // 阻止默认的表单提交行为
+      
+      // 获取表单中的 URL 输入字段
       const input = (this as HTMLFormElement).querySelector<HTMLInputElement>('input[name="url"]');  
+      
+      // 如果输入字段存在且有值，则重定向到检查页面
       if (input && input.value) {
         window.location.href = `/check/${encodeURIComponent(input.value)}`;
       }
     });
   }
-
 </script>

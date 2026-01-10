@@ -1,113 +1,147 @@
 ---
-
+// Astro 组件的前置元数据（Frontmatter）部分
+// 使用 --- 分隔符，这部分代码在构建时执行
+// 导入 ButtonGroup 组件：用于显示按钮组
+// @components/homepage/ButtonGroup.astro: 按钮组组件的相对路径
 import ButtonGroup from '@components/homepage/ButtonGroup.astro';
+// 导入 Features 组件：用于显示功能特性列表
+// @components/homepage/Features.astro: 功能特性组件的相对路径
 import Features from '@components/homepage/Features.astro';
+// 导入 SponsorSegment 组件：用于显示赞助者信息
+// @components/homepage/SponsorSegment.astro: 赞助者组件的相对路径
 import SponsorSegment from '@components/homepage/SponsorSegment.astro';
 
+// 定义支持的检查类型列表
+// 这个数组包含 Web Check 工具支持的所有检查类型
+// 每个字符串代表一种检查功能，用于在 Features 组件中显示
 const supportedChecks = [
-  'Archive History',
-  'Block List Check',
-  'Carbon Footprint',
-  'Cookies',
-  'DNS Server',
-  'DNS Records',
-  'DNSSEC',
-  'Site Features',
-  'Firewall Types',
-  'Get IP Address',
-  'Headers',
-  'HSTS',
-  'HTTP Security',
-  'Linked Pages',
-  'Mail Config',
-  'Open Ports',
-  'Quality Check',
-  'Global Rank',
-  'Redirects',
-  'Robots.txt',
-  'Screenshot',
-  'Security.txt',
-  'Sitemap',
-  'Social Tags',
-  'SSL Certificate',
-  'Uptime Status',
-  'Tech Stack',
-  'Known Threats',
-  'TLS Version',
-  'Trace Route',
-  'TXT Records',
-  'Whois Lookup'
+  'Archive History',        // 归档历史：查看网站的历史归档记录
+  'Block List Check',      // 阻止列表检查：检查网站是否在阻止列表中
+  'Carbon Footprint',       // 碳足迹：计算网站的碳排放量
+  'Cookies',              // Cookie：查看网站的 Cookie 信息
+  'DNS Server',           // DNS 服务器：查看网站的 DNS 服务器信息
+  'DNS Records',          // DNS 记录：查看网站的 DNS 记录
+  'DNSSEC',              // DNSSEC：查看 DNS 安全扩展配置
+  'Site Features',        // 网站特性：分析网站的功能特性
+  'Firewall Types',       // 防火墙类型：检测网站的防火墙类型
+  'Get IP Address',       // 获取 IP 地址：获取网站的 IP 地址
+  'Headers',             // HTTP 头：查看 HTTP 响应头
+  'HSTS',               // HSTS：查看 HTTP 严格传输安全配置
+  'HTTP Security',        // HTTP 安全：查看 HTTP 安全配置
+  'Linked Pages',         // 链接页面：查看网站链接的其他页面
+  'Mail Config',         // 邮件配置：查看邮件服务器配置
+  'Open Ports',          // 开放端口：扫描网站的开放端口
+  'Quality Check',        // 质量检查：评估网站质量
+  'Global Rank',         // 全球排名：查看网站的全球排名
+  'Redirects',          // 重定向：查看 URL 重定向链
+  'Robots.txt',         // Robots.txt：查看爬虫规则
+  'Screenshot',          // 截图：获取网站截图
+  'Security.txt',        // Security.txt：查看安全策略
+  'Sitemap',            // 网站地图：查看网站地图
+  'Social Tags',         // 社交标签：查看 OpenGraph 等社交标签
+  'SSL Certificate',     // SSL 证书：查看 SSL/TLS 证书信息
+  'Uptime Status',       // 运行状态：查看网站的可用性
+  'Tech Stack',          // 技术栈：查看网站使用的技术
+  'Known Threats',       // 已知威胁：检查网站的安全威胁
+  'TLS Version',         // TLS 版本：查看 TLS/SSL 配置
+  'Trace Route',         // 路由追踪：追踪网络路由
+  'TXT Records',         // TXT 记录：查看 DNS TXT 记录
+  'Whois Lookup'         // Whois 查询：查看域名注册信息
 ];
 
+// 定义链接列表
+// 这个数组包含三个主要操作链接，用于在 ButtonGroup 组件中显示
+// 每个对象包含标题、URL、图标和是否为主要操作按钮的标志
 const links = [
   {
-    title: 'View on GitHub',
-    url: 'https://github.com/lissy93/web-check',
-    icon: 'github',
-    isCta: true,
+    title: 'View on GitHub',      // 链接标题：在 GitHub 上查看
+    url: 'https://github.com/lissy93/web-check',  // 链接 URL：GitHub 仓库地址
+    icon: 'github',             // 图标：GitHub 图标
+    isCta: true,               // 是否为主要操作按钮（Call to Action）
   },
   {
-    title: 'Deploy your Own',
-    url: '/self-hosted-setup',
-    icon: 'rocket',
-    isCta: false,
+    title: 'Deploy your Own',     // 链接标题：部署你自己的实例
+    url: '/self-hosted-setup',   // 链接 URL：自托管设置页面
+    icon: 'rocket',             // 图标：火箭图标
+    isCta: false,              // 是否为主要操作按钮
   },
   {
-    title: 'Use the API',
-    url: '/web-check-api',
-    icon: 'code',
-    isCta: false,
+    title: 'Use the API',        // 链接标题：使用 API
+    url: '/web-check-api',      // 链接 URL：API 文档页面
+    icon: 'code',              // 图标：代码图标
+    isCta: false,              // 是否为主要操作按钮
   },
 ];
 
 ---
 
+<!-- 关于部分的主容器 -->
+<!-- class="about-section": 自定义类名，用于样式控制 -->
 <div class="about-section">
+  <!-- 功能包装器：包含标题和描述 -->
   <div class="features-wrap">
-    <h4>Ready to get started?</h4>
+    <!-- 标题：引导用户开始使用 -->
+    <h4>准备好开始了吗？</h4>
+    <!-- 描述文本：说明工具的功能 -->
     <p class="what">
-      With over <span>30 supported checks</span>
-      you can view and analyse key website information in an instant
+      通过 <span>30 多种支持的检查</span>
+      您可以即时查看和分析关键网站信息
     </p>
   </div>
+  <!-- 水平分隔线：用于视觉分隔 -->
   <hr />
+  <!-- 功能特性组件：显示所有支持的检查类型 -->
+  <!-- supportedChecks 属性：传递支持的检查列表 -->
   <Features supportedChecks={supportedChecks} />
+  <!-- 按钮组组件：显示操作按钮 -->
+  <!-- links 属性：传递链接列表 -->
   <ButtonGroup links={links} />
+  <!-- 水平分隔线：用于视觉分隔 -->
   <hr />
+  <!-- 赞助者组件：显示赞助者信息 -->
   <SponsorSegment />
 </div>
 
+<!-- 样式部分：使用 SCSS 语法 -->
+<!-- lang="scss": 指定样式语言为 SCSS -->
 <style lang="scss">
+  /* 关于部分容器样式 */
   .about-section {
-    width: 80vw;
-    margin: 0 auto;
+    width: 80vw;  /* 宽度：视口宽度的 80% */
+    margin: 0 auto;  /* 外边距：上下 0，左右自动（水平居中） */
   }
+  /* 功能包装器样式 */
   .features-wrap {
-    width: 80vw;
-    max-width: 650px;
-    margin: 0 auto;
+    width: 80vw;  /* 宽度：视口宽度的 80% */
+    max-width: 650px;  /* 最大宽度：650 像素 */
+    margin: 0 auto;  /* 外边距：上下 0，左右自动（水平居中） */
   }
+  /* 标题样式 */
   h4 {
-    text-transform: capitalize;
-    font-size: 1.8rem;
-    text-align: center;
+    text-transform: capitalize;  /* 文本转换：首字母大写 */
+    font-size: 1.8rem;  /* 字体大小：1.8rem（约 28.8 像素） */
+    text-align: center;  /* 文本对齐：居中 */
+    /* 渐变背景：从文本颜色到主色调 */
     background: linear-gradient(90deg, var(--text-color), var(--primary));
-    background-clip: text;
-    text-fill-color: transparent;
-    color: transparent;
+    background-clip: text;  /* 背景裁剪：仅应用于文本 */
+    text-fill-color: transparent;  /* 文本填充颜色：透明（显示背景渐变） */
+    color: transparent;  /* 文本颜色：透明（显示背景渐变） */
   }
+  /* 描述文本样式 */
   .what {
-    text-align: center;
-    font-size: 1.2rem;
-    line-height: 1.5;
+    text-align: center;  /* 文本对齐：居中 */
+    font-size: 1.2rem;  /* 字体大小：1.2rem（约 19.2 像素） */
+    line-height: 1.5;  /* 行高：1.5 倍字体大小 */
+    /* span 标签样式：用于强调数字 */
     span {
-      color: var(--primary);
-      font-style: italic;
+      color: var(--primary);  /* 文字颜色：使用 CSS 变量 --primary（主色调） */
+      font-style: italic;  /* 字体样式：斜体 */
     }
   }
+  /* 水平分隔线样式 */
   hr {
-    width: 3rem;
-    margin: 3rem auto;
-    color: var(--primary);
+    width: 3rem;  /* 宽度：3rem（约 48 像素） */
+    margin: 3rem auto;  /* 外边距：上下 3rem，左右自动（水平居中） */
+    color: var(--primary);  /* 颜色：使用 CSS 变量 --primary（主色调） */
   }
 </style>

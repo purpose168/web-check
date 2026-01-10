@@ -1,67 +1,104 @@
 ---
+// 导入基础布局组件
 import BaseLayout from '@layouts/Base.astro';
+// 导入首页表单组件
 import HeroForm from '@components/homepage/HeroForm.astro';
+// 导入临时禁用组件（用于功能开发期间）
 import TempDisabled from '@/components/homepage/TempDisabled.astro';
+// 导入首页背景组件（React 组件）
 import HomeBackground from '@/components/homepage/HomeBackground';
+// 导入关于部分组件
 import AboutSection from '@/components/homepage/AboutSection.astro';
+// 导入页脚组件
 import Footer from '@components/scafold/Footer.astro';
 
+// 检查是否运行在 Boss 服务器上（从环境变量读取）
 const isBossServer = import.meta.env.BOSS_SERVER === true;
 
+// 检查是否禁用所有功能（从环境变量读取）
 const disableEverything = import.meta.env.VITE_DISABLE_EVERYTHING === true;
 
-// Redirect strait to /check or /check/:url if running as self-hosted instance
+// 如果不是 Boss 服务器（即自托管实例），则直接重定向到 /check 或 /check/:url
 if (!isBossServer) {
+  // 从查询参数中获取 url 参数的值
   const searchUrl = new URLSearchParams(new URL(Astro.request.url).search).get('url');
+  // 构建重定向 URL（如果有 url 参数，则重定向到 /check/:url，否则重定向到 /check）
   const redirectUrl = searchUrl ? `/check/${encodeURIComponent(searchUrl)}` : '/check';
+  // 执行重定向
   Astro.redirect(redirectUrl);
 }
 
 ---
 
+<!-- 渲染基础布局组件 -->
 <BaseLayout>
+  <!-- 在头部插槽中插入 meta 刷新标签（仅当不是 Boss 服务器时） -->
   <Fragment slot="head">
     {!isBossServer && (<meta http-equiv="refresh" content="0; url=/check" />)}
   </Fragment>
-  { disableEverything && <TempDisabled />}
+  
+  <!-- 如果禁用所有功能，则显示临时禁用组件 -->
+  { disableEverything && <TempDisabled /> }
+  
+  <!-- 主内容区域 -->
   <main>
+    <!-- 首页表单组件（包含 URL 输入框和提交按钮） -->
     <HeroForm />
+    <!-- 关于部分组件（显示项目介绍和功能说明） -->
     <AboutSection />
   </main>
+  
+  <!-- 页脚 -->
   <Footer />
+  
+  <!-- 首页背景组件（React 组件，仅客户端渲染） -->
+  <!-- client:only="react"：仅在客户端使用 React 渲染 -->
   <HomeBackground client:only="react" />
 </BaseLayout>
 
+<!-- ==================== 样式定义 ==================== -->
 <style lang="scss">
+  // 导入全局样式
   @import '@styles/global.scss';
+  
+  // 主内容区域样式
   main {
-    min-height: 100vh;
-    padding: 2rem;
-    margin: 0 auto;
-    z-index: 3;
-    background: var(--background);
+    min-height: 100vh;  // 最小高度为视口高度的 100%
+    padding: 2rem;  // 内边距
+    margin: 0 auto;  // 水平居中
+    z-index: 3;  // 层级
+    background: var(--background);  // 背景色
+    
+    // 平板横屏及以下设备
     @include tablet-landscape-down {
-      width: 96vw;
+      width: 96vw;  // 宽度为视口宽度的 96%
     }
 
+    // 截图样式（用于显示网站截图）
     .screenshot {
+      // 3D 旋转变换
       transform:
-        rotate3d(.5,-.866,0,15deg)
-        rotate(1deg);
+        rotate3d(.5,-.866,0,15deg)  // 绕 3D 轴旋转 15 度
+        rotate(1deg);  // 旋转 1 度
+      
+      // 阴影效果（多层阴影，增强立体感）
       box-shadow:
-        2em 4em 6em -2em rgba(0,0,0,.5),
-        1em 2em 3.5em -2.5em rgba(0,0,0,.5);
+        2em 4em 6em -2em rgba(0,0,0,.5),  // 第一层阴影
+        1em 2em 3.5em -2.5em rgba(0,0,0,.5);  // 第二层阴影
+      
+      // 过渡效果
       transition:
-        transform .4s ease,
-        box-shadow .4s ease;
-      border-radius: .5em;
+        transform .4s ease,  // 变换过渡
+        box-shadow .4s ease;  // 阴影过渡
+      
+      border-radius: .5em;  // 圆角
 
+      // 鼠标悬停状态（恢复到正常状态）
       &:hover {
         transform:
-          rotate3d(0,0,0,0deg)
-          rotate(0deg);
+          rotate3d(0,0,0,0deg)  // 3D 旋转恢复到 0 度
+          rotate(0deg);  // 旋转恢复到 0 度
       }
     }
   }
-
 </style>

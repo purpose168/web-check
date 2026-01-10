@@ -1,66 +1,106 @@
 ---
+// Astro 组件的前置元数据（Frontmatter）部分
+// 使用 --- 分隔符，这部分代码在构建时执行
+
+// 导入 Icon 组件：用于显示图标
+// @components/molecules/Icon.svelte: 图标组件的路径
+// 注意：这是一个 Svelte 组件，Astro 支持混合使用不同框架的组件
 import Icon from '@components/molecules/Icon.svelte';
 
+// 定义组件的 Props（属性）接口
+// TypeScript 接口，用于类型检查和自动补全
 interface Props {
+  // links 属性：链接数组
+  // 每个链接对象包含以下属性：
   links: {
-    title: string;
-    url: string;
-    icon: string;
-    isCta: boolean;
+    title: string;      // title: 按钮标题，显示在按钮上的文本
+    url: string;        // url: 链接地址，点击后跳转的 URL
+    icon: string;       // icon: 图标名称，用于显示对应的图标
+    isCta: boolean;    // isCta: 是否为主要操作按钮（Call to Action），影响样式
   }[];
 }
 
+// 从 Astro.props 中解构 links 属性
+// Astro.props 是 Astro 提供的内置对象，包含组件的所有属性
 const { links } = Astro.props;
-
 ---
 
+<!-- 按钮组容器 -->
+<!-- class="button-wrap": 自定义类名，用于样式控制 -->
 <div class="button-wrap">
+  <!-- 使用 map 方法遍历 links 数组，为每个链接创建一个按钮 -->
   {links.map(link => (
-    <a href={link.url} class={link.isCta ? 'cta' : ''}><Icon name={link.icon} size={2} />{link.title}</a>
+    <!-- 链接元素 -->
+    <!-- href={link.url}: 动态设置链接地址 -->
+    <!-- class={link.isCta ? 'cta' : ''}: 如果 isCta 为 true，添加 cta 类 -->
+    <a href={link.url} class={link.isCta ? 'cta' : ''}>
+      <!-- 图标组件 -->
+      <!-- name={link.icon}: 动态设置图标名称 -->
+      <!-- size={2}: 设置图标大小为 2rem -->
+      <Icon name={link.icon} size={2} />
+      <!-- 按钮标题 -->
+      {link.title}
+    </a>
   ))}
 </div>
 
+<!-- 样式部分：使用 SCSS 语法 -->
+<!-- lang="scss": 指定样式语言为 SCSS -->
 <style lang="scss">
+// 导入全局样式
 @import '@styles/global.scss';
+
+// 按钮组容器样式
 .button-wrap {
-  margin: 3rem auto;
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
+  margin: 3rem auto;  /* 外边距：上下 3rem，左右自动（水平居中） */
+  display: flex;  /* 显示：flexbox 布局 */
+  gap: 2rem;  /* 间距：2rem（约 32 像素），按钮之间的间距 */
+  justify-content: center;  /* 水平对齐：居中 */
+  
+  // 链接（按钮）样式
   a {
-    width: 20rem;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-weight: bold;
-    box-sizing: border-box;
-    padding: 0.75rem;
-    background: var(--background-50);
-    font-size: 1.2rem;
-    color: var(--text-color);
-    border: 2px solid var(--text-color);
-    border-radius: 3px;
-    transition: all 0.25s ease-in-out;
+    width: 20rem;  /* 宽度：20rem（约 320 像素） */
+    display: flex;  /* 显示：flexbox 布局，使图标和文字水平排列 */
+    gap: 1rem;  /* 间距：1rem（约 16 像素），图标和文字之间的间距 */
+    align-items: center;  /* 垂直对齐：居中 */
+    justify-content: center;  /* 水平对齐：居中 */
+    text-align: center;  /* 文本对齐：居中 */
+    font-weight: bold;  /* 字体粗细：粗体 */
+    box-sizing: border-box;  /* 盒模型：边框盒模型（padding 和 border 包含在 width 内） */
+    padding: 0.75rem;  /* 内边距：0.75rem（约 12 像素） */
+    background: var(--background-50);  /* 背景色：使用 CSS 变量 --background-50 */
+    font-size: 1.2rem;  /* 字体大小：1.2rem（约 19.2 像素） */
+    color: var(--text-color);  /* 文字颜色：使用 CSS 变量 --text-color */
+    border: 2px solid var(--text-color);  /* 边框：2px 实线，使用 CSS 变量 --text-color */
+    border-radius: 3px;  /* 圆角：3 像素 */
+    transition: all 0.25s ease-in-out;  /* 过渡：所有属性，0.25 秒，缓动函数 */
+    
+    // 鼠标悬停状态
     &:hover {
-      cursor: pointer;
-      text-decoration: none;
-      background: var(--text-color);
-      color: var(--background);
+      cursor: pointer;  /* 鼠标样式：指针（表示可点击） */
+      text-decoration: none;  /* 文本装饰：无（去除下划线） */
+      background: var(--text-color);  /* 背景色：使用 CSS 变量 --text-color */
+      color: var(--background);  /* 文字颜色：使用 CSS 变量 --background */
     }
+    
+    // 主要操作按钮（CTA）样式
     &.cta {
-      color: var(--primary);
-      border-color: var(--primary);
+      color: var(--primary);  /* 文字颜色：使用 CSS 变量 --primary（主色调） */
+      border-color: var(--primary);  /* 边框颜色：使用 CSS 变量 --primary */
+      
+      // CTA 按钮的鼠标悬停状态
       &:hover {
-        background: var(--primary);
-        color: var(--background);
+        background: var(--primary);  /* 背景色：使用 CSS 变量 --primary */
+        color: var(--background);  /* 文字颜色：使用 CSS 变量 --background */
       }
     }
   }
+  
+  // 移动设备专用样式
+  // 使用 @include 指令引入全局定义的媒体查询
   @include for-mobile-only {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column;  /* 弹性方向：垂直排列（按钮垂直堆叠） */
+    align-items: center;  /* 水平对齐：居中 */
   }
 }
 </style>

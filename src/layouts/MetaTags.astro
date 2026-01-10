@@ -1,104 +1,147 @@
 ---
 
+// 定义组件的 Props 接口，用于接收外部传入的属性
 interface Props {
-	title?: string;
-	description?: string;
-  keywords?: string;
-	customSchemaJson?: any;
-	breadcrumbs?: Array<{
-		name: string;
-		item: string;
+	title?: string;           // 页面标题（可选）
+	description?: string;     // 页面描述（可选）
+  keywords?: string;        // 页面关键词（可选）
+	customSchemaJson?: any;  // 自定义的 JSON-LD 结构化数据（可选）
+	breadcrumbs?: Array<{     // 面包屑导航数据（可选）
+		name: string;          // 面包屑名称
+		item: string;          // 面包屑链接
 	}>
 }
 
-// Default meta tag values
+// 默认的元数据标签值
 const siteInfo = {
-  title: 'Web Check',
-	titleLong: 'Web Check - X-Ray Vision for any Website',
-  description: 'Web Check is the all-in-one OSINT and security tool, for revealing the inner workings of any website',
-  keywords: '',
-  author: 'Alicia Sykes',
-  twitter: '@Lissy_Sykes',
-  site: import.meta.env.SITE_URL || 'https://web-check.xyz',
-  analytics: {
-    enable: import.meta.env.ENABLE_ANALYTICS,
-    domain: 'web-check.as93.net',
-    script: 'https://no-track.as93.net/js/script.js',
+  title: 'Web Check',  // 网站标题
+	titleLong: 'Web Check - X-Ray Vision for any Website',  // 完整标题（用于社交媒体分享）
+  description: 'Web Check is the all-in-one OSINT and security tool, for revealing the inner workings of any website',  // 网站描述
+  keywords: '',  // 网站关键词
+  author: 'Alicia Sykes',  // 作者姓名
+  twitter: '@Lissy_Sykes',  // Twitter 用户名
+  site: import.meta.env.SITE_URL || 'https://web-check.xyz',  // 网站基础 URL（从环境变量读取，默认值为 web-check.xyz）
+  analytics: {  // 分析工具配置
+    enable: import.meta.env.ENABLE_ANALYTICS,  // 是否启用分析功能（从环境变量读取）
+    domain: 'web-check.as93.net',  // 分析域名
+    script: 'https://no-track.as93.net/js/script.js',  // 分析脚本地址
   },
 };
 
-// Set values for the meta tags, from props or defaults
+// 从 props 或默认值设置元数据标签的值
 const {
-	title = siteInfo.title,
-	description = siteInfo.description,
-	keywords = siteInfo.keywords,
-	breadcrumbs,
-	customSchemaJson,
+	title = siteInfo.title,  // 使用传入的 title 或默认值
+	description = siteInfo.description,  // 使用传入的 description 或默认值
+	keywords = siteInfo.keywords,  // 使用传入的 keywords 或默认值
+	breadcrumbs,  // 面包屑导航数据
+	customSchemaJson,  // 自定义的 JSON-LD 结构化数据
 } = Astro.props;
 
-// Set non-customizable values for meta tags, from the siteInfo
+// 从 siteInfo 设置不可自定义的元数据标签值
 const { site, author, twitter, analytics, titleLong } = siteInfo;
 
-// Given a map of breadcrumbs, return the JSON-LD for the BreadcrumbList schema
+// 根据面包屑导航数据生成 BreadcrumbList schema 的 JSON-LD
+// 返回值：符合 Schema.org 规范的面包屑导航 JSON-LD 对象，如果没有面包屑数据则返回 null
 const makeBreadcrumbs = () => {
-	if (!breadcrumbs) return null;
+	if (!breadcrumbs) return null;  // 如果没有面包屑数据，返回 null
 	return {
-			"@context": "https://schema.org",
-			"@type": "BreadcrumbList",
-			"itemListElement": breadcrumbs.map((breadcrumb, index) => ({
-				"@type": "ListItem",
-				"position": index + 1,
-				"name": breadcrumb.name,
-				"item": `${site}/${breadcrumb.item}`
+			"@context": "https://schema.org",  // Schema.org 上下文
+			"@type": "BreadcrumbList",  // 类型为面包屑列表
+			"itemListElement": breadcrumbs.map((breadcrumb, index) => ({  // 映射面包屑数据
+				"@type": "ListItem",  // 类型为列表项
+				"position": index + 1,  // 位置（从 1 开始）
+				"name": breadcrumb.name,  // 面包屑名称
+				"item": `${site}/${breadcrumb.item}`  // 面包屑链接（拼接基础 URL）
 			}))
 	}
 }
 
 ---
 
-<!-- Core info -->
+<!-- ==================== 核心信息 ==================== -->
+<!-- 页面标题 -->
 <title>{title}</title>
+<!-- 页面描述（用于 SEO） -->
 <meta name="description" content={description}>
+<!-- 页面关键词（用于 SEO） -->
 <meta name="keywords" content={keywords}>
+<!-- 作者信息 -->
 <meta name="author" content={author}>
 
-<!-- Page info, viewport, Astro credit -->
+<!-- ==================== 页面信息、视口设置、Astro 生成器信息 ==================== -->
+<!-- 字符编码设置为 UTF-8 -->
 <meta charset="UTF-8" />
+<!-- 视口设置（响应式设计） -->
+<!-- width=device-width：视口宽度等于设备宽度 -->
+<!-- initial-scale=1.0：初始缩放比例为 1.0 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Astro 生成器信息（用于识别 Astro 框架） -->
 <meta name="generator" content={Astro.generator} />
+<!-- 搜索引擎爬虫设置 -->
+<!-- index：允许索引页面 -->
+<!-- follow：允许跟踪页面上的链接 -->
 <meta name="robots" content="index, follow">
 
-<!-- Icons and colors -->
+<!-- ==================== 图标和颜色 ==================== -->
+<!-- 网站图标（SVG 格式） -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<!-- 网站图标（PNG 格式，512x512） -->
 <link rel="icon" type="image/png" sizes="512x512" href="/web-check.png">
+<!-- Apple 触摸图标（用于 iOS 设备，180x180） -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-<!-- Social media meta tags (Open Graphh + Twitter) -->
+<!-- ==================== 社交媒体元数据标签（Open Graph + Twitter） ==================== -->
+<!-- Open Graph 协议：用于在社交媒体（如 Facebook、LinkedIn）上显示链接预览 -->
+<!-- 网站名称 -->
 <meta property="og:site_name" content={title}>
+<!-- 网站类型 -->
 <meta property="og:type" content="website">
+<!-- 网站 URL -->
 <meta property="og:url" content={site}>
+<!-- 网站标题（完整版） -->
 <meta property="og:title" content={titleLong}>
+<!-- 网站描述 -->
 <meta property="og:description" content={description}>
+<!-- 网站横幅图片（用于社交媒体分享） -->
 <meta property="og:image" content={`${site}/banner.png`}>
+
+<!-- Twitter Card 协议：用于在 Twitter 上显示链接预览 -->
+<!-- Twitter 卡片类型：summary（摘要卡片） -->
 <meta name="twitter:card" content="summary">
+<!-- Twitter 卡片类型：summary_large_image（大图摘要卡片） -->
 <meta name="twitter:card" content="summary_large_image">
+<!-- 网站 URL -->
 <meta name="twitter:url" content={site}>
+<!-- 网站标题（完整版） -->
 <meta name="twitter:title" content={titleLong}>
+<!-- 网站描述 -->
 <meta name="twitter:description" content={description}>
+<!-- 网站横幅图片（用于 Twitter 分享） -->
 <meta name="twitter:image" content=`${site}/banner.png`}>
+<!-- Twitter 图片链接（180x180） -->
 <link rel="twitter:image" sizes="180x180" href={`${site}/apple-touch-icon.png`}>
+<!-- Twitter 网站所有者用户名 -->
 <meta name="twitter:site" content={twitter}>
+<!-- Twitter 内容创建者用户名 -->
 <meta name="twitter:creator" content={twitter}>
 
-<!-- Non-tracking hit counter -->
+<!-- ==================== 非跟踪访问计数器 ==================== -->
+<!-- 如果启用了分析功能，则加载分析脚本 -->
+<!-- defer：延迟加载脚本（在页面加载完成后执行） -->
+<!-- data-domain：分析域名 -->
+<!-- src：分析脚本地址 -->
 {analytics.enable && (
   <script defer data-domain={analytics.domain} src={analytics.script}></script>
 )}
 
-<!-- Schema.org markup for Google -->
+<!-- ==================== Google 结构化数据（Schema.org） ==================== -->
+<!-- 如果有面包屑导航数据，则生成 BreadcrumbList schema 的 JSON-LD -->
+<!-- type="application/ld+json"：指定内容类型为 JSON-LD -->
+<!-- set:html：设置 HTML 内容（避免转义） -->
 {breadcrumbs && (
   <script type="application/ld+json" set:html={JSON.stringify(makeBreadcrumbs())} />
 )}
+<!-- 如果有自定义的 JSON-LD 结构化数据，则输出 -->
 {customSchemaJson && (
   <script type="application/ld+json" set:html={JSON.stringify(customSchemaJson)} />
 )}

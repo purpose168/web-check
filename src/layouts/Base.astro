@@ -1,31 +1,42 @@
 ---
+// 导入 Astro 的视图过渡组件，用于页面切换时的平滑过渡效果
 import { ViewTransitions } from 'astro:transitions'
+// 导入 MetaTags 组件，用于生成页面的 SEO 元数据标签
 import MetaTags from '@layouts/MetaTags.astro';
 
-import '@styles/typography.scss';
-import '@styles/global.scss';
-import '@styles/colors.scss';
-import '@styles/media-queries.scss';
+// 导入全局样式文件
+import '@styles/typography.scss';      // 排版样式（字体、字号、行高等）
+import '@styles/global.scss';         // 全局样式（通用样式、布局等）
+import '@styles/colors.scss';          // 颜色样式（主题色、文字颜色等）
+import '@styles/media-queries.scss';   // 媒体查询样式（响应式断点等）
 
+// 定义组件的 Props 接口，用于接收外部传入的属性
 interface Props {
-	title?: string;
-	description?: string;
-  keywords?: string;
-	customSchemaJson?: any;
-	breadcrumbs?: Array<{
-		name: string;
-		item: string;
+	title?: string;           // 页面标题（可选）
+	description?: string;     // 页面描述（可选）
+  keywords?: string;        // 页面关键词（可选）
+	customSchemaJson?: any;  // 自定义的 JSON-LD 结构化数据（可选）
+	breadcrumbs?: Array<{     // 面包屑导航数据（可选）
+		name: string;          // 面包屑名称
+		item: string;          // 面包屑链接
 	}>
 }
-
 ---
 
 <!doctype html>
 <html lang="en" data-theme="dark">
 	<head>
+		<!-- 启用视图过渡效果，实现页面切换时的平滑动画 -->
 		<ViewTransitions />
+		<!-- 渲染 MetaTags 组件，传入所有 props 属性 -->
 		<MetaTags {...Astro.props } />
+    <!-- 插槽：允许在页面头部插入自定义内容（如额外的 meta 标签、样式等） -->
     <slot name="head" />
+		<!-- 预加载 Hubot-Sans 字体文件，提高页面加载性能 -->
+		<!-- as="font"：指定资源类型为字体 -->
+		<!-- rel="preload"：预加载资源 -->
+		<!-- type="font/woff2"：指定字体格式 -->
+		<!-- crossorigin="anonymous"：启用跨域资源共享（CORS） -->
 		<link href="/fonts/Hubot-Sans/Hubot-Sans.woff2"
 			as="font"
 			rel="preload"
@@ -34,6 +45,7 @@ interface Props {
 			>
 	</head>
 	<body>
+		<!-- 插槽：渲染页面的主要内容 -->
 		<slot />
 	</body>
 </html>

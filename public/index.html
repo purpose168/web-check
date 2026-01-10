@@ -1,38 +1,70 @@
+<!-- 文档类型声明 -->
+<!-- 声明这是一个 HTML5 文档 -->
 <!DOCTYPE html>
-<html lang="en">
+<!-- HTML 根元素，lang 属性设置为中文 -->
+<html lang="zh-CN">
+  <!-- 头部区域：包含文档的元数据 -->
   <head>
+    <!-- 字符编码声明：使用 UTF-8 编码，支持中文等国际字符 -->
     <meta charset="utf-8" />
+    <!-- 网站图标：显示在浏览器标签页上 -->
+    <!-- %PUBLIC_URL% 会被构建工具替换为公共 URL 路径 -->
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <!-- 视口设置：确保页面在移动设备上正确显示 -->
+    <!-- width=device-width: 视口宽度等于设备宽度 -->
+    <!-- initial-scale=1: 初始缩放比例为 1，不缩放 -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 主题颜色：用于移动浏览器地址栏的颜色 -->
+    <!-- #9fef00 是亮绿色，与网站主题色一致 -->
     <meta name="theme-color" content="#9fef00" />
+    <!-- 页面描述：用于搜索引擎优化（SEO） -->
+    <!-- 描述网站的功能和用途 -->
     <meta
       name="description"
-      content="All-in-one OSINT tool, for quickly checking a websites data"
+      content="一站式 OSINT 工具，用于快速检查网站数据"
     />
+    <!-- Apple 设备图标：当用户将网站添加到主屏幕时显示 -->
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!-- Web 应用清单：定义 PWA（渐进式 Web 应用）的配置 -->
+    <!-- 包含应用名称、图标、主题色等信息 -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- 页面标题：显示在浏览器标签页上 -->
     <title>Web Check</title>
+    
+    <!-- 分析脚本：用于网站访问统计 -->
+    <!-- defer 属性：延迟脚本执行，直到页面解析完成 -->
+    <!-- data-domain: 指定要跟踪的域名 -->
     <script defer data-domain="web-check.as93.net" src="https://no-track.as93.net/js/script.js"></script>
 
-    <!-- OpenGraph Social Tags -->
+    <!-- OpenGraph 社交媒体标签 -->
+    <!-- 用于在社交媒体上分享时显示预览卡片 -->
+    <!-- og:title: 分享时显示的标题 -->
     <meta property="og:title" content="Web Check">
-    <meta property="og:description" content="All-in-one Website OSINT Scanner">
+    <!-- og:description: 分享时显示的描述 -->
+    <meta property="og:description" content="一站式网站 OSINT 扫描器">
+    <!-- og:image: 分享时显示的预览图片 -->
     <meta property="og:image" content="/banner.png">
+    <!-- og:url: 分享时显示的 URL -->
     <meta property="og:url" content="https://web-check.xyz">
+    <!-- Twitter 卡片类型：summary_large_image 表示显示大图预览 -->
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- DarkReader -->
+    <!-- DarkReader 配置 -->
+    <!-- 禁用 DarkReader 浏览器扩展的自动深色模式 -->
+    <!-- 因为网站已经内置了深色主题 -->
     <meta name="darkreader-lock">
   </head>
+  <!-- 主体区域：包含页面的可见内容 -->
   <body>
+    <!-- 无脚本提示：当浏览器禁用 JavaScript 时显示 -->
     <noscript>
-      <b>Welcome to Web-Check, the free and open source tool for viewing all available information about a website.</b><br />
-      Get started by entering a URL, and clicking the "Scan" button, or view the code and docs
-      on <a href="https://github.com/lissy93/web-check">GitHub</a>.<br />
-      <small>Licensed under MIT, ©️ <a href="https://aliciasykes.com">Alicia Sykes</a> 2023.</small>
+      <b>欢迎使用 Web-Check，这是一个免费开源的工具，用于查看网站的所有可用信息。</b><br />
+      开始使用的方法：输入一个 URL，然后点击"扫描"按钮，或者在 <a href="https://github.com/lissy93/web-check">GitHub</a> 上查看代码和文档。<br />
+      <small>基于 MIT 许可证，©️ <a href="https://aliciasykes.com">Alicia Sykes</a> 2023。</small>
       <br /><br />
-      JavaScript is required to continue, please enable it in your browser.
+      需要启用 JavaScript 才能继续，请在浏览器中启用它。
     </noscript>
+    <!-- 根元素：React 应用将渲染到这里 -->
     <div id="root"></div>
   </body>
 </html>
